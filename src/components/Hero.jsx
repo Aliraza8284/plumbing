@@ -4,8 +4,8 @@ import { Phone, MapPin, ArrowRight, Star, ShieldCheck, Droplets, Waves, Fan, Ale
 
 /* Palette: #F6F4F2 paper | #425664 slate | #C6AD8F sand | #1f2a33 ink */
 
-const PHONE = "(123) 456-7890";
-const TEL = "tel:+1234567890";
+const PHONE = "+1 (844) 212-91-86";
+const TEL = "tel:+18442129186";
 
 const RATING = "4.9";
 const REVIEW_COUNT = "2.4K";

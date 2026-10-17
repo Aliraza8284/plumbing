@@ -117,34 +117,43 @@ const Navbar = () => {
 
   return (
     <header ref={navRef} className="sticky top-0 z-50">
-      {/* ---------- Top Utility Bar ---------- */}
-      <div className="hidden lg:block bg-[#425664] text-[#F6F4F2] text-[12px]">
-        <div className="max-w-7xl mx-auto px-6 flex items-center justify-between h-9">
+            {/* ---------- Top Utility Bar ---------- */}
+             {/* ---------- Top Utility Bar ---------- */}
+      <div className="block bg-[#425664] text-[#F6F4F2] text-[11px] sm:text-[12px]">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 flex flex-row items-center justify-between py-2 sm:py-0 sm:h-9 gap-2 sm:gap-0">
           
           {/* Left Side: Address & Hours */}
-          <div className="flex items-center gap-6">
+          <div className="flex items-center gap-2 sm:gap-6">
+            {/* Address (Mobile & PC dono par) */}
             <a 
               href="https://www.google.com/maps/search/?api=1&query=155+S+Fair+Oaks+Ave,+Pasadena,+CA+91105" 
               target="_blank" 
               rel="noopener noreferrer"
-              className="flex items-center gap-2 hover:text-[#C6AD8F] transition-colors"
+              className="flex items-center gap-1 sm:gap-2 hover:text-[#C6AD8F] transition-colors whitespace-nowrap"
             >
-              <svg viewBox="0 0 24 24" className="w-3.5 h-3.5 text-[#C6AD8F]" fill="currentColor"><path d="M12 2a7 7 0 0 0-7 7c0 5.25 7 13 7 13s7-7.75 7-13a7 7 0 0 0-7-7zm0 9.5a2.5 2.5 0 1 1 0-5 2.5 2.5 0 0 1 0 5z"/></svg>
-              155 S Fair Oaks Ave, Pasadena, CA
+              <svg viewBox="0 0 24 24" className="w-3 h-3 sm:w-3.5 sm:h-3.5 text-[#C6AD8F]" fill="currentColor"><path d="M12 2a7 7 0 0 0-7 7c0 5.25 7 13 7 13s7-7.75 7-13a7 7 0 0 0-7-7zm0 9.5a2.5 2.5 0 1 1 0-5 2.5 2.5 0 0 1 0 5z"/></svg>
+              {/* Mobile par chota address, PC par bara */}
+              <span className="hidden sm:inline">155 S Fair Oaks Ave, Pasadena, CA</span>
+              <span className="sm:hidden">Pasadena, CA</span>
             </a>
-            <span className="flex items-center gap-2">
+
+            {/* Hours (Sirf PC par dikhega, Mobile par hidden) */}
+            <span className="hidden sm:flex items-center gap-2 whitespace-nowrap">
               <svg viewBox="0 0 24 24" className="w-3.5 h-3.5 text-[#C6AD8F]" fill="currentColor"><path d="M12 1a11 11 0 1 0 0 22 11 11 0 0 0 0-22zm1 11.4V6h-2v7l5.2 3.1 1-1.7-4.2-2z"/></svg>
-              Mon–Sat: 24 Hours
+              Mon–Sun: 24 Hours
             </span>
           </div>
 
           {/* Right Side: Phone & Badge */}
-          <div className="flex items-center gap-5">
-            <a href="tel:+18442129186" className="flex items-center gap-2 text-[#C6AD8F] font-bold hover:text-white transition-colors">
-              <svg viewBox="0 0 24 24" className="w-3.5 h-3.5" fill="currentColor"><path d="M6.6 10.8a15.1 15.1 0 0 0 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.2.4 2.4.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1A17 17 0 0 1 3 4c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.2.2 2.4.6 3.6.1.3 0 .7-.2 1l-2.3 2.2z"/></svg>
+          <div className="flex items-center gap-2 sm:gap-5">
+            {/* Phone Number (Mobile & PC dono par) */}
+            <a href="tel:+18442129186" className="flex items-center gap-1 sm:gap-2 text-[#C6AD8F] font-bold hover:text-white transition-colors whitespace-nowrap">
+              <svg viewBox="0 0 24 24" className="w-3 h-3 sm:w-3.5 sm:h-3.5" fill="currentColor"><path d="M6.6 10.8a15.1 15.1 0 0 0 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.2.4 2.4.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1A17 17 0 0 1 3 4c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.2.2 2.4.6 3.6.1.3 0 .7-.2 1l-2.3 2.2z"/></svg>
               +1 (844) 212-91-86
             </a>
-            <span className="flex items-center gap-2 text-[#C6AD8F] font-semibold border-l border-white/20 pl-5">
+            
+            {/* Licensed Badge (Mobile par hidden, PC par dikhega) */}
+            <span className="hidden sm:flex items-center gap-2 text-[#C6AD8F] font-semibold border-l border-white/20 pl-5 whitespace-nowrap">
               <span className="relative flex h-2 w-2">
                 <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#C6AD8F] opacity-75"></span>
                 <span className="relative inline-flex rounded-full h-2 w-2 bg-[#C6AD8F]"></span>

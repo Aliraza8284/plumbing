@@ -13,11 +13,10 @@ import AboutPage from "./components/AboutPage";
 import PlumbingPage from "./components/PlumbingPage";
 import SewersPage from "./components/SewersPage";
 import HVACPage from "./components/HVACPage";
-import AreasPage from "./components/AreasPage";
 import Coupons from "./components/Coupons";
 import ContactPage from "./components/ContactPage";
 
-// Dropdown Pages (Files jo aapke components folder mein hain)
+// Dropdown Pages
 import History from "./components/History";
 import TestimonialsPage from "./components/TestimonialsPage";
 import BathroomPlumbing from "./components/BathroomPlumbing";
@@ -46,14 +45,6 @@ import TrenchlessSewerTechnology from "./components/TrenchlessSewerTechnology";
 import HeatPumps from "./components/HeatPumps";
 import EmergencyHVAC from "./components/EmergencyHVAC";
 
-import Burbank from "./components/Burbank";
-import EchoPark from "./components/EchoPark";
-import Hollywood from "./components/Hollywood";
-import LosFeliz from "./components/LosFeliz";
-import ShermanOaks from "./components/ShermanOaks";
-import Silverlake from "./components/Silverlake";
-import StudioCity from "./components/StudioCity";
-
 export default function App() {
   return (
     <BrowserRouter>
@@ -68,7 +59,6 @@ export default function App() {
           <Route path="/plumbing" element={<PlumbingPage />} />
           <Route path="/sewers" element={<SewersPage />} />
           <Route path="/hvac" element={<HVACPage />} />
-          <Route path="/areas" element={<AreasPage />} />
           <Route path="/coupons" element={<Coupons />} />
           <Route path="/contact" element={<ContactPage />} />
 
@@ -105,16 +95,7 @@ export default function App() {
           <Route path="/hvac/heat-pumps" element={<HeatPumps />} />
           <Route path="/hvac/emergency-hvac" element={<EmergencyHVAC />} />
 
-          {/* -------- Areas Dropdowns -------- */}
-          <Route path="/areas/burbank" element={<Burbank />} />
-          <Route path="/areas/echo-park" element={<EchoPark />} />
-          <Route path="/areas/hollywood" element={<Hollywood />} />
-          <Route path="/areas/los-feliz" element={<LosFeliz />} />
-          <Route path="/areas/sherman-oaks" element={<ShermanOaks />} />
-          <Route path="/areas/silverlake" element={<Silverlake />} />
-          <Route path="/areas/studio-city" element={<StudioCity />} />
-
-          {/* Fallback (Agar koi galat link dale to home par le aaye) */}
+          {/* Fallback */}
           <Route path="*" element={<HomePage />} />
         </Routes>
       </main>

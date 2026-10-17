@@ -546,7 +546,7 @@ const Hero = () => {
           {/* ================= LEFT ================= */}
           <div className="lg:col-span-6">
             <h1 className="gf-display max-w-[16ch] text-[40px] leading-[1.05] sm:text-[58px]">
-              Your home, fixed right the first time.
+              Your home's plumbing, fixed right the first time.
             </h1>
             <p className="mt-5 max-w-[50ch] text-[17px] leading-[1.7] text-[#425664]">
               Family-owned for three generations. Licensed master plumbers, flat-rate pricing and a lifetime workmanship warranty on every job.

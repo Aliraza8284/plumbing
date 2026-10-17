@@ -1,0 +1,237 @@
+// src/components/Coupons.jsx
+import { useState } from "react";
+import {
+  MessageSquare,
+  ArrowRight,
+  ShieldCheck,
+  Clock,
+  ThumbsUp,
+  BadgeCheck,
+  Wrench,
+  Droplets,
+  Flame,
+  Camera,
+  Search,
+} from "lucide-react";
+
+/* Palette: #F6F4F2 paper | #425664 slate | #C6AD8F sand | #1f2a33 ink */
+
+const CONTACT = "/contact";
+
+const GUARANTEES = [
+  {
+    icon: ShieldCheck,
+    title: "Lifetime Workmanship",
+    text: "Our repairs are backed by a written warranty. If something we fixed fails, we make it right.",
+  },
+  {
+    icon: Clock,
+    title: "On-Time Arrival",
+    text: "We respect your schedule. Our technicians arrive in the promised window, ready to work.",
+  },
+  {
+    icon: BadgeCheck,
+    title: "Upfront Pricing",
+    text: "You approve the price before we start. No hidden fees, no surprises on the final bill.",
+  },
+  {
+    icon: ThumbsUp,
+    title: "Clean Job Sites",
+    text: "We lay down floor protection and clean up after ourselves. We leave your home better than we found it.",
+  },
+];
+
+const POPULAR_SERVICES = [
+  {
+    icon: Search,
+    title: "Leak Detection",
+    desc: "Pinpoint hidden leaks without unnecessary demolition.",
+    link: "/plumbing/leak-detection",
+  },
+  {
+    icon: Droplets,
+    title: "Drain Cleaning",
+    desc: "Clear stubborn clogs and restore full flow to your drains.",
+    link: "/plumbing/drain-cleaning",
+  },
+  {
+    icon: Flame,
+    title: "Water Heaters",
+    desc: "Repair, maintenance, or full installation of tank and tankless units.",
+    link: "/plumbing/water-heaters",
+  },
+  {
+    icon: Camera,
+    title: "Sewer Inspection",
+    desc: "HD camera inspections to see exactly what's happening underground.",
+    link: "/plumbing/sewer-inspection",
+  },
+];
+
+export default function Coupons() {
+  return (
+    <main className="gf-page bg-[#F6F4F2] text-[#1f2a33]">
+      <style>{`
+        @import url('https://fonts.googleapis.com/css2?family=Young+Serif&family=Nunito+Sans:wght@400;600;700;800;900&display=swap');
+        .gf-page { font-family: 'Nunito Sans', system-ui, sans-serif; }
+        .gf-page .gf-display { font-family: 'Young Serif', Georgia, serif; font-weight: 400; letter-spacing: -0.01em; }
+        @media (prefers-reduced-motion: reduce) { .gf-page *, .gf-page *::before { animation: none !important; transition: none !important; } }
+      `}</style>
+
+      {/* ================= Header + How to Redeem ================= */}
+      <section className="relative overflow-hidden border-b border-[#1f2a33]/10 bg-white py-16 sm:py-24">
+        <div className="mx-auto grid max-w-7xl items-start gap-10 px-5 sm:px-8 lg:grid-cols-[1.1fr_0.9fr] lg:gap-16">
+          <div>
+            <div className="flex items-center gap-3 mb-4">
+              <span className="h-px w-8 bg-[#C6AD8F]" aria-hidden="true" />
+              <p className="text-[11px] font-bold uppercase tracking-[0.18em] text-[#8a6f4d]">
+                Our Promises
+              </p>
+            </div>
+            
+            <h1 className="gf-display text-[36px] leading-[1.05] sm:text-[48px] lg:text-[54px]">
+              More than a service.<br/>
+              <span className="text-[#425664]">A commitment to you.</span>
+            </h1>
+            
+            <p className="mt-5 max-w-[44ch] text-[15.5px] leading-relaxed text-[#425664]">
+              We don't just fix pipes. We back every job with clear pricing, 
+              respectful technicians, and a warranty you can count on.
+            </p>
+            
+            <a
+              href={CONTACT}
+              className="mt-8 inline-flex items-center gap-2 rounded-lg bg-[#425664] px-6 py-3.5 text-[14px] font-bold text-white transition-colors duration-300 hover:bg-[#364753] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#425664]"
+            >
+              <MessageSquare size={16} aria-hidden="true" />
+              Contact Us
+            </a>
+          </div>
+
+          <div className="rounded-xl border border-[#1f2a33]/10 bg-[#F6F4F2] p-6 sm:p-8">
+            <h2 className="gf-display text-[22px] text-[#1f2a33] pb-4 border-b border-[#1f2a33]/10">
+              How we work
+            </h2>
+            
+            <ol className="mt-4 space-y-0">
+              {[
+                ["Inspect first", "We diagnose the problem before quoting any work."],
+                ["Explain clearly", "We show you the issue and explain your options."],
+                ["Approve the price", "You agree to the flat rate before we start."],
+                ["Fix it right", "We complete the work, clean up, and back it with our warranty."],
+              ].map(([t, d], i) => (
+                <li key={t} className="flex gap-4 border-b border-[#1f2a33]/10 py-4 last:border-0 last:pb-0">
+                  <span className="gf-display flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-[#C6AD8F]/20 text-[14px] text-[#8a6f4d]">
+                    {i + 1}
+                  </span>
+                  <div>
+                    <p className="text-[15px] font-bold leading-tight text-[#1f2a33]">{t}</p>
+                    <p className="mt-1 text-[13.5px] leading-relaxed text-[#425664]">{d}</p>
+                  </div>
+                </li>
+              ))}
+            </ol>
+          </div>
+        </div>
+      </section>
+
+      {/* ================= Guarantees (Replacing Current Offers) ================= */}
+      <section className="py-16 sm:py-24">
+        <div className="mx-auto max-w-7xl px-5 sm:px-8">
+          <div className="mb-10 max-w-2xl">
+            <div className="flex items-center gap-3 mb-3">
+              <span className="h-px w-8 bg-[#C6AD8F]" aria-hidden="true" />
+              <span className="text-[11px] font-bold uppercase tracking-[0.18em] text-[#8a6f4d]">Our Guarantees</span>
+            </div>
+            <h2 className="gf-display text-[28px] sm:text-[36px] text-[#1f2a33]">Why homeowners choose us</h2>
+            <p className="mt-2 text-[14.5px] text-[#425664]">The same standards on every job, big or small.</p>
+          </div>
+
+          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+            {GUARANTEES.map((item, i) => {
+              const Icon = item.icon;
+              return (
+                <div key={i} className="group rounded-xl border border-[#1f2a33]/12 bg-white p-6 transition-all duration-300 hover:border-[#425664]/30 hover:shadow-sm">
+                  <div className="mb-4 flex h-11 w-11 items-center justify-center rounded-lg bg-[#425664]/5 text-[#425664] transition-colors group-hover:bg-[#425664] group-hover:text-white">
+                    <Icon size={20} />
+                  </div>
+                  <h3 className="text-[16px] font-extrabold text-[#1f2a33] mb-2">{item.title}</h3>
+                  <p className="text-[13.5px] leading-relaxed text-[#425664]">
+                    {item.text}
+                  </p>
+                </div>
+              );
+            })}
+          </div>
+        </div>
+      </section>
+
+      {/* ================= Popular Services ================= */}
+      <section className="bg-white border-y border-[#1f2a33]/10 py-16 sm:py-24">
+        <div className="mx-auto max-w-7xl px-5 sm:px-8">
+          <div className="mb-10 max-w-2xl">
+            <div className="flex items-center gap-3 mb-3">
+              <span className="h-px w-8 bg-[#C6AD8F]" aria-hidden="true" />
+              <span className="text-[11px] font-bold uppercase tracking-[0.18em] text-[#8a6f4d]">Popular Services</span>
+            </div>
+            <h2 className="gf-display text-[28px] sm:text-[36px] text-[#1f2a33]">What we can help with</h2>
+          </div>
+
+          <div className="grid gap-5 sm:grid-cols-2">
+            {POPULAR_SERVICES.map((s) => {
+              const Icon = s.icon;
+              return (
+                <a
+                  key={s.title}
+                  href={s.link}
+                  className="group flex items-start gap-5 rounded-xl border border-[#1f2a33]/10 bg-[#F6F4F2] p-6 transition-all duration-300 hover:-translate-y-1 hover:border-[#425664]/30 hover:bg-white hover:shadow-sm"
+                >
+                  <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-lg bg-white text-[#425664] border border-[#1f2a33]/10">
+                    <Icon size={22} />
+                  </div>
+                  <div>
+                    <h3 className="text-[17px] font-extrabold text-[#1f2a33] transition-colors group-hover:text-[#8a6f4d]">
+                      {s.title}
+                    </h3>
+                    <p className="mt-1 text-[14px] leading-relaxed text-[#425664]">
+                      {s.desc}
+                    </p>
+                    <span className="mt-3 inline-flex items-center gap-1 text-[13px] font-bold text-[#8a6f4d]">
+                      Learn more <ArrowRight size={14} className="transition-transform group-hover:translate-x-1" />
+                    </span>
+                  </div>
+                </a>
+              );
+            })}
+          </div>
+        </div>
+      </section>
+
+      {/* ================= CTA Section ================= */}
+      <section className="py-16 sm:py-24">
+        <div className="mx-auto max-w-7xl px-5 sm:px-8">
+          <div className="flex flex-col items-start justify-between gap-6 rounded-2xl border border-[#1f2a33]/10 bg-[#425664] p-8 text-white sm:p-12 md:flex-row md:items-center">
+            <div>
+              <h2 className="gf-display text-[26px] leading-[1.1] sm:text-[34px] text-white">
+                Ready to book?
+              </h2>
+              <p className="mt-3 max-w-[44ch] text-[14.5px] leading-relaxed text-white/80">
+                Contact us today. We'll diagnose the problem, explain your options, and give you a flat-rate quote before any work begins.
+              </p>
+            </div>
+            <div className="flex flex-col gap-3 sm:flex-row">
+              <a 
+                href={CONTACT} 
+                className="group inline-flex items-center justify-center gap-2.5 rounded-lg bg-[#C6AD8F] px-7 py-3.5 text-[14px] font-bold text-[#1f2a33] transition-colors duration-300 hover:bg-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
+              >
+                <MessageSquare size={16} aria-hidden="true" />
+                Contact Us
+                <ArrowRight size={16} className="transition-transform duration-300 group-hover:translate-x-1" aria-hidden="true" />
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+  );
+}

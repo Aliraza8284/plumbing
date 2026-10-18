@@ -3,7 +3,7 @@ import { useState, useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
 
 /* =========================================================
-   GlobelFixs Navbar — Professional Redesign
+   GlobalFixs Navbar — Professional Redesign
    Colors: #F6F4F2 (light) | #425664 (dark) | #C6AD8F (accent)
    ========================================================= */
 
@@ -98,7 +98,7 @@ const Navbar = () => {
   ];
 
   const Logo = () => (
-    <Link to="/" className="group flex items-center gap-3 shrink-0 select-none" aria-label="GlobelFixs Home">
+    <Link to="/" className="group flex items-center gap-3 shrink-0 select-none" aria-label="GlobalFixs Home">
       <span className="relative grid place-items-center w-10 h-10 rounded-xl bg-gradient-to-br from-[#C6AD8F] to-[#b89a78] shadow-md shadow-[#C6AD8F]/30 transition-all duration-300 group-hover:scale-105 group-hover:shadow-lg group-hover:shadow-[#C6AD8F]/40">
         <svg viewBox="0 0 32 32" className="w-5.5 h-5.5 text-white transition-transform duration-500 group-hover:rotate-[360deg]" fill="none" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round">
           <path d="M20.5 4.5a5 5 0 0 0-6.9 6.3L4 20.4a2.8 2.8 0 0 0 3.9 3.9l9.6-9.6a5 5 0 0 0 6.3-6.9l-3 3-2.7-.6-.6-2.7z" />
@@ -106,7 +106,7 @@ const Navbar = () => {
       </span>
       <span className="flex flex-col leading-none">
         <span className="text-lg sm:text-xl font-extrabold tracking-tight text-[#1a1a1a]">
-          Globel<span className="text-[#C6AD8F]">Fixs</span>
+          Global<span className="text-[#C6AD8F]">Fixs</span>
         </span>
         <span className="hidden sm:block text-[9px] tracking-[0.25em] text-[#425664]/60 font-semibold uppercase mt-0.5">
           Plumbing • HVAC
@@ -117,8 +117,7 @@ const Navbar = () => {
 
   return (
     <header ref={navRef} className="sticky top-0 z-50">
-            {/* ---------- Top Utility Bar ---------- */}
-             {/* ---------- Top Utility Bar ---------- */}
+      {/* ---------- Top Utility Bar ---------- */}
       <div className="block bg-[#425664] text-[#F6F4F2] text-[11px] sm:text-[12px]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 flex flex-row items-center justify-between py-2 sm:py-0 sm:h-9 gap-2 sm:gap-0">
           

@@ -19,8 +19,8 @@ import {
 
 /* Palette: #F6F4F2 paper | #425664 slate | #C6AD8F sand | #1f2a33 ink */
 
-const PHONE = "(123) 456-7890";
-const TEL = "tel:+1234567890";
+const PHONE = "+1 (844) 212-91-86";
+const TEL = "tel:+18442129186";
 
 const CATEGORIES = [
   { id: "all", name: "All Services" },
@@ -224,81 +224,81 @@ export default function Services() {
 
       <div className="gf-services">
         {/* ---------- HERO ---------- */}
-       <section className="relative overflow-hidden bg-[#425664]">
-  {/* Decorative background — subtle gradient + soft glow */}
-  <div
-    className="pointer-events-none absolute inset-0"
-    style={{
-      background:
-        "radial-gradient(120% 80% at 100% 0%, rgba(198,173,143,0.22) 0%, rgba(198,173,143,0) 55%), radial-gradient(90% 70% at 0% 100%, rgba(31,42,51,0.55) 0%, rgba(31,42,51,0) 60%)",
-    }}
-    aria-hidden="true"
-  />
-  {/* Faint grid texture for depth */}
-  <div
-    className="pointer-events-none absolute inset-0 opacity-[0.06]"
-    style={{
-      backgroundImage:
-        "linear-gradient(to right, #F6F4F2 1px, transparent 1px), linear-gradient(to bottom, #F6F4F2 1px, transparent 1px)",
-      backgroundSize: "48px 48px",
-      maskImage:
-        "radial-gradient(ellipse at center, black 40%, transparent 75%)",
-      WebkitMaskImage:
-        "radial-gradient(ellipse at center, black 40%, transparent 75%)",
-    }}
-    aria-hidden="true"
-  />
+        <section className="relative overflow-hidden bg-[#425664]">
+          {/* Decorative background — subtle gradient + soft glow */}
+          <div
+            className="pointer-events-none absolute inset-0"
+            style={{
+              background:
+                "radial-gradient(120% 80% at 100% 0%, rgba(198,173,143,0.22) 0%, rgba(198,173,143,0) 55%), radial-gradient(90% 70% at 0% 100%, rgba(31,42,51,0.55) 0%, rgba(31,42,51,0) 60%)",
+            }}
+            aria-hidden="true"
+          />
+          {/* Faint grid texture for depth */}
+          <div
+            className="pointer-events-none absolute inset-0 opacity-[0.06]"
+            style={{
+              backgroundImage:
+                "linear-gradient(to right, #F6F4F2 1px, transparent 1px), linear-gradient(to bottom, #F6F4F2 1px, transparent 1px)",
+              backgroundSize: "48px 48px",
+              maskImage:
+                "radial-gradient(ellipse at center, black 40%, transparent 75%)",
+              WebkitMaskImage:
+                "radial-gradient(ellipse at center, black 40%, transparent 75%)",
+            }}
+            aria-hidden="true"
+          />
 
-  <div className="relative mx-auto max-w-6xl px-5 py-16 sm:px-8 sm:py-20 lg:py-24">
-    {/* Eyebrow with rule */}
-    <div className="flex items-center gap-3">
-      <span className="h-px w-8 bg-[#C6AD8F]" aria-hidden="true" />
-      <p className="text-[11px] font-bold uppercase tracking-[0.18em] text-[#C6AD8F]">
-        Our Services
-      </p>
-    </div>
+          <div className="relative mx-auto max-w-6xl px-5 py-16 sm:px-8 sm:py-20 lg:py-24">
+            {/* Eyebrow with rule */}
+            <div className="flex items-center gap-3">
+              <span className="h-px w-8 bg-[#C6AD8F]" aria-hidden="true" />
+              <p className="text-[11px] font-bold uppercase tracking-[0.18em] text-[#C6AD8F]">
+                Our Services
+              </p>
+            </div>
 
-    <h1 className="gf-display mt-4 max-w-3xl text-3xl leading-[1.1] text-white sm:text-4xl md:text-5xl lg:text-[56px]">
-      Everything your home's{" "}
-      <span className="relative inline-block">
-        <span className="relative z-10">water, sewer and air</span>
-        <span
-          className="absolute inset-x-0 bottom-1 z-0 h-2.5 bg-[#C6AD8F]/40"
-          aria-hidden="true"
-        />
-      </span>{" "}
-      needs.
-    </h1>
+            <h1 className="gf-display mt-4 max-w-3xl text-3xl leading-[1.1] text-white sm:text-4xl md:text-5xl lg:text-[56px]">
+              Everything your home's{" "}
+              <span className="relative inline-block">
+                <span className="relative z-10">water, sewer and air</span>
+                <span
+                  className="absolute inset-x-0 bottom-1 z-0 h-2.5 bg-[#C6AD8F]/40"
+                  aria-hidden="true"
+                />
+              </span>{" "}
+              needs.
+            </h1>
 
-    <p className="mt-5 max-w-xl text-sm leading-relaxed text-white/75 sm:text-[15px]">
-      Licensed master plumbers and HVAC technicians, flat-rate pricing, and a
-      lifetime workmanship warranty on every job.
-    </p>
+            <p className="mt-5 max-w-xl text-sm leading-relaxed text-white/75 sm:text-[15px]">
+              Licensed master plumbers and HVAC technicians, flat-rate pricing, and a
+              lifetime workmanship warranty on every job.
+            </p>
 
-    {/* CTAs */}
-    <div className="mt-8 flex flex-wrap items-center gap-3">
-      <a
-        href={TEL}
-        className="group inline-flex items-center gap-2 rounded-lg bg-[#C6AD8F] px-5 py-3 text-sm font-bold text-[#1f2a33] shadow-lg shadow-black/20 transition-all hover:bg-white hover:shadow-xl focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
-      >
-        <Phone size={16} aria-hidden="true" />
-        Call {PHONE}
-      </a>
-      <a
-        href="#list"
-        className="group inline-flex items-center gap-2 rounded-lg border border-white/25 px-5 py-3 text-sm font-bold text-white transition-all hover:border-white/50 hover:bg-white/10 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
-      >
-        Browse Services
-        <ArrowRight
-          size={16}
-          className="transition-transform group-hover:translate-x-0.5"
-          aria-hidden="true"
-        />
-      </a>
-    </div>
+            {/* CTAs */}
+            <div className="mt-8 flex flex-wrap items-center gap-3">
+              <a
+                href={TEL}
+                className="group inline-flex items-center gap-2 rounded-lg bg-[#C6AD8F] px-5 py-3 text-sm font-bold text-[#1f2a33] shadow-lg shadow-black/20 transition-all hover:bg-white hover:shadow-xl focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
+              >
+                <Phone size={16} aria-hidden="true" />
+                Call {PHONE}
+              </a>
+              <a
+                href="#list"
+                className="group inline-flex items-center gap-2 rounded-lg border border-white/25 px-5 py-3 text-sm font-bold text-white transition-all hover:border-white/50 hover:bg-white/10 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
+              >
+                Browse Services
+                <ArrowRight
+                  size={16}
+                  className="transition-transform group-hover:translate-x-0.5"
+                  aria-hidden="true"
+                />
+              </a>
+            </div>
 
-  </div>
-</section>
+          </div>
+        </section>
 
         {/* ---------- TABS + GRID ---------- */}
         <section id="list" className="mx-auto max-w-6xl px-5 py-14 sm:px-8">
@@ -326,11 +326,10 @@ export default function Services() {
                 role="tab"
                 aria-selected={active === c.id}
                 onClick={() => setActive(c.id)}
-                className={`rounded-full border px-4 py-2 text-[13px] font-bold transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#425664] ${
-                  active === c.id
+                className={`rounded-full border px-4 py-2 text-[13px] font-bold transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#425664] ${active === c.id
                     ? "border-[#425664] bg-[#425664] text-white"
                     : "border-[#1f2a33]/15 bg-white text-[#425664] hover:border-[#425664]"
-                }`}
+                  }`}
               >
                 {c.name}
               </button>
@@ -381,75 +380,75 @@ export default function Services() {
           )}
         </section>
 
-     {/* ---------- WHY US ---------- */}
-<section className="relative border-y border-[#1f2a33]/10 bg-white">
-  <div className="mx-auto max-w-6xl px-5 py-16 sm:px-8 sm:py-20">
-    <div className="grid gap-10 lg:grid-cols-12 lg:gap-14">
-      {/* LEFT: heading + supporting copy + CTA */}
-      <div className="lg:col-span-4">
-        <div className="flex items-center gap-3">
-          <span className="h-px w-8 bg-[#C6AD8F]" aria-hidden="true" />
-          <p className="text-[11px] font-bold uppercase tracking-[0.18em] text-[#8a6f4d]">
-            Why us
-          </p>
-        </div>
-        <h2 className="gf-display mt-3 text-2xl leading-[1.15] sm:text-3xl lg:text-[34px]">
-          Why homeowners pick us
-        </h2>
-        <p className="mt-4 text-sm leading-relaxed text-[#425664]">
-          We've been family-owned for three generations. The same things keep
-          bringing customers back — and it's not just the price.
-        </p>
-        <a
-          href={TEL}
-          className="mt-6 inline-flex items-center gap-2 rounded-lg bg-[#425664] px-5 py-3 text-sm font-bold text-white transition-colors hover:bg-[#364753] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#425664]"
-        >
-          <Phone size={16} aria-hidden="true" />
-          Talk to a technician
-        </a>
-      </div>
-
-      {/* RIGHT: unified feature panel */}
-      <div className="lg:col-span-8">
-        <div className="overflow-hidden rounded-2xl border border-[#1f2a33]/10 bg-[#F6F4F2]">
-          <div className="grid grid-cols-1 sm:grid-cols-2">
-            {WHY.map(({ Icon, title, text }, i) => (
-              <div
-                key={title}
-                className={[
-                  "group relative p-6 transition-colors hover:bg-white",
-                  // dividers
-                  i % 2 === 0 ? "sm:border-r sm:border-[#1f2a33]/10" : "",
-                  i < WHY.length - 1 ? "border-b border-[#1f2a33]/10" : "",
-                  // last row on 2-col: remove bottom border on the final two
-                  i >= WHY.length - 2 ? "sm:border-b-0" : "",
-                ].join(" ")}
-              >
-                {/* number tag */}
-                <span
-                  className="absolute right-4 top-4 text-[11px] font-bold tabular-nums text-[#425664]/30"
-                  aria-hidden="true"
-                >
-                  {String(i + 1).padStart(2, "0")}
-                </span>
-
-                <div className="mb-3 flex h-10 w-10 items-center justify-center rounded-lg bg-[#425664]/10 text-[#425664] transition-colors group-hover:bg-[#425664] group-hover:text-white">
-                  <Icon size={18} aria-hidden="true" />
+        {/* ---------- WHY US ---------- */}
+        <section className="relative border-y border-[#1f2a33]/10 bg-white">
+          <div className="mx-auto max-w-6xl px-5 py-16 sm:px-8 sm:py-20">
+            <div className="grid gap-10 lg:grid-cols-12 lg:gap-14">
+              {/* LEFT: heading + supporting copy + CTA */}
+              <div className="lg:col-span-4">
+                <div className="flex items-center gap-3">
+                  <span className="h-px w-8 bg-[#C6AD8F]" aria-hidden="true" />
+                  <p className="text-[11px] font-bold uppercase tracking-[0.18em] text-[#8a6f4d]">
+                    Why us
+                  </p>
                 </div>
-                <h3 className="text-[15px] font-bold leading-tight">{title}</h3>
-                <p className="mt-1.5 text-[13.5px] leading-relaxed text-[#425664]">
-                  {text}
+                <h2 className="gf-display mt-3 text-2xl leading-[1.15] sm:text-3xl lg:text-[34px]">
+                  Why homeowners pick us
+                </h2>
+                <p className="mt-4 text-sm leading-relaxed text-[#425664]">
+                  We've been family-owned for three generations. The same things keep
+                  bringing customers back — and it's not just the price.
                 </p>
+                <a
+                  href={TEL}
+                  className="mt-6 inline-flex items-center gap-2 rounded-lg bg-[#425664] px-5 py-3 text-sm font-bold text-white transition-colors hover:bg-[#364753] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#425664]"
+                >
+                  <Phone size={16} aria-hidden="true" />
+                  Talk to a technician
+                </a>
               </div>
-            ))}
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
 
-       
+              {/* RIGHT: unified feature panel */}
+              <div className="lg:col-span-8">
+                <div className="overflow-hidden rounded-2xl border border-[#1f2a33]/10 bg-[#F6F4F2]">
+                  <div className="grid grid-cols-1 sm:grid-cols-2">
+                    {WHY.map(({ Icon, title, text }, i) => (
+                      <div
+                        key={title}
+                        className={[
+                          "group relative p-6 transition-colors hover:bg-white",
+                          // dividers
+                          i % 2 === 0 ? "sm:border-r sm:border-[#1f2a33]/10" : "",
+                          i < WHY.length - 1 ? "border-b border-[#1f2a33]/10" : "",
+                          // last row on 2-col: remove bottom border on the final two
+                          i >= WHY.length - 2 ? "sm:border-b-0" : "",
+                        ].join(" ")}
+                      >
+                        {/* number tag */}
+                        <span
+                          className="absolute right-4 top-4 text-[11px] font-bold tabular-nums text-[#425664]/30"
+                          aria-hidden="true"
+                        >
+                          {String(i + 1).padStart(2, "0")}
+                        </span>
+
+                        <div className="mb-3 flex h-10 w-10 items-center justify-center rounded-lg bg-[#425664]/10 text-[#425664] transition-colors group-hover:bg-[#425664] group-hover:text-white">
+                          <Icon size={18} aria-hidden="true" />
+                        </div>
+                        <h3 className="text-[15px] font-bold leading-tight">{title}</h3>
+                        <p className="mt-1.5 text-[13.5px] leading-relaxed text-[#425664]">
+                          {text}
+                        </p>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+
       </div>
     </div>
   );

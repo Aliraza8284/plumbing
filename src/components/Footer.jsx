@@ -66,7 +66,7 @@ const Footer = () => {
               </span>
               <span className="flex flex-col leading-none">
                 <span className="text-lg font-extrabold tracking-tight text-[#F6F4F2]">
-                  Globel<span className="text-[#C6AD8F]">Fixs</span>
+                  Global<span className="text-[#C6AD8F]">Fixs</span>
                 </span>
                 <span className="text-[9px] tracking-[0.25em] text-[#C6AD8F] font-semibold uppercase mt-0.5">
                   Plumbing • HVAC

@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <!-- Main Pages -->
+  <url><loc>https://globalfixs.com/</loc></url>
+  <url><loc>https://globalfixs.com/about</loc></url>
+  <url><loc>https://globalfixs.com/about/history</loc></url>
+  <url><loc>https://globalfixs.com/about/testimonials</loc></url>
+  <url><loc>https://globalfixs.com/plumbing</loc></url>
+  <url><loc>https://globalfixs.com/sewers</loc></url>
+  <url><loc>https://globalfixs.com/hvac</loc></url>
+  <url><loc>https://globalfixs.com/coupons</loc></url>
+  <url><loc>https://globalfixs.com/contact</loc></url>
+
+  <!-- Plumbing Services -->
+  <url><loc>https://globalfixs.com/plumbing/bathroom-plumbing</loc></url>
+  <url><loc>https://globalfixs.com/plumbing/commercial-plumbing</loc></url>
+  <url><loc>https://globalfixs.com/plumbing/drain-cleaning</loc></url>
+  <url><loc>https://globalfixs.com/plumbing/earthquake-shut-off-valves</loc></url>
+  <url><loc>https://globalfixs.com/plumbing/emergency-services</loc></url>
+  <url><loc>https://globalfixs.com/plumbing/gas-plumbing</loc></url>
+  <url><loc>https://globalfixs.com/plumbing/hydro-jetting</loc></url>
+  <url><loc>https://globalfixs.com/plumbing/leak-detection</loc></url>
+  <url><loc>https://globalfixs.com/plumbing/plumbing-maintenance</loc></url>
+  <url><loc>https://globalfixs.com/plumbing/piping-repiping</loc></url>
+  <url><loc>https://globalfixs.com/plumbing/rooter-service</loc></url>
+  <url><loc>https://globalfixs.com/plumbing/sewer-inspection</loc></url>
+  <url><loc>https://globalfixs.com/plumbing/sewer-repair-and-replacement</loc></url>
+  <url><loc>https://globalfixs.com/plumbing/trenchless-sewers</loc></url>
+  <url><loc>https://globalfixs.com/plumbing/water-heaters</loc></url>
+  <url><loc>https://globalfixs.com/plumbing/water-line-plumbing</loc></url>
+
+  <!-- Sewer Services -->
+  <url><loc>https://globalfixs.com/sewers/cleaning</loc></url>
+  <url><loc>https://globalfixs.com/sewers/hydro-jetting</loc></url>
+  <url><loc>https://globalfixs.com/sewers/inspection</loc></url>
+  <url><loc>https://globalfixs.com/sewers/repair-and-replacement</loc></url>
+  <url><loc>https://globalfixs.com/sewers/trenchless-technology</loc></url>
+
+  <!-- HVAC Services -->
+  <url><loc>https://globalfixs.com/hvac/heat-pumps</loc></url>
+  <url><loc>https://globalfixs.com/hvac/emergency-hvac</loc></url>
+</urlset>

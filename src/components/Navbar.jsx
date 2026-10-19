@@ -46,6 +46,7 @@ const Navbar = () => {
     {
       name: "About Us",
       type: "dropdown",
+      to: "/about",
       items: [
         { label: "History", desc: "Serving since 2002", to: "/about/history" },
         { label: "Testimonials", desc: "What clients say", to: "/about/testimonials" },
@@ -54,6 +55,7 @@ const Navbar = () => {
     {
       name: "Plumbing",
       type: "dropdown",
+      to: "/plumbing",
       twoCol: true,
       items: [
         { label: "Bathroom Plumbing", desc: "Fixtures & repairs", to: "/plumbing/bathroom-plumbing" },
@@ -77,10 +79,11 @@ const Navbar = () => {
     {
       name: "Sewers",
       type: "dropdown",
+      to: "/sewers",
       items: [
         { label: "Cleaning", desc: "Deep sewer clean", to: "/sewers/cleaning" },
-        { label: "Hydro Jetting", desc: "Powerful jetting", to: "/plumbing/hydro-jetting" }, 
-        { label: "Inspection", desc: "HD camera", to: "/plumbing/sewer-inspection" }, 
+        { label: "Hydro Jetting", desc: "Powerful jetting", to: "/plumbing/hydro-jetting" },
+        { label: "Inspection", desc: "HD camera", to: "/plumbing/sewer-inspection" },
         { label: "Repair & Replacement", desc: "Long-lasting", to: "/sewers/repair-and-replacement" },
         { label: "Trenchless Technology", desc: "Minimal digging", to: "/sewers/trenchless-technology" },
       ],
@@ -88,6 +91,7 @@ const Navbar = () => {
     {
       name: "HVAC Services",
       type: "dropdown",
+      to: "/hvac",
       items: [
         { label: "Heat Pumps", desc: "Efficient heating", to: "/hvac/heat-pumps" },
         { label: "Emergency HVAC", desc: "Same-day service", to: "/hvac/emergency-hvac" },
@@ -123,7 +127,6 @@ const Navbar = () => {
           
           {/* Left Side: Address & Hours */}
           <div className="flex items-center gap-2 sm:gap-6">
-            {/* Address (Mobile & PC dono par) */}
             <a 
               href="https://www.google.com/maps/search/?api=1&query=155+S+Fair+Oaks+Ave,+Pasadena,+CA+91105" 
               target="_blank" 
@@ -131,12 +134,10 @@ const Navbar = () => {
               className="flex items-center gap-1 sm:gap-2 hover:text-[#C6AD8F] transition-colors whitespace-nowrap"
             >
               <svg viewBox="0 0 24 24" className="w-3 h-3 sm:w-3.5 sm:h-3.5 text-[#C6AD8F]" fill="currentColor"><path d="M12 2a7 7 0 0 0-7 7c0 5.25 7 13 7 13s7-7.75 7-13a7 7 0 0 0-7-7zm0 9.5a2.5 2.5 0 1 1 0-5 2.5 2.5 0 0 1 0 5z"/></svg>
-              {/* Mobile par chota address, PC par bara */}
               <span className="hidden sm:inline">155 S Fair Oaks Ave, Pasadena, CA</span>
               <span className="sm:hidden">Pasadena, CA</span>
             </a>
 
-            {/* Hours (Sirf PC par dikhega, Mobile par hidden) */}
             <span className="hidden sm:flex items-center gap-2 whitespace-nowrap">
               <svg viewBox="0 0 24 24" className="w-3.5 h-3.5 text-[#C6AD8F]" fill="currentColor"><path d="M12 1a11 11 0 1 0 0 22 11 11 0 0 0 0-22zm1 11.4V6h-2v7l5.2 3.1 1-1.7-4.2-2z"/></svg>
               Mon–Sun: 24 Hours
@@ -145,13 +146,11 @@ const Navbar = () => {
 
           {/* Right Side: Phone & Badge */}
           <div className="flex items-center gap-2 sm:gap-5">
-            {/* Phone Number (Mobile & PC dono par) */}
             <a href="tel:+18442129186" className="flex items-center gap-1 sm:gap-2 text-[#C6AD8F] font-bold hover:text-white transition-colors whitespace-nowrap">
               <svg viewBox="0 0 24 24" className="w-3 h-3 sm:w-3.5 sm:h-3.5" fill="currentColor"><path d="M6.6 10.8a15.1 15.1 0 0 0 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.2.4 2.4.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1A17 17 0 0 1 3 4c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.2.2 2.4.6 3.6.1.3 0 .7-.2 1l-2.3 2.2z"/></svg>
               +1 (844) 212-91-86
             </a>
             
-            {/* Licensed Badge (Mobile par hidden, PC par dikhega) */}
             <span className="hidden sm:flex items-center gap-2 text-[#C6AD8F] font-semibold border-l border-white/20 pl-5 whitespace-nowrap">
               <span className="relative flex h-2 w-2">
                 <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#C6AD8F] opacity-75"></span>
@@ -187,17 +186,18 @@ const Navbar = () => {
                     </Link>
                   ) : (
                     <>
-                      <button
-                        type="button"
+                      {/* Parent is now a Link → clicking goes to main category page */}
+                      <Link
+                        to={item.to}
                         className="relative flex items-center gap-1.5 px-4 py-2.5 text-[13.5px] font-semibold text-[#1a1a1a] rounded-lg transition-all duration-200 hover:text-[#C6AD8F] hover:bg-[#C6AD8F]/8"
                       >
                         {item.name}
                         <svg viewBox="0 0 12 12" className="w-2.5 h-2.5 transition-transform duration-300 group-hover:rotate-180 opacity-60" fill="currentColor">
                           <path d="M6 9L1 4h10z" />
                         </svg>
-                      </button>
+                      </Link>
 
-                      {/* Dropdown Panel */}
+                      {/* Dropdown Panel (opens on hover) */}
                       <div
                         className={`
                           absolute top-full left-1/2 -translate-x-1/2 pt-3
@@ -312,28 +312,48 @@ const Navbar = () => {
                 </Link>
               ) : (
                 <>
-                  <button
-                    onClick={() => toggleDropdown(item.name)}
-                    className="w-full flex items-center justify-between px-6 py-4 text-[15px] font-semibold text-[#1a1a1a] hover:bg-[#F6F4F2] transition-colors duration-200"
-                  >
-                    <span className="flex items-center gap-3">
+                  <div className="flex items-stretch">
+                    {/* Main category link */}
+                    <Link
+                      to={item.to}
+                      onClick={() => setMobileOpen(false)}
+                      className="flex-1 flex items-center gap-3 px-6 py-4 text-[15px] font-semibold text-[#1a1a1a] hover:bg-[#F6F4F2] hover:text-[#C6AD8F] transition-colors duration-200"
+                    >
                       <span className="w-1.5 h-1.5 rounded-full bg-[#C6AD8F]" />
                       {item.name}
-                    </span>
-                    <svg
-                      viewBox="0 0 12 12"
-                      className={`w-3 h-3 transition-transform duration-300 ${openDropdown === item.name ? "rotate-180" : ""}`}
-                      fill="currentColor"
+                    </Link>
+                    {/* Dropdown toggle */}
+                    <button
+                      onClick={() => toggleDropdown(item.name)}
+                      aria-label={`Toggle ${item.name} submenu`}
+                      className="px-5 flex items-center justify-center text-[#1a1a1a] hover:bg-[#F6F4F2] transition-colors duration-200"
                     >
-                      <path d="M6 9L1 4h10z" />
-                    </svg>
-                  </button>
+                      <svg
+                        viewBox="0 0 12 12"
+                        className={`w-3 h-3 transition-transform duration-300 ${openDropdown === item.name ? "rotate-180" : ""}`}
+                        fill="currentColor"
+                      >
+                        <path d="M6 9L1 4h10z" />
+                      </svg>
+                    </button>
+                  </div>
 
                   <ul
                     className={`bg-[#F6F4F2] overflow-hidden transition-[max-height] duration-400 ease-in-out ${
                       openDropdown === item.name ? "max-h-[1200px]" : "max-h-0"
                     }`}
                   >
+                    {/* View all link */}
+                    <li>
+                      <Link
+                        to={item.to}
+                        onClick={() => setMobileOpen(false)}
+                        className="flex items-center gap-2 pl-12 pr-6 py-3 text-[13.5px] font-bold text-[#C6AD8F] hover:bg-[#C6AD8F] hover:text-white transition-all duration-200 border-b border-[#e5e0da]"
+                      >
+                        View All {item.name}
+                        <svg viewBox="0 0 24 24" className="w-3 h-3" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+                      </Link>
+                    </li>
                     {item.items.map((sub) => (
                       <li key={sub.label}>
                         <Link

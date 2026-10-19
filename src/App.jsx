@@ -9,10 +9,10 @@ import Footer from "./components/Footer";
 
 // Main Pages
 import HomePage from "./components/HomePage";
-import AboutPage from "./components/AboutPage";
-import PlumbingPage from "./components/PlumbingPage";
-import SewersPage from "./components/SewersPage";
-import HVACPage from "./components/HVACPage";
+import About from "./components/About";          // <- changed from AboutPage
+import Plumbing from "./components/Plumbing";    // <- changed from PlumbingPage
+import Sewers from "./components/Sewers";        // <- changed from SewersPage
+import HVAC from "./components/HVAC";            // <- changed from HVACPage
 import Coupons from "./components/Coupons";
 import ContactPage from "./components/ContactPage";
 
@@ -48,17 +48,16 @@ import EmergencyHVAC from "./components/EmergencyHVAC";
 export default function App() {
   return (
     <BrowserRouter>
-      {/* <TopBar /> */}
       <Navbar />
 
       <main>
         <Routes>
           {/* -------- Main Pages -------- */}
           <Route path="/" element={<HomePage />} />
-          <Route path="/about" element={<AboutPage />} />
-          <Route path="/plumbing" element={<PlumbingPage />} />
-          <Route path="/sewers" element={<SewersPage />} />
-          <Route path="/hvac" element={<HVACPage />} />
+          <Route path="/about" element={<About />} />
+          <Route path="/plumbing" element={<Plumbing />} />
+          <Route path="/sewers" element={<Sewers />} />
+          <Route path="/hvac" element={<HVAC />} />
           <Route path="/coupons" element={<Coupons />} />
           <Route path="/contact" element={<ContactPage />} />
 

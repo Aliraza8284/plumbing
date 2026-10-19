@@ -1,4 +1,5 @@
 // pages/WaterLinePlumbing.jsx
+import { Link } from "react-router-dom";
 import {
   Phone,
   MessageSquare,
@@ -95,13 +96,13 @@ export default function WaterLinePlumbing() {
                 <Phone size={16} />
                 Call Now
               </a>
-              <a
-                href={CONTACT}
+              <Link
+                to={CONTACT}
                 className="inline-flex items-center gap-2 rounded-lg border border-[#1f2a33]/15 bg-white px-6 py-3.5 text-[14px] font-bold text-[#425664] transition hover:border-[#425664]"
               >
                 <MessageSquare size={16} />
                 Contact Us
-              </a>
+              </Link>
             </div>
           </div>
 
@@ -237,13 +238,13 @@ export default function WaterLinePlumbing() {
                   <Phone size={16} />
                   Call Now
                 </a>
-                <a
-                  href={CONTACT}
+                <Link
+                  to={CONTACT}
                   className="inline-flex w-full sm:w-auto items-center justify-center gap-2 rounded-lg border border-white/30 bg-white/5 px-8 py-3.5 text-[14.5px] font-bold text-white transition hover:bg-white/10"
                 >
                   <MessageSquare size={16} />
                   Contact Us
-                </a>
+                </Link>
               </div>
             </div>
           </div>

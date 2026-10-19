@@ -1,5 +1,6 @@
 // src/components/RooterService.jsx
 import { useState } from "react";
+import { Link } from "react-router-dom";
 import {
   Search,
   Zap,
@@ -115,13 +116,13 @@ export default function RooterService() {
           </p>
           
           <div className="mt-8 flex flex-wrap gap-3">
-            <a
-              href={CONTACT}
+            <Link
+              to={CONTACT}
               className="inline-flex items-center gap-2 rounded-lg bg-[#425664] px-6 py-3 text-[14px] font-bold text-white transition-colors hover:bg-[#364753] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#425664]"
             >
               <MessageSquare size={16} />
               Book an Appointment
-            </a>
+            </Link>
             <a
               href="#features"
               className="inline-flex items-center gap-2 rounded-lg border border-[#1f2a33]/15 bg-white px-6 py-3 text-[14px] font-bold text-[#425664] transition-colors hover:border-[#425664]"
@@ -266,12 +267,12 @@ export default function RooterService() {
               fees, and a 30-day clear-flow guarantee.
             </p>
             <div className="mt-8 flex flex-wrap justify-center gap-3">
-              <a
-                href={CONTACT}
+              <Link
+                to={CONTACT}
                 className="inline-flex items-center gap-2 rounded-lg bg-[#425664] px-8 py-3.5 text-[14.5px] font-bold text-white transition-colors hover:bg-[#364753] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#425664]"
               >
                 <MessageSquare size={16} /> Contact Us
-              </a>
+              </Link>
             </div>
           </div>
         </div>

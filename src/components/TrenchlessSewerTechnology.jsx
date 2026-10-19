@@ -1,5 +1,6 @@
 // pages/TrenchlessSewerTechnology.jsx
 import { useState, useRef, useEffect } from "react";
+import { Link } from "react-router-dom";
 import {
   MessageSquare,
   ArrowRight,
@@ -436,11 +437,11 @@ export default function TrenchlessSewerTechnology() {
             </p>
           </div>
           <div className="flex flex-col gap-3 sm:flex-row">
-            <a href={CONTACT} className="group inline-flex items-center justify-center gap-2.5 rounded-lg bg-[#1f2a33] px-7 py-3.5 text-[14px] font-bold text-white transition-colors duration-300 hover:bg-[#425664] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#1f2a33]">
+            <Link to={CONTACT} className="group inline-flex items-center justify-center gap-2.5 rounded-lg bg-[#1f2a33] px-7 py-3.5 text-[14px] font-bold text-white transition-colors duration-300 hover:bg-[#425664] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#1f2a33]">
               <MessageSquare size={16} aria-hidden="true" />
               Contact Us
               <ArrowRight size={16} className="transition-transform duration-300 group-hover:translate-x-1" aria-hidden="true" />
-            </a>
+            </Link>
           </div>
         </div>
       </section>

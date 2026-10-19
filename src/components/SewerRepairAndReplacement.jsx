@@ -1,4 +1,5 @@
 // pages/SewerRepairAndReplacement.jsx
+import { Link } from "react-router-dom";
 import {
   MessageSquare,
   ArrowRight,
@@ -104,13 +105,13 @@ export default function SewerRepairAndReplacement() {
             </p>
 
             <div className="mt-8 flex flex-col gap-3 sm:flex-row">
-              <a
-                href={CONTACT}
+              <Link
+                to={CONTACT}
                 className="group inline-flex items-center justify-center gap-2.5 rounded-lg bg-[#425664] px-7 py-3.5 text-[14px] font-bold text-white transition duration-300 hover:bg-[#364753] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#425664]"
               >
                 <MessageSquare size={16} aria-hidden="true" />
                 Contact Us
-              </a>
+              </Link>
               <a
                 href="tel:+18442129186"
                 className="group inline-flex items-center justify-center gap-2.5 rounded-lg border border-[#1f2a33]/20 px-7 py-3.5 text-[14px] font-bold text-[#425664] transition duration-300 hover:border-[#425664] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#425664]"
@@ -251,12 +252,12 @@ export default function SewerRepairAndReplacement() {
                 <Phone size={16} className="transition-transform duration-300 group-hover:-rotate-12" aria-hidden="true" />
                 Call Now
               </a>
-              <a
-                href={CONTACT}
+              <Link
+                to={CONTACT}
                 className="gf-grow mx-auto w-fit pb-1 text-[14px] font-bold text-white focus-visible:outline-none"
               >
                 Or send us a message
-              </a>
+              </Link>
             </div>
           </div>
         </div>

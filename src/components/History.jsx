@@ -1,5 +1,6 @@
 // src/components/History.jsx
 import React from "react";
+import { Link } from "react-router-dom";
 import { Calendar, Award, Users, Wrench, ShieldCheck, ArrowRight } from "lucide-react";
 
 const milestones = [
@@ -189,9 +190,9 @@ export default function History() {
                 </ul>
               </div>
 
-              {/* CTA */}
-              <a
-                href="/contact"
+              {/* CTA (Yahan Link use kiya gaya hai) */}
+              <Link
+                to="/contact"
                 className="group flex items-center justify-between rounded-xl bg-[#425664] px-5 py-4 text-white transition-colors hover:bg-[#364753] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#425664]"
               >
                 <span>
@@ -207,7 +208,7 @@ export default function History() {
                   className="transition-transform group-hover:translate-x-0.5"
                   aria-hidden="true"
                 />
-              </a>
+              </Link>
             </div>
           </aside>
         </div>

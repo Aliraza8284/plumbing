@@ -1,5 +1,6 @@
 // src/components/SewerHydroJetting.jsx
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 import {
   Droplets,
   CheckCircle2,
@@ -98,13 +99,13 @@ export default function SewerHydroJetting() {
             </p>
 
             <div className="flex flex-wrap gap-3">
-              <a
-                href={CONTACT}
+              <Link
+                to={CONTACT}
                 className="inline-flex items-center gap-2 rounded-lg bg-[#425664] px-6 py-3 text-[14px] font-bold text-white transition-colors hover:bg-[#364753] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#425664]"
               >
                 <MessageSquare size={16} />
                 Contact Us
-              </a>
+              </Link>
               <a
                 href="#how-it-works"
                 className="inline-flex items-center gap-2 rounded-lg border border-[#1f2a33]/15 bg-white px-6 py-3 text-[14px] font-bold text-[#425664] transition-colors hover:border-[#425664]"
@@ -271,9 +272,9 @@ export default function SewerHydroJetting() {
           <p className="mx-auto mt-4 max-w-xl text-[14.5px] leading-[1.7] text-[#425664]">
             Don't let grease and roots block your pipes. Contact our team today to schedule a professional hydro-jetting service.
           </p>
-          <a href={CONTACT} className="mt-8 inline-flex items-center gap-2 rounded-lg bg-[#425664] px-8 py-3.5 text-[14px] font-bold text-white transition-colors hover:bg-[#364753] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#425664]">
+          <Link to={CONTACT} className="mt-8 inline-flex items-center gap-2 rounded-lg bg-[#425664] px-8 py-3.5 text-[14px] font-bold text-white transition-colors hover:bg-[#364753] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#425664]">
             <MessageSquare size={16} /> Contact Us
-          </a>
+          </Link>
         </div>
       </section>
 

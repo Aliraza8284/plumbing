@@ -1,5 +1,6 @@
 // pages/RepairAndReplacement.jsx
 import { useState } from "react";
+import { Link } from "react-router-dom";
 import {
   MessageSquare,
   ArrowRight,
@@ -164,11 +165,11 @@ export default function RepairAndReplacement() {
           </p>
 
           <div className="mt-6 flex flex-col gap-3 sm:flex-row">
-            <a href={CONTACT} className="inline-flex items-center justify-center gap-2 rounded-lg bg-[#C6AD8F] px-6 py-3 text-[13.5px] font-bold text-[#1f2a33] transition-colors hover:bg-white">
+            <Link to={CONTACT} className="inline-flex items-center justify-center gap-2 rounded-lg bg-[#C6AD8F] px-6 py-3 text-[13.5px] font-bold text-[#1f2a33] transition-colors hover:bg-white">
               <MessageSquare size={16} />
               Contact Us
               <ArrowRight size={15} />
-            </a>
+            </Link>
             <a href="#process" className="inline-flex items-center justify-center gap-2 rounded-lg border border-white/40 bg-white/5 px-6 py-3 text-[13.5px] font-bold text-white transition-colors hover:bg-white/10">
               How It Works
             </a>
@@ -224,8 +225,6 @@ export default function RepairAndReplacement() {
         </div>
       </section>
 
-      
-
       {/* ================= PROCESS ================= */}
       <section id="process" className="bg-white border-b border-[#1f2a33]/10 py-14 sm:py-20">
         <div className="mx-auto grid max-w-7xl gap-7 px-5 sm:px-8 lg:grid-cols-[0.8fr_1.2fr] lg:gap-12">
@@ -280,7 +279,6 @@ export default function RepairAndReplacement() {
         </div>
       </section>
 
-
       {/* ================= FINAL CTA ================= */}
       <section className="bg-[#1f2a33] py-16 text-white sm:py-24">
         <div className="mx-auto flex max-w-7xl flex-col items-start justify-between gap-6 px-5 sm:px-8 lg:flex-row lg:items-center">
@@ -293,11 +291,11 @@ export default function RepairAndReplacement() {
             </p>
           </div>
           <div className="flex flex-col gap-3 sm:flex-row">
-            <a href={CONTACT} className="group inline-flex items-center justify-center gap-2.5 rounded-lg bg-[#C6AD8F] px-7 py-3.5 text-[14px] font-bold text-[#1f2a33] transition duration-300 hover:bg-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white">
+            <Link to={CONTACT} className="group inline-flex items-center justify-center gap-2.5 rounded-lg bg-[#C6AD8F] px-7 py-3.5 text-[14px] font-bold text-[#1f2a33] transition duration-300 hover:bg-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white">
               <MessageSquare size={16} />
               Contact Us
               <ArrowRight size={16} className="transition-transform duration-300 group-hover:translate-x-1" />
-            </a>
+            </Link>
           </div>
         </div>
       </section>

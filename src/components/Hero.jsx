@@ -10,7 +10,6 @@ const TEL = "tel:+18442129186";
 const RATING = "4.9";
 const REVIEW_COUNT = "2.4K";
 
-/* Local image — public/images/hero-plumber.jpg mein rakh dein */
 const HERO_IMAGE = "https://cdn.pixabay.com/photo/2013/12/13/21/13/plumber-228010_1280.jpg";
 const DATA_URL = "/us-zips.json";
 const ZIP_API = "https://api.zippopotam.us/us";
@@ -51,8 +50,6 @@ const US_STATES = {
   GU: "Guam", VI: "U.S. Virgin Islands", AS: "American Samoa", MP: "Northern Mariana Islands",
 };
 const NAME_TO_ABBR = Object.fromEntries(Object.entries(US_STATES).map(([a, n]) => [n.toLowerCase(), a]));
-
-/* ---------- helpers ---------- */
 
 function parseState(token) {
   const t = token.trim();

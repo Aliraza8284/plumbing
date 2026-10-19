@@ -1,5 +1,6 @@
 // src/components/Services.jsx
 import { useState } from "react";
+import { Link } from "react-router-dom";
 import {
   Phone,
   Droplets,
@@ -15,6 +16,7 @@ import {
   MapPin,
   Clock,
   BadgeCheck,
+  MessageSquare,
 } from "lucide-react";
 
 /* Palette: #F6F4F2 paper | #425664 slate | #C6AD8F sand | #1f2a33 ink */
@@ -38,7 +40,7 @@ const SERVICES = [
     blurb:
       "Pinpoint hidden leaks with acoustic and thermal tools — no guesswork, no unnecessary demolition.",
     tags: ["Non-invasive", "Same-day"],
-    href: "/services/leak-detection",
+    href: "/plumbing/leak-detection",
   },
   {
     title: "Repair & Replacement",
@@ -47,7 +49,7 @@ const SERVICES = [
     blurb:
       "Cracked pipes, failing fittings, corroded lines — repaired or replaced with minimal digging.",
     tags: ["Spot fixes", "Full replacement"],
-    href: "/services/repair-and-replacement",
+    href: "/sewers/repair-and-replacement",
   },
   {
     title: "Piping & Repiping",
@@ -56,7 +58,7 @@ const SERVICES = [
     blurb:
       "Whole-home repiping in copper or PEX, sized for your fixtures and future additions.",
     tags: ["Copper", "PEX"],
-    href: "/services/piping-repiping",
+    href: "/plumbing/piping-repiping",
   },
   {
     title: "Gas Plumbing",
@@ -65,7 +67,7 @@ const SERVICES = [
     blurb:
       "Gas line installs, leak tests and appliance hookups — permitted and inspected.",
     tags: ["Certified", "Permitted"],
-    href: "/services/gas-plumbing",
+    href: "/plumbing/gas-plumbing",
   },
   {
     title: "Water Heaters",
@@ -74,7 +76,7 @@ const SERVICES = [
     blurb:
       "Tank and tankless install, repair and flush. Right-sized for your household.",
     tags: ["Tankless", "Same-day"],
-    href: "/services/water-heaters",
+    href: "/plumbing/water-heaters",
   },
   {
     title: "Sewer Repair & Replacement",
@@ -83,7 +85,7 @@ const SERVICES = [
     blurb:
       "Trenchless and conventional sewer line repair, from single joints to full runs.",
     tags: ["Trenchless", "Full line"],
-    href: "/services/sewer-repair-and-replacement",
+    href: "/plumbing/sewer-repair-and-replacement",
   },
   {
     title: "Sewer Inspection",
@@ -92,7 +94,7 @@ const SERVICES = [
     blurb:
       "HD camera inspection with a written report — know exactly what's underground.",
     tags: ["Camera", "Report"],
-    href: "/services/sewer-inspection",
+    href: "/sewers/inspection",
   },
   {
     title: "Hydro Jetting",
@@ -101,7 +103,7 @@ const SERVICES = [
     blurb:
       "High-pressure jetting clears grease, roots and scale — restores full pipe diameter.",
     tags: ["Roots", "Grease"],
-    href: "/services/hydro-jetting",
+    href: "/sewers/hydro-jetting",
   },
   {
     title: "Trenchless Sewers",
@@ -110,7 +112,7 @@ const SERVICES = [
     blurb:
       "Pipe bursting and lining that replaces or rehabilitates lines with minimal digging.",
     tags: ["No-dig", "Fast"],
-    href: "/services/trenchless-sewers",
+    href: "/sewers/trenchless-technology",
   },
   {
     title: "Drain Cleaning",
@@ -119,7 +121,7 @@ const SERVICES = [
     blurb:
       "Kitchen, bath and main-line clogs cleared with the right tool for the blockage.",
     tags: ["Same-day", "Main line"],
-    href: "/services/cleaning",
+    href: "/sewers/cleaning",
   },
   {
     title: "HVAC Repair",
@@ -128,7 +130,7 @@ const SERVICES = [
     blurb:
       "Diagnostics and repair for AC, furnace and heat pumps. Honest quotes, no upsell.",
     tags: ["AC", "Furnace"],
-    href: "/services/hvac-repair",
+    href: "/hvac/emergency-hvac",
   },
   {
     title: "Heat Pumps",
@@ -137,7 +139,7 @@ const SERVICES = [
     blurb:
       "High-efficiency heat pump install and service — rebates handled for you.",
     tags: ["Rebates", "Efficient"],
-    href: "/services/heat-pumps",
+    href: "/hvac/heat-pumps",
   },
   {
     title: "Emergency HVAC",
@@ -146,7 +148,7 @@ const SERVICES = [
     blurb:
       "No heat, no AC? 24/7 emergency response with a live technician on the line.",
     tags: ["24/7", "Fast"],
-    href: "/services/emergency-hvac",
+    href: "/hvac/emergency-hvac",
   },
   {
     title: "Emergency Plumbing",
@@ -155,7 +157,7 @@ const SERVICES = [
     blurb:
       "Burst pipes, overflowing toilets, no water — we're on call around the clock.",
     tags: ["24/7", "Fast"],
-    href: "/services/emergency-plumbing",
+    href: "/plumbing/emergency-services",
   },
   {
     title: "Earthquake Shut-Off Valves",
@@ -164,15 +166,8 @@ const SERVICES = [
     blurb:
       "Automatic gas shut-off valves that close the line the moment shaking is detected.",
     tags: ["Safety", "Auto"],
-    href: "/services/earthquake-shut-off-valves",
+    href: "/plumbing/earthquake-shut-off-valves",
   },
-];
-
-const STATS = [
-  { label: "Years serving the area", value: "35+" },
-  { label: "Licensed technicians", value: "40+" },
-  { label: "Jobs completed", value: "12K+" },
-  { label: "Average rating", value: "4.9" },
 ];
 
 const WHY = [
@@ -225,7 +220,6 @@ export default function Services() {
       <div className="gf-services">
         {/* ---------- HERO ---------- */}
         <section className="relative overflow-hidden bg-[#425664]">
-          {/* Decorative background — subtle gradient + soft glow */}
           <div
             className="pointer-events-none absolute inset-0"
             style={{
@@ -234,7 +228,6 @@ export default function Services() {
             }}
             aria-hidden="true"
           />
-          {/* Faint grid texture for depth */}
           <div
             className="pointer-events-none absolute inset-0 opacity-[0.06]"
             style={{
@@ -250,7 +243,6 @@ export default function Services() {
           />
 
           <div className="relative mx-auto max-w-6xl px-5 py-16 sm:px-8 sm:py-20 lg:py-24">
-            {/* Eyebrow with rule */}
             <div className="flex items-center gap-3">
               <span className="h-px w-8 bg-[#C6AD8F]" aria-hidden="true" />
               <p className="text-[11px] font-bold uppercase tracking-[0.18em] text-[#C6AD8F]">
@@ -275,14 +267,13 @@ export default function Services() {
               lifetime workmanship warranty on every job.
             </p>
 
-            {/* CTAs */}
             <div className="mt-8 flex flex-wrap items-center gap-3">
               <a
                 href={TEL}
                 className="group inline-flex items-center gap-2 rounded-lg bg-[#C6AD8F] px-5 py-3 text-sm font-bold text-[#1f2a33] shadow-lg shadow-black/20 transition-all hover:bg-white hover:shadow-xl focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
               >
                 <Phone size={16} aria-hidden="true" />
-                Call {PHONE}
+                Call Now
               </a>
               <a
                 href="#list"
@@ -339,9 +330,9 @@ export default function Services() {
           {/* Grid */}
           <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
             {filtered.map(({ title, Icon, blurb, tags, href }) => (
-              <a
+              <Link
                 key={title}
-                href={href}
+                to={href}
                 className="group flex flex-col rounded-xl border border-[#1f2a33]/10 bg-white p-5 shadow-sm transition-all hover:-translate-y-0.5 hover:border-[#425664]/40 hover:shadow-md focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#425664]"
               >
                 <div className="mb-4 flex h-11 w-11 items-center justify-center rounded-lg bg-[#425664]/10 text-[#425664] transition-colors group-hover:bg-[#425664] group-hover:text-white">
@@ -369,7 +360,7 @@ export default function Services() {
                     />
                   </span>
                 </div>
-              </a>
+              </Link>
             ))}
           </div>
 
@@ -384,7 +375,7 @@ export default function Services() {
         <section className="relative border-y border-[#1f2a33]/10 bg-white">
           <div className="mx-auto max-w-6xl px-5 py-16 sm:px-8 sm:py-20">
             <div className="grid gap-10 lg:grid-cols-12 lg:gap-14">
-              {/* LEFT: heading + supporting copy + CTA */}
+              {/* LEFT */}
               <div className="lg:col-span-4">
                 <div className="flex items-center gap-3">
                   <span className="h-px w-8 bg-[#C6AD8F]" aria-hidden="true" />
@@ -408,7 +399,7 @@ export default function Services() {
                 </a>
               </div>
 
-              {/* RIGHT: unified feature panel */}
+              {/* RIGHT */}
               <div className="lg:col-span-8">
                 <div className="overflow-hidden rounded-2xl border border-[#1f2a33]/10 bg-[#F6F4F2]">
                   <div className="grid grid-cols-1 sm:grid-cols-2">
@@ -417,14 +408,11 @@ export default function Services() {
                         key={title}
                         className={[
                           "group relative p-6 transition-colors hover:bg-white",
-                          // dividers
                           i % 2 === 0 ? "sm:border-r sm:border-[#1f2a33]/10" : "",
                           i < WHY.length - 1 ? "border-b border-[#1f2a33]/10" : "",
-                          // last row on 2-col: remove bottom border on the final two
                           i >= WHY.length - 2 ? "sm:border-b-0" : "",
                         ].join(" ")}
                       >
-                        {/* number tag */}
                         <span
                           className="absolute right-4 top-4 text-[11px] font-bold tabular-nums text-[#425664]/30"
                           aria-hidden="true"
@@ -447,7 +435,6 @@ export default function Services() {
             </div>
           </div>
         </section>
-
 
       </div>
     </div>

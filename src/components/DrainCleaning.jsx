@@ -1,5 +1,6 @@
 // src/components/DrainCleaning.jsx
 import { useState } from "react";
+import { Link } from "react-router-dom";
 import {
   Droplets,
   Wrench,
@@ -95,13 +96,13 @@ export default function DrainCleaning() {
             </p>
 
             <div className="flex flex-col gap-3 sm:flex-row">
-              <a
-                href={CONTACT}
+              <Link
+                to={CONTACT}
                 className="inline-flex items-center justify-center gap-2 rounded-lg bg-[#425664] px-6 py-3 text-[14px] font-bold text-white transition-colors hover:bg-[#364753] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#425664]"
               >
                 <MessageSquare size={16} />
                 Get in Touch
-              </a>
+              </Link>
 
               <a
                 href="#drain-services"
@@ -194,12 +195,12 @@ export default function DrainCleaning() {
                     {service.description}
                   </p>
 
-                  <a
-                    href={CONTACT}
+                  <Link
+                    to={CONTACT}
                     className="mt-5 inline-flex items-center gap-1.5 text-[13px] font-bold text-[#8a6f4d] hover:text-[#1f2a33]"
                   >
                     Get Help <ArrowRight size={14} />
-                  </a>
+                  </Link>
                 </article>
               );
             })}
@@ -259,12 +260,12 @@ export default function DrainCleaning() {
               ))}
             </div>
 
-            <a
-              href={CONTACT}
+            <Link
+              to={CONTACT}
               className="mt-9 inline-flex items-center gap-2 rounded-lg bg-[#C6AD8F] px-6 py-3 text-[14px] font-bold text-[#1f2a33] transition-colors hover:bg-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
             >
               Discuss Your Problem <ArrowRight size={16} />
-            </a>
+            </Link>
           </div>
         </div>
       </section>
@@ -298,12 +299,12 @@ export default function DrainCleaning() {
                 Contact a plumbing professional to discuss your issue and
                 confirm service availability.
               </p>
-              <a
-                href={CONTACT}
+              <Link
+                to={CONTACT}
                 className="mt-4 inline-flex items-center gap-2 text-[13.5px] font-bold text-[#8a6f4d] hover:text-[#1f2a33]"
               >
                 <MessageSquare size={15} /> Contact Us
-              </a>
+              </Link>
             </div>
           </div>
 
@@ -362,13 +363,13 @@ export default function DrainCleaning() {
               </p>
             </div>
 
-            <a
-              href={CONTACT}
+            <Link
+              to={CONTACT}
               className="inline-flex shrink-0 items-center justify-center gap-2 rounded-lg bg-[#425664] px-8 py-3.5 text-[14.5px] font-bold text-white transition-colors hover:bg-[#364753] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#425664]"
             >
               <MessageSquare size={16} />
               Contact Us
-            </a>
+            </Link>
           </div>
         </div>
       </section>

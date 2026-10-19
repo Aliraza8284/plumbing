@@ -1,6 +1,7 @@
 // src/components/About.jsx
 import React from 'react';
-import { ArrowRight, CheckCircle2, ShieldCheck, Clock, MessageSquare, Award, Users, Wrench, Droplets } from 'lucide-react';
+import { Link } from 'react-router-dom';
+import { ArrowRight, CheckCircle2, ShieldCheck, Clock, MessageSquare, Users, Wrench } from 'lucide-react';
 
 const CONTACT = "/contact";
 
@@ -120,14 +121,15 @@ export default function About() {
                 ))}
               </div>
 
-              <a
-                href={CONTACT}
+              {/* ✅ FIXED: <a href> → <Link to> */}
+              <Link
+                to={CONTACT}
                 className="inline-flex items-center gap-2.5 rounded-lg bg-[#C6AD8F] px-7 py-3.5 text-[14px] font-bold text-[#1f2a33] shadow-md transition-all duration-300 hover:bg-white hover:-translate-y-0.5"
               >
                 <MessageSquare size={16} strokeWidth={2.5} />
                 Contact Us
                 <ArrowRight size={16} strokeWidth={2.5} />
-              </a>
+              </Link>
             </div>
           </div>
         </div>

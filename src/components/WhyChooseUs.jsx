@@ -1,4 +1,5 @@
 // src/components/WhyChooseUs.jsx
+import { Link } from "react-router-dom";
 import {
   ShieldCheck,
   Clock,
@@ -163,18 +164,18 @@ export default function WhyChooseUs() {
                   Describe the problem — we'll give you a flat-rate quote.
                 </p>
                 <div className="mt-4 flex flex-wrap gap-2">
-                  <a
-                    href={CONTACT}
+                  <Link
+                    to={CONTACT}
                     className="inline-flex items-center gap-1.5 rounded-lg bg-[#C6AD8F] px-4 py-2 text-[13px] font-bold text-[#1f2a33] transition-colors hover:bg-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
                   >
                     <MessageSquare size={14} aria-hidden="true" /> Contact Us
-                  </a>
-                  <a
-                    href="/services"
+                  </Link>
+                  <Link
+                    to="/services"
                     className="inline-flex items-center gap-1.5 rounded-lg border border-white/25 px-4 py-2 text-[13px] font-bold text-white transition-colors hover:bg-white/10"
                   >
                     Services <ArrowRight size={14} aria-hidden="true" />
-                  </a>
+                  </Link>
                 </div>
               </div>
             </div>

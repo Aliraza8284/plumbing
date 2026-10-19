@@ -1,5 +1,5 @@
 // src/components/Coupons.jsx
-import { useState } from "react";
+import { Link } from "react-router-dom";
 import {
   MessageSquare,
   ArrowRight,
@@ -99,13 +99,13 @@ export default function Coupons() {
               respectful technicians, and a warranty you can count on.
             </p>
             
-            <a
-              href={CONTACT}
+            <Link
+              to={CONTACT}
               className="mt-8 inline-flex items-center gap-2 rounded-lg bg-[#425664] px-6 py-3.5 text-[14px] font-bold text-white transition-colors duration-300 hover:bg-[#364753] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#425664]"
             >
               <MessageSquare size={16} aria-hidden="true" />
               Contact Us
-            </a>
+            </Link>
           </div>
 
           <div className="rounded-xl border border-[#1f2a33]/10 bg-[#F6F4F2] p-6 sm:p-8">
@@ -181,9 +181,9 @@ export default function Coupons() {
             {POPULAR_SERVICES.map((s) => {
               const Icon = s.icon;
               return (
-                <a
+                <Link
                   key={s.title}
-                  href={s.link}
+                  to={s.link}
                   className="group flex items-start gap-5 rounded-xl border border-[#1f2a33]/10 bg-[#F6F4F2] p-6 transition-all duration-300 hover:-translate-y-1 hover:border-[#425664]/30 hover:bg-white hover:shadow-sm"
                 >
                   <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-lg bg-white text-[#425664] border border-[#1f2a33]/10">
@@ -200,7 +200,7 @@ export default function Coupons() {
                       Learn more <ArrowRight size={14} className="transition-transform group-hover:translate-x-1" />
                     </span>
                   </div>
-                </a>
+                </Link>
               );
             })}
           </div>
@@ -220,14 +220,14 @@ export default function Coupons() {
               </p>
             </div>
             <div className="flex flex-col gap-3 sm:flex-row">
-              <a 
-                href={CONTACT} 
+              <Link 
+                to={CONTACT} 
                 className="group inline-flex items-center justify-center gap-2.5 rounded-lg bg-[#C6AD8F] px-7 py-3.5 text-[14px] font-bold text-[#1f2a33] transition-colors duration-300 hover:bg-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
               >
                 <MessageSquare size={16} aria-hidden="true" />
                 Contact Us
                 <ArrowRight size={16} className="transition-transform duration-300 group-hover:translate-x-1" aria-hidden="true" />
-              </a>
+              </Link>
             </div>
           </div>
         </div>

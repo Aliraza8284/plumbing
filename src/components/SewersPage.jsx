@@ -1,10 +1,12 @@
 // src/components/SewersPage.jsx
+import { Link } from "react-router-dom";
 import { Phone, ArrowRight, ArrowUpRight } from "lucide-react";
 
 /* Palette: #F6F4F2 paper | #425664 slate | #C6AD8F sand | #1f2a33 ink */
 
-const PHONE = "(123) 456-7890";
-const TEL = "tel:+1234567890";
+const PHONE = "+1 (844) 212-91-86";
+const TEL = "tel:+18442129186";
+const CONTACT = "/contact";
 
 const services = [
   {
@@ -149,13 +151,13 @@ export default function SewersPage() {
               look inside the pipe first, so we fix what's actually wrong and not what we guessed.
             </p>
             <div className="mt-8 flex flex-col gap-3 sm:flex-row">
-              <a href="#contact" className="group inline-flex items-center justify-center gap-2.5 rounded-full bg-[#425664] px-7 py-4 text-[16px] font-bold text-white transition duration-300 hover:bg-[#364753] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#425664]">
+              <Link to={CONTACT} className="group inline-flex items-center justify-center gap-2.5 rounded-lg bg-[#425664] px-7 py-4 text-[16px] font-bold text-white transition duration-300 hover:bg-[#364753] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#425664]">
                 Book a camera inspection
                 <ArrowRight size={17} className="transition-transform duration-300 group-hover:translate-x-1.5" aria-hidden="true" />
-              </a>
-              <a href={TEL} className="group inline-flex items-center justify-center gap-2.5 rounded-full border-2 border-[#425664]/40 px-7 py-4 text-[16px] font-bold text-[#425664] transition duration-300 hover:border-[#425664] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#425664]">
+              </Link>
+              <a href={TEL} className="group inline-flex items-center justify-center gap-2.5 rounded-lg border-2 border-[#425664]/40 px-7 py-4 text-[16px] font-bold text-[#425664] transition duration-300 hover:border-[#425664] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#425664]">
                 <Phone size={16} className="transition-transform duration-300 group-hover:-rotate-12" aria-hidden="true" />
-                {PHONE}
+                Call Now
               </a>
             </div>
             <p className="mt-5 text-[15px] text-[#425664]/85">Not sure what you need? Call and describe it. We'll tell you straight.</p>
@@ -244,7 +246,7 @@ export default function SewersPage() {
             </ol>
             <a href={TEL} className="mt-6 inline-flex items-center gap-2 text-[18px] font-extrabold underline decoration-2 underline-offset-4 hover:decoration-[#425664]">
               <Phone size={18} aria-hidden="true" />
-              {PHONE}
+              Call Now
             </a>
           </aside>
         </div>
@@ -259,13 +261,13 @@ export default function SewersPage() {
               <p className="mt-3 max-w-[46ch] text-[17px] leading-relaxed text-white/85">Send a message or call. We'll work out whether you need a camera look, a cleaning or a repair.</p>
             </div>
             <div className="flex flex-col gap-3 sm:flex-row">
-              <a href="/contact" className="group inline-flex items-center justify-center gap-2.5 rounded-full bg-[#C6AD8F] px-7 py-4 text-[16px] font-bold text-[#1a252d] transition duration-300 hover:bg-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white">
-                Send a message
+              <Link to={CONTACT} className="group inline-flex items-center justify-center gap-2.5 rounded-lg bg-[#C6AD8F] px-7 py-4 text-[16px] font-bold text-[#1a252d] transition duration-300 hover:bg-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white">
+                <MessageSquare size={16} /> Contact Us
                 <ArrowRight size={17} className="transition-transform duration-300 group-hover:translate-x-1.5" aria-hidden="true" />
-              </a>
-              <a href={TEL} className="inline-flex items-center justify-center gap-2.5 rounded-full border-2 border-white/45 px-7 py-4 text-[16px] font-bold transition duration-300 hover:border-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white">
+              </Link>
+              <a href={TEL} className="inline-flex items-center justify-center gap-2.5 rounded-lg border-2 border-white/45 px-7 py-4 text-[16px] font-bold transition duration-300 hover:border-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white">
                 <Phone size={16} aria-hidden="true" />
-                {PHONE}
+                Call Now
               </a>
             </div>
           </div>

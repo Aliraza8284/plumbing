@@ -1,4 +1,5 @@
 // pages/CommercialPlumbing.jsx
+import { Link } from "react-router-dom";
 import {
   MessageSquare,
   ArrowRight,
@@ -110,20 +111,20 @@ export default function CommercialPlumbing() {
             </p>
 
             <div className="mt-9 flex flex-col gap-3 sm:flex-row">
-              <a
-                href={CONTACT}
+              <Link
+                to={CONTACT}
                 className="group inline-flex items-center justify-center gap-2.5 bg-[#C6AD8F] px-7 py-3.5 text-[14px] font-bold text-[#1f2a33] transition duration-300 hover:bg-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white rounded-lg"
               >
                 Request a site visit
                 <ArrowRight size={16} className="transition-transform duration-300 group-hover:translate-x-1" aria-hidden="true" />
-              </a>
-              <a
-                href={CONTACT}
+              </Link>
+              <Link
+                to={CONTACT}
                 className="group inline-flex items-center justify-center gap-2.5 border border-white/40 px-7 py-3.5 text-[14px] font-bold text-white transition duration-300 hover:border-white hover:bg-white/10 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white rounded-lg"
               >
                 <MessageSquare size={16} className="transition-transform duration-300 group-hover:-rotate-12" aria-hidden="true" />
                 Contact Us
-              </a>
+              </Link>
             </div>
           </div>
         </div>
@@ -141,10 +142,9 @@ export default function CommercialPlumbing() {
         </div>
       </section>
 
-      {/* ================= Sectors (With Full Background Image) ================= */}
+      {/* ================= Sectors ================= */}
       <section className="relative py-16 sm:py-24 overflow-hidden">
         
-        {/* Section Background Image with Dark Overlay */}
         <div className="absolute inset-0 z-0">
           <img
             src={SECTORS_BG_IMG}
@@ -205,8 +205,8 @@ export default function CommercialPlumbing() {
           <ul className="border-t border-[#1f2a33]/10">
             {SERVICES.map((s) => (
               <li key={s} className="border-b border-[#1f2a33]/10">
-                <a
-                  href={CONTACT}
+                <Link
+                  to={CONTACT}
                   className="gf-row group flex items-center justify-between gap-4 px-2 py-5 text-[17px] font-bold outline-none sm:text-[19px]"
                 >
                   <span className="transition-transform duration-300 group-hover:translate-x-3 group-focus-visible:translate-x-3">{s}</span>
@@ -215,7 +215,7 @@ export default function CommercialPlumbing() {
                     className="shrink-0 text-[#425664] transition-transform duration-300 group-hover:-translate-y-1 group-hover:translate-x-1 group-hover:text-[#1f2a33]"
                     aria-hidden="true"
                   />
-                </a>
+                </Link>
               </li>
             ))}
           </ul>
@@ -235,20 +235,20 @@ export default function CommercialPlumbing() {
             </p>
           </div>
           <div className="flex flex-col gap-3 sm:flex-row">
-            <a
-              href={CONTACT}
+            <Link
+              to={CONTACT}
               className="group inline-flex items-center justify-center gap-2.5 bg-[#C6AD8F] px-7 py-3.5 text-[14px] font-bold text-[#1f2a33] transition duration-300 hover:bg-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white rounded-lg"
             >
               Request a site visit
               <ArrowRight size={16} className="transition-transform duration-300 group-hover:translate-x-1" aria-hidden="true" />
-            </a>
-            <a
-              href={CONTACT}
+            </Link>
+            <Link
+              to={CONTACT}
               className="inline-flex items-center justify-center gap-2.5 border border-white/40 px-7 py-3.5 text-[14px] font-bold transition duration-300 hover:border-white hover:bg-white/10 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white rounded-lg"
             >
               <MessageSquare size={16} aria-hidden="true" />
               Contact Us
-            </a>
+            </Link>
           </div>
         </div>
       </section>

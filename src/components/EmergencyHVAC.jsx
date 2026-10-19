@@ -1,12 +1,12 @@
 // pages/EmergencyHVAC.jsx
 import { useState } from "react";
+import { Link } from "react-router-dom";
 import { Phone, MessageSquare, ArrowRight, AlertTriangle, Flame, Snowflake, Check } from "lucide-react";
 
 /* Palette: #F6F4F2 paper | #425664 slate | #C6AD8F sand | #1f2a33 ink */
 
 const CONTACT = "/contact";
 
-/* Working Direct Image Links (Updated with your Pexels & other links) */
 const IMG = {
   hero: "https://images.pexels.com/photos/12045663/pexels-photo-12045663.jpeg?_gl=1*ibec8e*_ga*MTIyNzI3MzQwOC4xNzkyMjQ5NzQx*_ga_8JE65Q40S6*czE3OTIyNDk3NDEkbzEkZzEkdDE3OTIyNTA0MjQkajUzJGwwJGgw",
   furnace: "https://images.pexels.com/photos/36423794/pexels-photo-36423794.jpeg?_gl=1*14isem5*_ga*MTIyNzI3MzQwOC4xNzkyMjQ5NzQx*_ga_8JE65Q40S6*czE3OTIyNDk3NDEkbzEkZzEkdDE3OTIyNTAwMzIkajQyJGwwJGgw",
@@ -101,10 +101,10 @@ export default function EmergencyHVAC() {
                 <Phone size={16} aria-hidden="true" />
                 Call Now
               </a>
-              <a href={CONTACT} className="inline-flex items-center justify-center gap-2.5 rounded-lg border border-white/30 bg-white/5 px-6 py-3.5 text-[14px] font-bold text-white transition-colors duration-300 hover:bg-white/10">
+              <Link to={CONTACT} className="inline-flex items-center justify-center gap-2.5 rounded-lg border border-white/30 bg-white/5 px-6 py-3.5 text-[14px] font-bold text-white transition-colors duration-300 hover:bg-white/10">
                 <MessageSquare size={16} aria-hidden="true" />
                 Contact Us
-              </a>
+              </Link>
             </div>
 
             <ul className="mt-9 flex flex-col gap-2 border-t border-white/20 pt-5 text-[13.5px] font-semibold sm:flex-row sm:gap-8">
@@ -249,10 +249,10 @@ export default function EmergencyHVAC() {
               <Phone size={16} aria-hidden="true" />
               Call Now
             </a>
-            <a href={CONTACT} className="inline-flex items-center justify-center gap-2.5 rounded-lg border border-white/30 bg-white/5 px-6 py-3.5 text-[14px] font-bold text-white transition-colors duration-300 hover:bg-white/10">
+            <Link to={CONTACT} className="inline-flex items-center justify-center gap-2.5 rounded-lg border border-white/30 bg-white/5 px-6 py-3.5 text-[14px] font-bold text-white transition-colors duration-300 hover:bg-white/10">
               <MessageSquare size={16} aria-hidden="true" />
               Contact Us
-            </a>
+            </Link>
           </div>
         </div>
       </section>

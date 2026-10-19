@@ -1,5 +1,6 @@
 // src/components/EmergencyServices.jsx
 import { useState } from "react";
+import { Link } from "react-router-dom";
 import {
   MessageSquare,
   AlertTriangle,
@@ -119,14 +120,14 @@ export default function EmergencyServices() {
             </p>
 
             <div className="mt-7 flex flex-col gap-3 sm:flex-row">
-              <a
-                href={CONTACT}
+              <Link
+                to={CONTACT}
                 className="group inline-flex items-center justify-center gap-2 rounded-lg bg-[#C6AD8F] px-6 py-3.5 text-[13px] font-bold uppercase tracking-wide text-[#1f2a33] transition-colors hover:bg-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
               >
                 <MessageSquare size={16} />
                 Contact Us
                 <ArrowUpRight size={16} className="transition-transform group-hover:-translate-y-1 group-hover:translate-x-1" />
-              </a>
+              </Link>
               <a
                 href="#emergency-types"
                 className="inline-flex items-center justify-center rounded-lg border border-white/30 bg-white/5 px-6 py-3.5 text-[13px] font-bold uppercase tracking-wide text-white backdrop-blur-sm transition hover:bg-white/10"
@@ -204,9 +205,9 @@ export default function EmergencyServices() {
                     {item.text}
                   </p>
 
-                  <a href={CONTACT} className="mt-5 inline-flex items-center gap-1.5 text-[13px] font-bold text-[#8a6f4d] hover:text-[#1f2a33] transition-all">
+                  <Link to={CONTACT} className="mt-5 inline-flex items-center gap-1.5 text-[13px] font-bold text-[#8a6f4d] hover:text-[#1f2a33] transition-all">
                     Discuss This Problem <ArrowUpRight size={15} />
-                  </a>
+                  </Link>
                 </div>
               </article>
             );
@@ -291,9 +292,9 @@ export default function EmergencyServices() {
             <p className="mt-4 text-[14px] leading-relaxed text-[#425664]">
               Read answers to common questions about plumbing emergencies, safety, availability, and service charges.
             </p>
-            <a href={CONTACT} className="mt-6 inline-flex items-center gap-2 rounded-lg bg-[#425664] px-5 py-3 text-[13px] font-bold text-white transition-colors hover:bg-[#364753]">
+            <Link to={CONTACT} className="mt-6 inline-flex items-center gap-2 rounded-lg bg-[#425664] px-5 py-3 text-[13px] font-bold text-white transition-colors hover:bg-[#364753]">
               <MessageSquare size={15} /> Contact Us
-            </a>
+            </Link>
           </div>
 
           <div className="border-t border-[#1f2a33]/10">
@@ -333,9 +334,9 @@ export default function EmergencyServices() {
             </p>
           </div>
 
-          <a href={CONTACT} className="inline-flex shrink-0 items-center justify-center gap-2 rounded-lg bg-[#C6AD8F] px-8 py-3.5 text-[14px] font-bold text-[#1f2a33] transition-colors hover:bg-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white">
+          <Link to={CONTACT} className="inline-flex shrink-0 items-center justify-center gap-2 rounded-lg bg-[#C6AD8F] px-8 py-3.5 text-[14px] font-bold text-[#1f2a33] transition-colors hover:bg-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white">
             <MessageSquare size={16} /> Contact Us <ArrowUpRight size={16} />
-          </a>
+          </Link>
         </div>
       </section>
     </main>

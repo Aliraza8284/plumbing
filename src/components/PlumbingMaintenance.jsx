@@ -1,5 +1,6 @@
 // src/components/PlumbingMaintenance.jsx
 import React from "react";
+import { Link } from "react-router-dom";
 import { Check, MessageSquare, ArrowRight, ShieldCheck, Wrench, Clock } from "lucide-react";
 
 /* Palette: #F6F4F2 paper | #425664 slate | #C6AD8F sand | #1f2a33 ink */
@@ -78,13 +79,13 @@ export default function PlumbingMaintenance() {
               </p>
 
               <div className="flex flex-wrap gap-3">
-                <a
-                  href={CONTACT}
+                <Link
+                  to={CONTACT}
                   className="inline-flex items-center gap-2 rounded-lg bg-[#425664] px-6 py-3 text-[14px] font-bold text-white transition-colors hover:bg-[#364753] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#425664]"
                 >
                   <MessageSquare size={16} />
                   Book an Inspection
-                </a>
+                </Link>
                 <a
                   href="#services"
                   className="inline-flex items-center gap-2 rounded-lg border border-[#1f2a33]/15 bg-white px-6 py-3 text-[14px] font-bold text-[#425664] transition-colors hover:border-[#425664]"
@@ -150,9 +151,9 @@ export default function PlumbingMaintenance() {
                   <p className="text-[14px] leading-relaxed text-[#425664] flex-grow">
                     {service.desc}
                   </p>
-                  <a href={CONTACT} className="mt-4 inline-flex items-center gap-1.5 text-[13px] font-bold text-[#8a6f4d] hover:text-[#1f2a33] transition-colors">
+                  <Link to={CONTACT} className="mt-4 inline-flex items-center gap-1.5 text-[13px] font-bold text-[#8a6f4d] hover:text-[#1f2a33] transition-colors">
                     Ask about this <ArrowRight size={14} />
-                  </a>
+                  </Link>
                 </div>
               </div>
             ))}
@@ -220,12 +221,12 @@ export default function PlumbingMaintenance() {
           </p>
           
           <div className="mt-8 flex flex-wrap justify-center gap-3">
-            <a
-              href={CONTACT}
+            <Link
+              to={CONTACT}
               className="inline-flex items-center gap-2 rounded-lg bg-[#425664] px-8 py-3.5 text-[14.5px] font-bold text-white transition-colors hover:bg-[#364753] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#425664]"
             >
               <MessageSquare size={16} /> Contact Us
-            </a>
+            </Link>
           </div>
         </div>
       </section>

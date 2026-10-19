@@ -1,5 +1,6 @@
 // pages/HeatPumps.jsx
 import { useState } from "react";
+import { Link } from "react-router-dom";
 import {
   Phone,
   MessageSquare,
@@ -176,13 +177,13 @@ export default function HeatPumps() {
                 Call Now
               </a>
 
-              <a
-                href={CONTACT}
+              <Link
+                to={CONTACT}
                 className="inline-flex items-center justify-center gap-2 rounded-lg border border-[#1f2a33]/20 bg-white px-6 py-3.5 text-[14px] font-bold text-[#425664] transition-colors hover:border-[#425664]"
               >
                 <MessageSquare size={16} />
                 Contact Us
-              </a>
+              </Link>
             </div>
           </div>
 
@@ -364,13 +365,13 @@ export default function HeatPumps() {
                 Call Now
               </a>
 
-              <a
-                href={CONTACT}
+              <Link
+                to={CONTACT}
                 className="inline-flex items-center justify-center gap-2.5 rounded-lg border border-white/30 bg-white/5 px-7 py-3.5 text-[14px] font-bold transition-colors hover:bg-white/10"
               >
                 <MessageSquare size={16} />
                 Contact Us
-              </a>
+              </Link>
             </div>
           </div>
         </div>

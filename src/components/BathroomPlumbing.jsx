@@ -1,5 +1,6 @@
 // src/components/BathroomPlumbing.jsx
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 import {
   Bath,
   Droplets,
@@ -105,13 +106,13 @@ export default function BathroomPlumbing() {
             </p>
 
             <div className="flex flex-wrap gap-3">
-              <a
-                href={CONTACT}
+              <Link
+                to={CONTACT}
                 className="inline-flex items-center gap-2 rounded-lg bg-[#425664] px-6 py-3 text-[14px] font-bold text-white transition-colors hover:bg-[#364753] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#425664]"
               >
                 <MessageSquare size={16} />
                 Get in Touch
-              </a>
+              </Link>
               <a
                 href="#services"
                 className="inline-flex items-center gap-2 rounded-lg border border-[#1f2a33]/15 bg-white px-6 py-3 text-[14px] font-bold text-[#425664] transition-colors hover:border-[#425664]"
@@ -158,7 +159,7 @@ export default function BathroomPlumbing() {
         </div>
       </section>
 
-      {/* ================= SERVICES (Ab borders ke sath) ================= */}
+      {/* ================= SERVICES ================= */}
       <section id="services" className="px-5 py-20 sm:px-10 sm:py-24 max-w-7xl mx-auto">
         <div className="mb-12 max-w-2xl">
           <div className="flex items-center gap-3 mb-3">
@@ -177,7 +178,6 @@ export default function BathroomPlumbing() {
             return (
               <div 
                 key={service.title} 
-                // Yahan border add kiya gaya hai
                 className="group flex flex-col rounded-xl border border-[#1f2a33]/12 bg-[#F6F4F2] p-6 transition-all duration-300 hover:border-[#425664]/30 hover:bg-white"
               >
                 <div className="mb-4 flex h-11 w-11 items-center justify-center rounded-full bg-[#425664]/5 text-[#425664] transition-colors group-hover:bg-[#425664] group-hover:text-white">
@@ -187,9 +187,9 @@ export default function BathroomPlumbing() {
                 <p className="text-[14px] leading-relaxed text-[#425664] mb-5 flex-grow">
                   {service.description}
                 </p>
-                <a href={CONTACT} className="inline-flex items-center gap-1.5 text-[13px] font-bold text-[#8a6f4d] hover:text-[#1f2a33] transition-colors mt-auto">
+                <Link to={CONTACT} className="inline-flex items-center gap-1.5 text-[13px] font-bold text-[#8a6f4d] hover:text-[#1f2a33] transition-colors mt-auto">
                   Ask about this <ArrowRight size={14} />
-                </a>
+                </Link>
               </div>
             );
           })}
@@ -233,15 +233,15 @@ export default function BathroomPlumbing() {
                   </li>
                 ))}
               </ul>
-              <a href={CONTACT} className="mt-8 inline-flex items-center gap-2 rounded-lg bg-[#C6AD8F] px-6 py-3 text-[14px] font-bold text-[#1f2a33] transition-colors hover:bg-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white">
+              <Link to={CONTACT} className="mt-8 inline-flex items-center gap-2 rounded-lg bg-[#C6AD8F] px-6 py-3 text-[14px] font-bold text-[#1f2a33] transition-colors hover:bg-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white">
                 Discuss Your Needs <ArrowRight size={16} />
-              </a>
+              </Link>
             </div>
           </div>
         </div>
       </section>
 
-      {/* ================= PROCESS (Ab borders ke sath) ================= */}
+      {/* ================= PROCESS ================= */}
       <section className="px-5 py-20 sm:px-10 sm:py-24 max-w-7xl mx-auto">
         <div className="mb-12 max-w-2xl">
           <div className="flex items-center gap-3 mb-3">
@@ -256,7 +256,6 @@ export default function BathroomPlumbing() {
             { n: "02", title: "Discuss Your Options", text: "Ask about possible solutions, estimated costs, and scheduling." },
             { n: "03", title: "Plan the Service", text: "Confirm the scope of work and arrange the next steps." },
           ].map((step) => (
-            // Yahan border add kiya gaya hai
             <div key={step.n} className="rounded-xl border border-[#1f2a33]/12 bg-[#F6F4F2] p-7">
               <span className="gf-display text-[28px] text-[#C6AD8F]">{step.n}</span>
               <h3 className="mt-2 text-[17px] font-extrabold">{step.title}</h3>
@@ -279,7 +278,6 @@ export default function BathroomPlumbing() {
               <span className="text-[#425664]">questions.</span>
             </h2>
           </div>
-          {/* FAQ ke boxes */}
           <div className="rounded-xl border border-[#1f2a33]/12 bg-[#F6F4F2] px-6 sm:px-8">
             {faqs.map((faq, index) => (
               <div key={faq.question} className="border-b border-[#1f2a33]/10 py-5 last:border-0">
@@ -302,7 +300,7 @@ export default function BathroomPlumbing() {
         </div>
       </section>
 
-      {/* ================= FINAL CTA (Border ke sath) ================= */}
+      {/* ================= FINAL CTA ================= */}
       <section className="px-5 py-20 sm:px-10 sm:py-28 max-w-4xl mx-auto text-center">
         <div className="rounded-2xl border border-[#1f2a33]/12 bg-[#F6F4F2] p-10 sm:p-14">
           <h2 className="gf-display text-[36px] sm:text-[48px] leading-tight text-[#1f2a33]">
@@ -313,12 +311,12 @@ export default function BathroomPlumbing() {
           </p>
           
           <div className="mt-8">
-            <a 
-              href={CONTACT} 
+            <Link 
+              to={CONTACT} 
               className="inline-flex items-center gap-2 rounded-lg bg-[#425664] px-8 py-3.5 text-[14.5px] font-bold text-white transition-colors hover:bg-[#364753] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#425664]"
             >
               <MessageSquare size={16} /> Contact Us
-            </a>
+            </Link>
           </div>
         </div>
       </section>

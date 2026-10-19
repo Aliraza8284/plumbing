@@ -1,5 +1,6 @@
 // src/components/HydroJetting.jsx
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 import {
   Droplets,
   CheckCircle2,
@@ -97,13 +98,13 @@ export default function HydroJetting() {
             </p>
 
             <div className="flex flex-wrap gap-3">
-              <a
-                href={CONTACT}
+              <Link
+                to={CONTACT}
                 className="inline-flex items-center gap-2 rounded-lg bg-[#425664] px-6 py-3 text-[14px] font-bold text-white transition-colors hover:bg-[#364753] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#425664]"
               >
                 <MessageSquare size={16} />
                 Contact Us
-              </a>
+              </Link>
               <a
                 href="#how-it-works"
                 className="inline-flex items-center gap-2 rounded-lg border border-[#1f2a33]/15 bg-white px-6 py-3 text-[14px] font-bold text-[#425664] transition-colors hover:border-[#425664]"
@@ -115,7 +116,6 @@ export default function HydroJetting() {
         </div>
 
         <div className="relative min-h-[350px] lg:min-h-full">
-          {/* New Professional Image: Water pressure / pipe cleaning */}
           <img
             src="https://images.unsplash.com/photo-1585704032915-c3400ca199e7?auto=format&fit=crop&w=1400&q=85"
             alt="High-pressure plumbing equipment"
@@ -175,14 +175,12 @@ export default function HydroJetting() {
           
           <div className="relative order-2 lg:order-1">
             <div className="rounded-2xl overflow-hidden border border-[#1f2a33]/10 shadow-sm">
-              {/* New Professional Image: Clean/Pipes */}
               <img
                 src="https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?auto=format&fit=crop&w=1000&q=85"
                 alt="Clean plumbing pipes"
                 className="w-full h-[400px] object-cover"
               />
             </div>
-            {/* Floating Badge */}
             <div className="absolute -bottom-5 -right-3 sm:-right-5 bg-[#425664] text-white p-5 rounded-xl shadow-lg flex items-center gap-4 border border-[#1f2a33]/10">
               <span className="grid place-items-center w-12 h-12 rounded-full bg-white/10">
                 <ShieldCheck size={24} className="text-[#C6AD8F]" />
@@ -272,9 +270,9 @@ export default function HydroJetting() {
           <p className="mx-auto mt-4 max-w-xl text-[14.5px] leading-[1.7] text-[#425664]">
             Don't let grease and roots block your pipes. Contact our team today to schedule a professional hydro-jetting service.
           </p>
-          <a href={CONTACT} className="mt-8 inline-flex items-center gap-2 rounded-lg bg-[#425664] px-8 py-3.5 text-[14px] font-bold text-white transition-colors hover:bg-[#364753] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#425664]">
+          <Link to={CONTACT} className="mt-8 inline-flex items-center gap-2 rounded-lg bg-[#425664] px-8 py-3.5 text-[14px] font-bold text-white transition-colors hover:bg-[#364753] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#425664]">
             <MessageSquare size={16} /> Contact Us
-          </a>
+          </Link>
         </div>
       </section>
 

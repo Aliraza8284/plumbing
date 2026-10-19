@@ -1,5 +1,6 @@
 // src/components/Testimonials.jsx
 import { useMemo, useState } from "react";
+import { Link } from "react-router-dom";
 import { Star, MapPin, MessageSquare, ArrowRight } from "lucide-react";
 
 /* Palette: #F6F4F2 paper | #425664 slate | #C6AD8F sand | #1f2a33 ink */
@@ -218,7 +219,7 @@ export default function Testimonials() {
           </div>
         </div>
 
-        {/* ---------- Contact CTA ---------- */}
+        {/* ---------- Contact CTA (Yahan Link use kiya gaya hai) ---------- */}
         <div className="mt-16 sm:mt-24 flex flex-col items-center text-center">
           <h2 className="gf-display text-2xl leading-tight text-[#1f2a33] sm:text-3xl">
             Ready to become our next <span className="text-[#C6AD8F]">5-star review?</span>
@@ -227,14 +228,14 @@ export default function Testimonials() {
             Flat-rate quote, licensed technician, lifetime workmanship warranty.
           </p>
           
-          <a
-            href={CONTACT}
+          <Link
+            to={CONTACT}
             className="group mt-6 inline-flex items-center gap-2 rounded-full bg-[#425664] px-7 py-3 text-[14px] font-bold text-white transition-all hover:bg-[#364753] hover:-translate-y-0.5 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#425664]"
           >
             <MessageSquare size={16} aria-hidden="true" />
             Contact Us
             <ArrowRight size={16} className="transition-transform group-hover:translate-x-1" aria-hidden="true" />
-          </a>
+          </Link>
         </div>
         
       </div>

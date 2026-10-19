@@ -1,6 +1,5 @@
 // src/components/HomePage.jsx
 import Hero from "./Hero";
-import TrustStrip from "./TrustStrip";
 import Services from "./Services";
 import About from "./About";
 import Projects from "./Projects";

@@ -16,7 +16,7 @@ export default function HomePage() {
             <Services />
 
             <WhyChooseUs />
-            <Contact />
+            {/* <Contact /> */}
         </main>
     );
 }

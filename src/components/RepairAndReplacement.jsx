@@ -1,8 +1,7 @@
 // pages/RepairAndReplacement.jsx
 import { useState } from "react";
-import { Link } from "react-router-dom";
 import {
-  MessageSquare,
+  Phone,
   ArrowRight,
   ShieldCheck,
   MoveHorizontal,
@@ -11,8 +10,9 @@ import {
 
 /* Palette: #F6F4F2 paper | #425664 slate | #C6AD8F sand | #1f2a33 ink */
 
-const CONTACT = "/contact";
 
+const PHONE_DISPLAY = "(844) 212-9186";
+const PHONE_TEL = "tel:+18442129186";
 const IMG = {
   hero: "https://images.unsplash.com/photo-1621905251918-48416bd8575a?auto=format&fit=crop&w=1800&q=85",
   before: "https://images.unsplash.com/photo-1607472586893-edb57bdc0e39?auto=format&fit=crop&w=1400&q=85",
@@ -141,6 +141,12 @@ export default function RepairAndReplacement() {
         .gf-page { font-family: 'Nunito Sans', system-ui, sans-serif; }
         .gf-page .gf-display { font-family: 'Young Serif', Georgia, serif; font-weight: 400; letter-spacing: -0.01em; }
         @media (prefers-reduced-motion: reduce) { .gf-page *, .gf-page *::before { animation: none !important; transition: none !important; } }
+        
+        /* Red Arrow Animation */
+        @keyframes pulse-x {
+          0%, 100% { transform: translateX(0); }
+          50% { transform: translateX(5px); }
+        }
       `}</style>
 
       {/* ================= HERO ================= */}
@@ -165,12 +171,13 @@ export default function RepairAndReplacement() {
           </p>
 
           <div className="mt-6 flex flex-col gap-3 sm:flex-row">
-            <Link to={CONTACT} className="inline-flex items-center justify-center gap-2 rounded-lg bg-[#C6AD8F] px-6 py-3 text-[13.5px] font-bold text-[#1f2a33] transition-colors hover:bg-white">
-              <MessageSquare size={16} />
-              Contact Us
-              <ArrowRight size={15} />
-            </Link>
-            <a href="#process" className="inline-flex items-center justify-center gap-2 rounded-lg border border-white/40 bg-white/5 px-6 py-3 text-[13.5px] font-bold text-white transition-colors hover:bg-white/10">
+            {/* Call Button Replaced */}
+            <a href={PHONE_TEL} className="inline-flex items-center justify-center gap-2.5 rounded-lg bg-[#C6AD8F] px-6 py-3.5 text-[15px] font-bold text-[#1f2a33] transition-all duration-300 hover:bg-white shadow-md hover:shadow-lg group">
+              <Phone size={18} />
+              Call {PHONE_DISPLAY}
+              <ArrowRight size={18} className="text-red-500 animate-[pulse-x_1.5s_ease-in-out_infinite] ml-1" />
+            </a>
+            <a href="#process" className="inline-flex items-center justify-center gap-2 rounded-lg border border-white/40 bg-white/5 px-6 py-3.5 text-[13.5px] font-bold text-white transition-colors hover:bg-white/10">
               How It Works
             </a>
           </div>
@@ -287,15 +294,16 @@ export default function RepairAndReplacement() {
               Not sure what's wrong with your sewer line?
             </h2>
             <p className="mt-3 max-w-[44ch] text-[14.5px] leading-relaxed text-white/80">
-              Contact us to discuss inspection and repair options. We'll give you clear answers and upfront pricing.
+              Call us to discuss inspection and repair options. We'll give you clear answers and upfront pricing.
             </p>
           </div>
           <div className="flex flex-col gap-3 sm:flex-row">
-            <Link to={CONTACT} className="group inline-flex items-center justify-center gap-2.5 rounded-lg bg-[#C6AD8F] px-7 py-3.5 text-[14px] font-bold text-[#1f2a33] transition duration-300 hover:bg-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white">
-              <MessageSquare size={16} />
-              Contact Us
-              <ArrowRight size={16} className="transition-transform duration-300 group-hover:translate-x-1" />
-            </Link>
+            {/* Big Call Button Replaced */}
+            <a href={PHONE_TEL} className="group inline-flex items-center justify-center gap-2.5 rounded-lg bg-[#C6AD8F] px-7 py-3.5 text-[15px] font-bold text-[#1f2a33] transition-all duration-300 hover:bg-white shadow-md hover:shadow-lg">
+              <Phone size={18} />
+              Call {PHONE_DISPLAY}
+              <ArrowRight size={18} className="text-red-500 animate-[pulse-x_1.5s_ease-in-out_infinite] ml-1" />
+            </a>
           </div>
         </div>
       </section>

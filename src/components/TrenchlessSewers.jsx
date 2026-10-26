@@ -1,11 +1,12 @@
 // pages/TrenchlessSewers.jsx
 import { useState } from "react";
-import { Link } from "react-router-dom";
-import { MessageSquare, ArrowRight, ChevronDown } from "lucide-react";
+import { Phone, ArrowRight, ChevronDown } from "lucide-react";
 
 /* Palette: #F6F4F2 paper | #425664 slate | #C6AD8F sand | #1f2a33 ink */
 
-const CONTACT = "/contact";
+
+const PHONE_DISPLAY = "(844) 212-9186";
+const PHONE_TEL = "tel:+18442129186";
 
 const METHODS = [
   {
@@ -41,7 +42,7 @@ const STEPS = [
 const FAQ = [
   ["Is trenchless always an option?", "No. If the pipe has sagged badly or collapsed in a way that can't be worked around, digging is the honest answer. We'll say so."],
   ["Is it cheaper?", "Not always. The repair itself can cost more than digging, but you skip paying to rebuild the driveway, patio or garden. If both options work, we quote both."],
-  ["Will it last?", "A properly installed liner or new pipe is meant to last for decades. We'll tell you what to expect for your pipe and what our workmanship warranty covers."],
+  ["Will it last?", "A properly installed liner or new pipe is meant to last for decades. We'll tell you what to expect for your specific pipe and how our work is done to code."], // Warranty hataya
 ];
 
 /* Plan view of a yard, drawn like a quick sketch */
@@ -125,6 +126,12 @@ export default function TrenchlessSewers() {
         .gf-chev { transition: transform .3s ease; }
         .gf-faq[open] .gf-chev { transform: rotate(180deg); }
         
+        /* Red Arrow Animation */
+        @keyframes pulse-x {
+          0%, 100% { transform: translateX(0); }
+          50% { transform: translateX(5px); }
+        }
+        
         @media (prefers-reduced-motion: reduce) { .gf-page *, .gf-page *::before { animation: none !important; transition: none !important; } }
       `}</style>
 
@@ -162,14 +169,12 @@ export default function TrenchlessSewers() {
           </figure>
 
           <div className="mt-8 flex flex-col gap-3 sm:flex-row">
-            <Link to={CONTACT} className="group inline-flex items-center justify-center gap-2.5 rounded-lg bg-[#425664] px-7 py-3.5 text-[14px] font-bold text-white transition duration-300 hover:bg-[#364753] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#425664]">
-              Find out if your pipe qualifies
-              <ArrowRight size={16} className="transition-transform duration-300 group-hover:translate-x-1" aria-hidden="true" />
-            </Link>
-            <Link to={CONTACT} className="group inline-flex items-center justify-center gap-2.5 rounded-lg border border-[#1f2a33]/20 px-7 py-3.5 text-[14px] font-bold text-[#425664] transition duration-300 hover:border-[#425664] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#425664]">
-              <MessageSquare size={16} className="transition-transform duration-300 group-hover:-rotate-12" aria-hidden="true" />
-              Contact Us
-            </Link>
+            {/* Call Button Replaced */}
+            <a href={PHONE_TEL} className="group inline-flex items-center justify-center gap-2.5 rounded-lg bg-[#425664] px-7 py-3.5 text-[15px] font-bold text-white transition-all duration-300 hover:bg-[#364753] shadow-md hover:shadow-lg">
+              <Phone size={18} className="text-[#C6AD8F]" />
+              Call {PHONE_DISPLAY}
+              <ArrowRight size={18} className="text-red-500 animate-[pulse-x_1.5s_ease-in-out_infinite] ml-1" />
+            </a>
           </div>
         </div>
       </section>
@@ -271,11 +276,12 @@ export default function TrenchlessSewers() {
             <p className="mt-3 max-w-[46ch] text-[14.5px] leading-relaxed text-[#1f2a33]">We start with a camera inspection, then tell you honestly whether trenchless will work.</p>
           </div>
           <div className="flex flex-col gap-3 sm:flex-row">
-            <Link to={CONTACT} className="group inline-flex items-center justify-center gap-2.5 rounded-lg bg-[#425664] px-7 py-3.5 text-[14px] font-bold text-white transition duration-300 hover:bg-[#1f2a33] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#1f2a33]">
-              <MessageSquare size={16} aria-hidden="true" />
-              Contact Us
-              <ArrowRight size={16} className="transition-transform duration-300 group-hover:translate-x-1" aria-hidden="true" />
-            </Link>
+            {/* Big Call Button Replaced */}
+            <a href={PHONE_TEL} className="group inline-flex items-center justify-center gap-2.5 rounded-lg bg-[#425664] px-7 py-3.5 text-[15px] font-bold text-white transition-all duration-300 hover:bg-[#1f2a33] shadow-md hover:shadow-lg">
+              <Phone size={18} className="text-[#C6AD8F]" />
+              Call {PHONE_DISPLAY}
+              <ArrowRight size={18} className="text-red-500 animate-[pulse-x_1.5s_ease-in-out_infinite] ml-1" />
+            </a>
           </div>
         </div>
       </section>

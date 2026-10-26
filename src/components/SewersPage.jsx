@@ -4,9 +4,9 @@ import { Phone, ArrowRight, ArrowUpRight } from "lucide-react";
 
 /* Palette: #F6F4F2 paper | #425664 slate | #C6AD8F sand | #1f2a33 ink */
 
-const PHONE = "+1 (844) 212-91-86";
-const TEL = "tel:+18442129186";
-const CONTACT = "/contact";
+
+const PHONE_DISPLAY = "(844) 212-9186";
+const PHONE_TEL = "tel:+18442129186";
 
 const services = [
   {
@@ -33,9 +33,9 @@ const services = [
   {
     id: "repair",
     title: "Repair & Replacement",
-    desc: "Full sewer line repair with lifetime workmanship warranty.",
+    desc: "Full sewer line repair with quality workmanship.", // Warranty hataya
     fit: "The pipe is cracked, sagging or collapsed, or roots have wrecked the joints.",
-    what: "We show you the damage on camera, then quote a repair of the bad section or a full replacement. Our work is covered by a lifetime workmanship warranty.",
+    what: "We show you the damage on camera, then quote a repair of the bad section or a full replacement. Our work is done to code standards.", // Warranty hataya
   },
   {
     id: "trenchless",
@@ -136,6 +136,13 @@ export default function SewersPage() {
         @keyframes gfcam { to { stroke-dashoffset: -22; } }
         .gf-link { background: linear-gradient(currentColor, currentColor) 0 100% / 0 2px no-repeat; transition: background-size .3s ease; }
         .group:hover .gf-link, .gf-link:hover, .gf-link:focus-visible { background-size: 100% 2px; }
+        
+        /* Red Arrow Animation */
+        @keyframes pulse-x {
+          0%, 100% { transform: translateX(0); }
+          50% { transform: translateX(5px); }
+        }
+        
         @media (prefers-reduced-motion: reduce) { .gf-sewers *, .gf-sewers *::before { animation: none !important; transition: none !important; } }
       `}</style>
 
@@ -147,17 +154,18 @@ export default function SewersPage() {
               Sewer problems, sorted out properly.
             </h1>
             <p className="mt-5 max-w-[48ch] text-[18px] leading-[1.7] text-[#425664]">
-              Professional sewer services with camera inspection and full warranty on every repair. We
-              look inside the pipe first, so we fix what's actually wrong and not what we guessed.
+              Professional sewer services with camera inspection and quality workmanship. We
+              look inside the pipe first, so we fix what's actually wrong and not what we guessed. {/* Warranty hataya */}
             </p>
             <div className="mt-8 flex flex-col gap-3 sm:flex-row">
-              <Link to={CONTACT} className="group inline-flex items-center justify-center gap-2.5 rounded-lg bg-[#425664] px-7 py-4 text-[16px] font-bold text-white transition duration-300 hover:bg-[#364753] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#425664]">
-                Book a camera inspection
-                <ArrowRight size={17} className="transition-transform duration-300 group-hover:translate-x-1.5" aria-hidden="true" />
-              </Link>
-              <a href={TEL} className="group inline-flex items-center justify-center gap-2.5 rounded-lg border-2 border-[#425664]/40 px-7 py-4 text-[16px] font-bold text-[#425664] transition duration-300 hover:border-[#425664] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#425664]">
-                <Phone size={16} className="transition-transform duration-300 group-hover:-rotate-12" aria-hidden="true" />
-                Call Now
+              {/* Call Button Replaced */}
+              <a href={PHONE_TEL} className="group inline-flex items-center justify-center gap-2.5 rounded-lg bg-[#425664] px-7 py-3.5 text-[16px] font-bold text-white transition-all duration-300 hover:bg-[#364753] shadow-md hover:shadow-lg">
+                <Phone size={18} className="text-[#C6AD8F]" />
+                Call {PHONE_DISPLAY}
+                <ArrowRight 
+                  size={18} 
+                  className="text-red-500 animate-[pulse-x_1.5s_ease-in-out_infinite] ml-1" 
+                />
               </a>
             </div>
             <p className="mt-5 text-[15px] text-[#425664]/85">Not sure what you need? Call and describe it. We'll tell you straight.</p>
@@ -244,9 +252,10 @@ export default function SewersPage() {
               <li>Keep kids and pets out of the affected area.</li>
               <li>Call us. We'll tell you what to do until we get there.</li>
             </ol>
-            <a href={TEL} className="mt-6 inline-flex items-center gap-2 text-[18px] font-extrabold underline decoration-2 underline-offset-4 hover:decoration-[#425664]">
+            {/* Call Link Replaced */}
+            <a href={PHONE_TEL} className="mt-6 inline-flex items-center gap-2 text-[18px] font-extrabold underline decoration-2 underline-offset-4 hover:decoration-[#425664]">
               <Phone size={18} aria-hidden="true" />
-              Call Now
+              Call {PHONE_DISPLAY}
             </a>
           </aside>
         </div>
@@ -258,16 +267,14 @@ export default function SewersPage() {
           <div className="flex flex-col items-start justify-between gap-8 rounded-[24px] bg-[#425664] p-8 text-white sm:p-12 lg:flex-row lg:items-center">
             <div>
               <h2 className="gf-display max-w-[20ch] text-[32px] leading-[1.1] sm:text-[44px]">Tell us what's going on with your sewer line.</h2>
-              <p className="mt-3 max-w-[46ch] text-[17px] leading-relaxed text-white/85">Send a message or call. We'll work out whether you need a camera look, a cleaning or a repair.</p>
+              <p className="mt-3 max-w-[46ch] text-[17px] leading-relaxed text-white/85">Call us. We'll work out whether you need a camera look, a cleaning or a repair.</p>
             </div>
             <div className="flex flex-col gap-3 sm:flex-row">
-              <Link to={CONTACT} className="group inline-flex items-center justify-center gap-2.5 rounded-lg bg-[#C6AD8F] px-7 py-4 text-[16px] font-bold text-[#1a252d] transition duration-300 hover:bg-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white">
-                <MessageSquare size={16} /> Contact Us
-                <ArrowRight size={17} className="transition-transform duration-300 group-hover:translate-x-1.5" aria-hidden="true" />
-              </Link>
-              <a href={TEL} className="inline-flex items-center justify-center gap-2.5 rounded-lg border-2 border-white/45 px-7 py-4 text-[16px] font-bold transition duration-300 hover:border-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white">
-                <Phone size={16} aria-hidden="true" />
-                Call Now
+              {/* Big Call Button Replaced */}
+              <a href={PHONE_TEL} className="group inline-flex items-center justify-center gap-2.5 rounded-lg bg-[#C6AD8F] px-7 py-3.5 text-[16px] font-bold text-[#1a252d] transition-all duration-300 hover:bg-white shadow-md hover:shadow-lg">
+                <Phone size={18} />
+                Call {PHONE_DISPLAY}
+                <ArrowRight size={18} className="text-red-500 animate-[pulse-x_1.5s_ease-in-out_infinite] ml-1" aria-hidden="true" />
               </a>
             </div>
           </div>

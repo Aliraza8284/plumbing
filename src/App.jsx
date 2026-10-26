@@ -9,10 +9,10 @@ import Footer from "./components/Footer";
 
 // Main Pages
 import HomePage from "./components/HomePage";
-import About from "./components/About";          // <- changed from AboutPage
-import Plumbing from "./components/Plumbing";    // <- changed from PlumbingPage
-import Sewers from "./components/Sewers";        // <- changed from SewersPage
-import HVAC from "./components/HVAC";            // <- changed from HVACPage
+import About from "./components/About";
+import Plumbing from "./components/Plumbing";
+import Sewers from "./components/Sewers";
+import HVAC from "./components/HVAC";
 import Coupons from "./components/Coupons";
 import ContactPage from "./components/ContactPage";
 

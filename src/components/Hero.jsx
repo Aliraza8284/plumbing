@@ -1,14 +1,11 @@
 // Hero.jsx
 import { useState, useMemo, useRef, useEffect } from "react";
-import { Phone, MapPin, ArrowRight, Star, ShieldCheck, Droplets, Waves, Fan, AlertTriangle, Loader2 } from "lucide-react";
+import { Phone, MapPin, ArrowRight, Star, ShieldCheck, Droplets, Waves, Fan, AlertTriangle, Loader2, CheckCircle2 } from "lucide-react";
 
 /* Palette: #F6F4F2 paper | #425664 slate | #C6AD8F sand | #1f2a33 ink */
 
-const PHONE = "+1 (844) 212-91-86";
-const TEL = "tel:+18442129186";
-
-const RATING = "4.9";
-const REVIEW_COUNT = "2.4K";
+const PHONE_DISPLAY = "(844) 212-9186";
+const PHONE_TEL = "tel:+18442129186";
 
 const HERO_IMAGE = "https://cdn.pixabay.com/photo/2013/12/13/21/13/plumber-228010_1280.jpg";
 const DATA_URL = "/us-zips.json";
@@ -24,16 +21,16 @@ const TABS = [
 ];
 
 const AREAS = [
-  { city: "Burbank", zips: ["91501", "91502", "91505", "91506", "91521"], response: "42 min", techs: 12, reviews: 842, neighborhoods: "Downtown, Magnolia Park, Media District, Rancho" },
-  { city: "Glendale", zips: ["91201", "91202", "91203", "91204", "91205", "91206"], response: "48 min", techs: 11, reviews: 903, neighborhoods: "Brand Blvd, Adams Hill, Chevy Chase, Verdugo" },
-  { city: "Pasadena", zips: ["91101", "91103", "91104", "91105", "91106", "91107"], response: "52 min", techs: 13, reviews: 1088, neighborhoods: "Old Town, Caltech, Bungalow Heaven, Playhouse" },
-  { city: "Hollywood", zips: ["90028", "90038", "90068", "90046"], response: "28 min", techs: 15, reviews: 1124, neighborhoods: "Walk of Fame, Hollywood Hills, Melrose, Thai Town" },
-  { city: "Santa Monica", zips: ["90401", "90402", "90403", "90404", "90405"], response: "55 min", techs: 9, reviews: 967, neighborhoods: "Ocean Ave, Montana, Wilshire, Pico" },
-  { city: "Long Beach", zips: ["90802", "90803", "90804", "90805", "90806", "90807"], response: "65 min", techs: 14, reviews: 1203, neighborhoods: "Downtown, Belmont Shore, Naples, Bixby" },
-  { city: "Culver City", zips: ["90230", "90231", "90232"], response: "45 min", techs: 7, reviews: 541, neighborhoods: "Downtown, Helms, Fox Hills, Sunkist Park" },
-  { city: "Beverly Hills", zips: ["90209", "90210", "90211", "90212"], response: "50 min", techs: 8, reviews: 412, neighborhoods: "Rodeo Drive, Trousdale, Century City, Flats" },
-  { city: "Torrance", zips: ["90501", "90502", "90503", "90504", "90505"], response: "60 min", techs: 10, reviews: 738, neighborhoods: "Old Torrance, Southwood, Walteria, Hickory" },
-  { city: "Pomona", zips: ["91766", "91767", "91768", "91769"], response: "70 min", techs: 6, reviews: 489, neighborhoods: "Downtown, Lincoln Park, Ganesha, Phillips Ranch" },
+  { city: "Burbank", zips: ["91501", "91502", "91505", "91506", "91521"], response: "42 min", neighborhoods: "Downtown, Magnolia Park, Media District, Rancho" },
+  { city: "Glendale", zips: ["91201", "91202", "91203", "91204", "91205", "91206"], response: "48 min", neighborhoods: "Brand Blvd, Adams Hill, Chevy Chase, Verdugo" },
+  { city: "Pasadena", zips: ["91101", "91103", "91104", "91105", "91106", "91107"], response: "52 min", neighborhoods: "Old Town, Caltech, Bungalow Heaven, Playhouse" },
+  { city: "Hollywood", zips: ["90028", "90038", "90068", "90046"], response: "28 min", neighborhoods: "Walk of Fame, Hollywood Hills, Melrose, Thai Town" },
+  { city: "Santa Monica", zips: ["90401", "90402", "90403", "90404", "90405"], response: "55 min", neighborhoods: "Ocean Ave, Montana, Wilshire, Pico" },
+  { city: "Long Beach", zips: ["90802", "90803", "90804", "90805", "90806", "90807"], response: "65 min", neighborhoods: "Downtown, Belmont Shore, Naples, Bixby" },
+  { city: "Culver City", zips: ["90230", "90231", "90232"], response: "45 min", neighborhoods: "Downtown, Helms, Fox Hills, Sunkist Park" },
+  { city: "Beverly Hills", zips: ["90209", "90210", "90211", "90212"], response: "50 min", neighborhoods: "Rodeo Drive, Trousdale, Century City, Flats" },
+  { city: "Torrance", zips: ["90501", "90502", "90503", "90504", "90505"], response: "60 min", neighborhoods: "Old Torrance, Southwood, Walteria, Hickory" },
+  { city: "Pomona", zips: ["91766", "91767", "91768", "91769"], response: "70 min", neighborhoods: "Downtown, Lincoln Park, Ganesha, Phillips Ranch" },
 ];
 
 const CHIPS = ["Hollywood, CA", "Austin, TX", "90028", "10001"];
@@ -514,6 +511,12 @@ const Hero = () => {
         @import url('https://fonts.googleapis.com/css2?family=Young+Serif&family=Nunito+Sans:wght@400;600;700;800&display=swap');
         .gf-hero { font-family: 'Nunito Sans', system-ui, sans-serif; }
         .gf-hero .gf-display { font-family: 'Young Serif', Georgia, serif; font-weight: 400; letter-spacing: -0.01em; }
+        
+        /* Red Arrow Animation */
+        @keyframes pulse-x {
+          0%, 100% { transform: translateX(0); }
+          50% { transform: translateX(5px); }
+        }
       `}</style>
 
       {/* Grid lines overlay */}
@@ -542,11 +545,11 @@ const Hero = () => {
         <div className="grid items-center gap-10 lg:grid-cols-12">
           {/* ================= LEFT ================= */}
           <div className="lg:col-span-6">
-            <h1 className="gf-display max-w-[16ch] text-[40px] leading-[1.05] sm:text-[58px]">
-              Your home's plumbing, fixed right the first time.
+            <h1 className="gf-display max-w-[18ch] text-[40px] leading-[1.05] sm:text-[58px]">
+              Your home's plumbing, fixed right the first time in the USA.
             </h1>
             <p className="mt-5 max-w-[50ch] text-[17px] leading-[1.7] text-[#425664]">
-              Family-owned for three generations. Licensed master plumbers, flat-rate pricing and a lifetime workmanship warranty on every job.
+              <strong>GlobalFixs</strong> connects homeowners across the <strong>USA</strong> with licensed, insured master plumbers and HVAC technicians. We help you find local pros offering flat-rate pricing. Call us at <a href={PHONE_TEL} className="font-bold text-[#1f2a33] underline">{PHONE_DISPLAY}</a> for emergencies.
             </p>
 
             {/* ===== Area finder ===== */}
@@ -559,9 +562,8 @@ const Hero = () => {
                     role="tab"
                     aria-selected={activeTab === name}
                     onClick={() => setActiveTab(name)}
-                    className={`flex items-center justify-center gap-1.5 rounded-[6px] px-1 py-2 text-[12.5px] font-bold transition-colors duration-200 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-1 focus-visible:outline-[#425664] ${
-                      activeTab === name ? "bg-[#425664] text-white" : "text-[#425664] hover:bg-[#425664]/10"
-                    }`}
+                    className={`flex items-center justify-center gap-1.5 rounded-[6px] px-1 py-2 text-[12.5px] font-bold transition-colors duration-200 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-1 focus-visible:outline-[#425664] ${activeTab === name ? "bg-[#425664] text-white" : "text-[#425664] hover:bg-[#425664]/10"
+                      }`}
                   >
                     <Icon size={14} aria-hidden="true" />
                     <span>{name}</span>
@@ -625,11 +627,10 @@ const Hero = () => {
                     key={chip}
                     type="button"
                     onClick={() => chipSearch(chip)}
-                    className={`rounded-[6px] border px-3 py-1.5 text-[13px] font-bold transition-colors duration-200 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-1 focus-visible:outline-[#425664] ${
-                      query === chip
+                    className={`rounded-[6px] border px-3 py-1.5 text-[13px] font-bold transition-colors duration-200 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-1 focus-visible:outline-[#425664] ${query === chip
                         ? "border-[#425664] bg-[#425664] text-white"
                         : "border-[#1f2a33]/15 bg-white text-[#425664] hover:border-[#425664]"
-                    }`}
+                      }`}
                   >
                     {chip}
                   </button>
@@ -691,28 +692,27 @@ const Hero = () => {
                     )}
 
                     {area && (
-                      <dl className="mt-3 grid grid-cols-3 divide-x divide-white/15 rounded-[8px] bg-white/8 text-center">
-                        <div className="px-2 py-2.5">
-                          <dt className="text-[12px] text-white/65">Typical arrival</dt>
-                          <dd className="mt-0.5 text-[15px] font-extrabold text-[#C6AD8F]">{area.response}</dd>
-                        </div>
-                        <div className="px-2 py-2.5">
-                          <dt className="text-[12px] text-white/65">Technicians</dt>
-                          <dd className="mt-0.5 text-[15px] font-extrabold">{area.techs}</dd>
-                        </div>
-                        <div className="px-2 py-2.5">
-                          <dt className="text-[12px] text-white/65">Reviews</dt>
-                          <dd className="mt-0.5 text-[15px] font-extrabold">{area.reviews}+</dd>
-                        </div>
-                      </dl>
+                      <div className="mt-4 bg-white/10 rounded-lg p-3">
+                        <p className="flex items-center gap-2 text-sm font-semibold text-white">
+                          <CheckCircle2 size={16} className="text-[#C6AD8F]" />
+                          Services Available in {area.city}
+                        </p>
+                        <p className="mt-1 text-xs text-white/70">
+                          Connecting you with independent local contractors for Plumbing, Sewer, and HVAC needs.
+                        </p>
+                      </div>
                     )}
 
                     <a
-                      href={TEL}
-                      className="mt-3 flex w-full items-center justify-center gap-2 rounded-[8px] bg-[#C6AD8F] py-3 text-[14.5px] font-bold text-[#1f2a33] transition-colors duration-200 hover:bg-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
+                      href={PHONE_TEL}
+                      className="mt-4 flex w-full items-center justify-center gap-2.5 rounded-[8px] bg-[#C6AD8F] py-3 text-[14.5px] font-bold text-[#1f2a33] transition-all duration-300 hover:bg-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white group"
                     >
-                      <Phone size={15} aria-hidden="true" />
-                      Call about {activeTab.toLowerCase()} in {result.city}
+                      <Phone size={16} aria-hidden="true" />
+                      Call {PHONE_DISPLAY}
+                      <ArrowRight
+                        size={18}
+                        className="text-red-500 animate-[pulse-x_1.5s_ease-in-out_infinite] ml-1"
+                      />
                     </a>
                   </div>
                 )}
@@ -723,9 +723,9 @@ const Hero = () => {
                     <p className="mt-1.5 text-[14px] leading-[1.55] text-[#425664]">
                       Check the spelling, or try the ZIP code. You can also add the state, like "Springfield, IL". Or call us and we'll help.
                     </p>
-                    <a href={TEL} className="mt-2.5 inline-flex items-center gap-2 text-[14.5px] font-bold underline underline-offset-2">
+                    <a href={PHONE_TEL} className="mt-2.5 inline-flex items-center gap-2 text-[14.5px] font-bold underline underline-offset-2">
                       <Phone size={14} aria-hidden="true" />
-                      {PHONE}
+                      {PHONE_DISPLAY}
                     </a>
                   </div>
                 )}
@@ -734,9 +734,9 @@ const Hero = () => {
                   <div className="mt-4 rounded-[10px] border border-[#C6AD8F] bg-[#C6AD8F]/15 p-4">
                     <p className="text-[15px] font-bold leading-tight">The area search isn't available right now</p>
                     <p className="mt-1.5 text-[14px] leading-[1.55] text-[#425664]">Please try again in a moment, or call us and we'll check your area.</p>
-                    <a href={TEL} className="mt-2.5 inline-flex items-center gap-2 text-[14.5px] font-bold underline underline-offset-2">
+                    <a href={PHONE_TEL} className="mt-2.5 inline-flex items-center gap-2 text-[14.5px] font-bold underline underline-offset-2">
                       <Phone size={14} aria-hidden="true" />
-                      {PHONE}
+                      {PHONE_DISPLAY}
                     </a>
                   </div>
                 )}
@@ -755,10 +755,10 @@ const Hero = () => {
               <HeroPhoto />
               <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-[#1f2a33]/90 via-[#1f2a33]/50 to-transparent px-5 pb-5 pt-16 text-white">
                 <p className="flex items-center gap-2 text-[15px] font-bold">
-                  <Star size={16} className="fill-[#C6AD8F] text-[#C6AD8F]" aria-hidden="true" />
-                  {RATING} average from {REVIEW_COUNT} reviews
+                  <ShieldCheck size={18} className="text-[#C6AD8F]" aria-hidden="true" />
+                  Trusted Local Network
                 </p>
-                <p className="mt-1 text-[14px] text-white/80">Licensed master plumbers and HVAC technicians</p>
+                <p className="mt-1 text-[14px] text-white/80">Connecting you with independent licensed plumbers & HVAC technicians</p>
               </div>
             </div>
           </div>

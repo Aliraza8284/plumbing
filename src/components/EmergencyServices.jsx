@@ -1,20 +1,21 @@
 // src/components/EmergencyServices.jsx
 import { useState } from "react";
-import { Link } from "react-router-dom";
 import {
-  MessageSquare,
+  Phone,
   AlertTriangle,
   Droplets,
   Waves,
   Wrench,
   ShieldAlert,
-  CheckCircle2,
-  ArrowUpRight,
+  ArrowRight,
   ChevronDown,
   Clock,
 } from "lucide-react";
 
-const CONTACT = "/contact";
+/* Palette: #F6F4F2 paper | #425664 slate | #C6AD8F sand | #1f2a33 ink */
+
+const PHONE_DISPLAY = "(844) 212-9186";
+const PHONE_TEL = "tel:+18442129186";
 
 const emergencies = [
   {
@@ -50,7 +51,7 @@ const emergencies = [
 const faqs = [
   {
     q: "What should I do first when a pipe bursts?",
-    a: "If safe, turn off your main water supply. Keep away from standing water near electrical equipment, protect belongings only if safe, and contact a qualified plumbing professional.",
+    a: "If safe, turn off your main water supply. Keep away from standing water near electrical equipment, protect belongings only if safe, and call a qualified plumbing professional.",
   },
   {
     q: "What if water is near electrical outlets?",
@@ -75,6 +76,12 @@ export default function EmergencyServices() {
         @import url('https://fonts.googleapis.com/css2?family=Young+Serif&family=Nunito+Sans:wght@400;600;700;800;900&display=swap');
         .gf-page { font-family: 'Nunito Sans', system-ui, sans-serif; }
         .gf-page .gf-display { font-family: 'Young Serif', Georgia, serif; font-weight: 400; letter-spacing: -0.01em; }
+        
+        /* Red Arrow Animation */
+        @keyframes pulse-x {
+          0%, 100% { transform: translateX(0); }
+          50% { transform: translateX(5px); }
+        }
       `}</style>
 
       {/* Alert Bar */}
@@ -115,19 +122,20 @@ export default function EmergencyServices() {
 
             <p className="mt-5 max-w-xl text-[14px] leading-7 text-white/80 sm:text-[15px]">
               Burst pipes, active leaks, flooding, and sewer backups can cause 
-              serious disruption. Learn the right first steps and contact a 
+              serious disruption. Learn the right first steps and call a 
               plumbing provider immediately.
             </p>
 
             <div className="mt-7 flex flex-col gap-3 sm:flex-row">
-              <Link
-                to={CONTACT}
-                className="group inline-flex items-center justify-center gap-2 rounded-lg bg-[#C6AD8F] px-6 py-3.5 text-[13px] font-bold uppercase tracking-wide text-[#1f2a33] transition-colors hover:bg-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
+              {/* Call Button Replaced */}
+              <a
+                href={PHONE_TEL}
+                className="group inline-flex items-center justify-center gap-2.5 rounded-lg bg-[#C6AD8F] px-6 py-3.5 text-[14px] font-bold uppercase tracking-wide text-[#1f2a33] transition-all duration-300 hover:bg-white shadow-md hover:shadow-lg"
               >
-                <MessageSquare size={16} />
-                Contact Us
-                <ArrowUpRight size={16} className="transition-transform group-hover:-translate-y-1 group-hover:translate-x-1" />
-              </Link>
+                <Phone size={18} />
+                Call {PHONE_DISPLAY}
+                <ArrowRight size={18} className="text-red-500 animate-[pulse-x_1.5s_ease-in-out_infinite] ml-1" />
+              </a>
               <a
                 href="#emergency-types"
                 className="inline-flex items-center justify-center rounded-lg border border-white/30 bg-white/5 px-6 py-3.5 text-[13px] font-bold uppercase tracking-wide text-white backdrop-blur-sm transition hover:bg-white/10"
@@ -175,7 +183,7 @@ export default function EmergencyServices() {
           </h2>
           <p className="mt-4 text-[15px] leading-relaxed text-[#425664]">
             Not every plumbing issue requires the same response. Explore 
-            these common emergencies and learn when to arrange professional help.
+            these common emergencies and learn when to call a professional.
           </p>
         </div>
 
@@ -205,9 +213,10 @@ export default function EmergencyServices() {
                     {item.text}
                   </p>
 
-                  <Link to={CONTACT} className="mt-5 inline-flex items-center gap-1.5 text-[13px] font-bold text-[#8a6f4d] hover:text-[#1f2a33] transition-all">
-                    Discuss This Problem <ArrowUpRight size={15} />
-                  </Link>
+                  {/* Call Link Replaced */}
+                  <a href={PHONE_TEL} className="mt-5 inline-flex items-center gap-1.5 text-[13px] font-bold text-[#8a6f4d] hover:text-[#1f2a33] transition-all">
+                    Call for help <ArrowRight size={15} />
+                  </a>
                 </div>
               </article>
             );
@@ -292,9 +301,12 @@ export default function EmergencyServices() {
             <p className="mt-4 text-[14px] leading-relaxed text-[#425664]">
               Read answers to common questions about plumbing emergencies, safety, availability, and service charges.
             </p>
-            <Link to={CONTACT} className="mt-6 inline-flex items-center gap-2 rounded-lg bg-[#425664] px-5 py-3 text-[13px] font-bold text-white transition-colors hover:bg-[#364753]">
-              <MessageSquare size={15} /> Contact Us
-            </Link>
+            {/* Call Button Replaced */}
+            <a href={PHONE_TEL} className="mt-6 inline-flex items-center gap-2.5 rounded-lg bg-[#425664] px-5 py-3 text-[13px] font-bold text-white transition-all duration-300 hover:bg-[#364753] group shadow-md">
+              <Phone size={16} className="text-[#C6AD8F]" />
+              Call {PHONE_DISPLAY}
+              <ArrowRight size={16} className="text-red-500 animate-[pulse-x_1.5s_ease-in-out_infinite] ml-1" />
+            </a>
           </div>
 
           <div className="border-t border-[#1f2a33]/10">
@@ -334,9 +346,12 @@ export default function EmergencyServices() {
             </p>
           </div>
 
-          <Link to={CONTACT} className="inline-flex shrink-0 items-center justify-center gap-2 rounded-lg bg-[#C6AD8F] px-8 py-3.5 text-[14px] font-bold text-[#1f2a33] transition-colors hover:bg-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white">
-            <MessageSquare size={16} /> Contact Us <ArrowUpRight size={16} />
-          </Link>
+          {/* Big Call Button Replaced */}
+          <a href={PHONE_TEL} className="inline-flex shrink-0 items-center justify-center gap-2.5 rounded-lg bg-[#C6AD8F] px-8 py-4 text-[15px] font-bold text-[#1f2a33] transition-all duration-300 hover:bg-white group shadow-md hover:shadow-lg">
+            <Phone size={18} />
+            Call {PHONE_DISPLAY}
+            <ArrowRight size={18} className="text-red-500 animate-[pulse-x_1.5s_ease-in-out_infinite] ml-1" />
+          </a>
         </div>
       </section>
     </main>

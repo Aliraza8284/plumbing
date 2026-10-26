@@ -1,11 +1,11 @@
 // pages/Cleaning.jsx
 import { useState, useRef, useEffect } from "react";
-import { Link } from "react-router-dom";
-import { MessageSquare, ArrowRight, RotateCcw, Sparkles } from "lucide-react";
+import { ArrowRight, RotateCcw, Sparkles, Phone } from "lucide-react";
 
 /* Palette: #F6F4F2 paper | #425664 slate | #C6AD8F sand | #1f2a33 ink */
 
-const CONTACT = "/contact";
+const PHONE_DISPLAY = "(844) 212-9186";
+const PHONE_TEL = "tel:+18442129186";
 
 const IN_THE_WAY = [
   ["Grease and soap scum", "It goes down the drain as liquid and cools into a coating on the pipe walls. It builds up layer by layer."],
@@ -245,6 +245,12 @@ export default function Cleaning() {
         .gf-page { font-family: 'Nunito Sans', system-ui, sans-serif; }
         .gf-page .gf-display { font-family: 'Young Serif', Georgia, serif; font-weight: 400; letter-spacing: -0.01em; }
         @media (prefers-reduced-motion: reduce) { .gf-page *, .gf-page *::before { animation: none !important; transition: none !important; } }
+        
+        /* Red Arrow Animation */
+        @keyframes pulse-x {
+          0%, 100% { transform: translateX(0); }
+          50% { transform: translateX(5px); }
+        }
       `}</style>
 
       {/* ================= Hero ================= */}
@@ -278,14 +284,15 @@ export default function Cleaning() {
           </div>
 
           <div className="mt-8 flex flex-col gap-3 sm:flex-row">
-            <Link to={CONTACT} className="group inline-flex items-center justify-center gap-2.5 rounded-lg bg-[#425664] px-7 py-3.5 text-[14px] font-bold text-white transition duration-300 hover:bg-[#364753] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#425664]">
-              Book a sewer cleaning
-              <ArrowRight size={16} className="transition-transform duration-300 group-hover:translate-x-1" aria-hidden="true" />
-            </Link>
-            <Link to={CONTACT} className="group inline-flex items-center justify-center gap-2.5 rounded-lg border border-[#1f2a33]/20 px-7 py-3.5 text-[14px] font-bold text-[#425664] transition duration-300 hover:border-[#425664] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#425664]">
-              <MessageSquare size={16} className="transition-transform duration-300 group-hover:-rotate-12" aria-hidden="true" />
-              Contact Us
-            </Link>
+            {/* Call Button */}
+            <a href={PHONE_TEL} className="group inline-flex items-center justify-center gap-2.5 rounded-lg bg-[#425664] px-7 py-3.5 text-[14px] font-bold text-white transition-all duration-300 hover:bg-[#364753] shadow-md hover:shadow-lg">
+              <Phone size={16} className="text-[#C6AD8F]" />
+              Call {PHONE_DISPLAY}
+              <ArrowRight 
+                size={18} 
+                className="text-red-500 animate-[pulse-x_1.5s_ease-in-out_infinite] ml-1" 
+              />
+            </a>
           </div>
         </div>
       </section>
@@ -368,11 +375,15 @@ export default function Cleaning() {
               </p>
             </div>
             <div className="flex flex-col gap-3 sm:flex-row">
-              <Link to={CONTACT} className="group inline-flex items-center justify-center gap-2.5 rounded-lg bg-[#C6AD8F] px-7 py-3.5 text-[14px] font-bold text-[#1f2a33] transition duration-300 hover:bg-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white">
-                <MessageSquare size={16} aria-hidden="true" />
-                Contact Us
-                <ArrowRight size={16} className="transition-transform duration-300 group-hover:translate-x-1" aria-hidden="true" />
-              </Link>
+              {/* Big Call Button */}
+              <a href={PHONE_TEL} className="group inline-flex items-center justify-center gap-2.5 rounded-lg bg-[#C6AD8F] px-7 py-3.5 text-[15px] font-bold text-[#1f2a33] transition-all duration-300 hover:bg-white shadow-md hover:shadow-lg">
+                <Phone size={18} />
+                Call {PHONE_DISPLAY}
+                <ArrowRight 
+                  size={18} 
+                  className="text-red-500 animate-[pulse-x_1.5s_ease-in-out_infinite] ml-1" 
+                />
+              </a>
             </div>
           </div>
         </div>

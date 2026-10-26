@@ -1,9 +1,8 @@
 // src/components/HVAC.jsx
 import { Link } from "react-router-dom";
-import { Phone, MessageSquare, ArrowRight } from "lucide-react";
+import { Phone, ArrowRight } from "lucide-react";
 
-const CONTACT = "/contact";
-const PHONE_DISPLAY = "+1 (844) 212-91-86";
+const PHONE_DISPLAY = "(844) 212-9186";
 const PHONE_TEL = "tel:+18442129186";
 
 const IMG = {
@@ -50,6 +49,12 @@ export default function HVAC() {
         .gf-page details > summary::-webkit-details-marker { display: none; }
         .gf-page details[open] .gf-plus { transform: rotate(45deg); }
         @media (prefers-reduced-motion: reduce) { .gf-page *, .gf-page *::before { animation: none !important; transition: none !important; } }
+        
+        /* Red Arrow Animation */
+        @keyframes pulse-x {
+          0%, 100% { transform: translateX(0); }
+          50% { transform: translateX(5px); }
+        }
       `}</style>
 
       {/* ---------- HERO ---------- */}
@@ -69,12 +74,15 @@ export default function HVAC() {
               Installation, repair, and maintenance for heat pumps, AC, and furnaces. One team for the whole system — no juggling contractors.
             </p>
             <div className="flex flex-col gap-3 sm:flex-row lg:justify-end">
-              <a href={PHONE_TEL} className="inline-flex items-center justify-center gap-2 bg-[#425664] px-6 py-3.5 text-[14px] font-bold text-white hover:bg-[#364753] transition-colors">
-                <Phone size={16} /> {PHONE_DISPLAY}
+              {/* Call Button Replaced */}
+              <a href={PHONE_TEL} className="inline-flex items-center justify-center gap-2.5 bg-[#425664] px-6 py-3.5 text-[15px] font-bold text-white hover:bg-[#364753] transition-all duration-300 shadow-md hover:shadow-lg group rounded-lg">
+                <Phone size={18} className="text-[#C6AD8F]" />
+                Call {PHONE_DISPLAY}
+                <ArrowRight 
+                  size={18} 
+                  className="text-red-500 animate-[pulse-x_1.5s_ease-in-out_infinite] ml-1" 
+                />
               </a>
-              <Link to={CONTACT} className="inline-flex items-center justify-center gap-2 border border-[#1f2a33]/25 px-6 py-3.5 text-[14px] font-bold text-[#425664] hover:border-[#1f2a33] transition-colors">
-                <MessageSquare size={16} /> Contact
-              </Link>
             </div>
           </div>
         </div>
@@ -173,15 +181,18 @@ export default function HVAC() {
             </h2>
             <div className="lg:text-right">
               <p className="max-w-[44ch] text-[15px] leading-relaxed text-[#425664] lg:ml-auto">
-                Call us or send a message. We'll tell you what's wrong and what it'll cost.
+                Call us directly. We'll tell you what's wrong and what it'll cost.
               </p>
               <div className="mt-6 flex flex-col gap-3 sm:flex-row lg:justify-end">
-                <a href={PHONE_TEL} className="inline-flex items-center justify-center gap-2 bg-[#425664] px-6 py-3.5 text-[14px] font-bold text-white hover:bg-[#364753] transition-colors">
-                  <Phone size={16} /> {PHONE_DISPLAY}
+                {/* Big Call Button Replaced */}
+                <a href={PHONE_TEL} className="inline-flex items-center justify-center gap-2.5 bg-[#425664] px-7 py-3.5 text-[15px] font-bold text-white hover:bg-[#364753] transition-all duration-300 shadow-md hover:shadow-lg group rounded-lg">
+                  <Phone size={18} className="text-[#C6AD8F]" />
+                  Call {PHONE_DISPLAY}
+                  <ArrowRight 
+                    size={18} 
+                    className="text-red-500 animate-[pulse-x_1.5s_ease-in-out_infinite] ml-1" 
+                  />
                 </a>
-                <Link to={CONTACT} className="inline-flex items-center justify-center gap-2 border border-[#1f2a33]/25 px-6 py-3.5 text-[14px] font-bold text-[#425664] hover:border-[#1f2a33] transition-colors">
-                  <MessageSquare size={16} /> Contact
-                </Link>
               </div>
             </div>
           </div>

@@ -1,33 +1,33 @@
 // src/components/Coupons.jsx
 import { Link } from "react-router-dom";
 import {
-  MessageSquare,
+  Phone,
   ArrowRight,
   ShieldCheck,
   Clock,
   ThumbsUp,
   BadgeCheck,
-  Wrench,
+  Search,
   Droplets,
   Flame,
   Camera,
-  Search,
 } from "lucide-react";
 
 /* Palette: #F6F4F2 paper | #425664 slate | #C6AD8F sand | #1f2a33 ink */
 
-const CONTACT = "/contact";
+const PHONE_DISPLAY = "(844) 212-9186";
+const PHONE_TEL = "tel:+18442129186";
 
 const GUARANTEES = [
   {
     icon: ShieldCheck,
-    title: "Lifetime Workmanship",
-    text: "Our repairs are backed by a written warranty. If something we fixed fails, we make it right.",
+    title: "Quality Workmanship",
+    text: "We connect you with professionals who stand behind their work and use quality materials.",
   },
   {
     icon: Clock,
     title: "On-Time Arrival",
-    text: "We respect your schedule. Our technicians arrive in the promised window, ready to work.",
+    text: "We respect your schedule. Our local technicians arrive in the promised window, ready to work.",
   },
   {
     icon: BadgeCheck,
@@ -37,7 +37,7 @@ const GUARANTEES = [
   {
     icon: ThumbsUp,
     title: "Clean Job Sites",
-    text: "We lay down floor protection and clean up after ourselves. We leave your home better than we found it.",
+    text: "Professionals lay down floor protection and clean up after themselves. We leave your home better than we found it.",
   },
 ];
 
@@ -76,6 +76,12 @@ export default function Coupons() {
         .gf-page { font-family: 'Nunito Sans', system-ui, sans-serif; }
         .gf-page .gf-display { font-family: 'Young Serif', Georgia, serif; font-weight: 400; letter-spacing: -0.01em; }
         @media (prefers-reduced-motion: reduce) { .gf-page *, .gf-page *::before { animation: none !important; transition: none !important; } }
+        
+        /* Red Arrow Animation */
+        @keyframes pulse-x {
+          0%, 100% { transform: translateX(0); }
+          50% { transform: translateX(5px); }
+        }
       `}</style>
 
       {/* ================= Header + How to Redeem ================= */}
@@ -95,17 +101,22 @@ export default function Coupons() {
             </h1>
             
             <p className="mt-5 max-w-[44ch] text-[15.5px] leading-relaxed text-[#425664]">
-              We don't just fix pipes. We back every job with clear pricing, 
-              respectful technicians, and a warranty you can count on.
+              We don't just connect you with pros. We help you find flat-rate pricing, 
+              respectful technicians, and clear communication.
             </p>
             
-            <Link
-              to={CONTACT}
-              className="mt-8 inline-flex items-center gap-2 rounded-lg bg-[#425664] px-6 py-3.5 text-[14px] font-bold text-white transition-colors duration-300 hover:bg-[#364753] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#425664]"
+            {/* Call Button Replaced */}
+            <a
+              href={PHONE_TEL}
+              className="mt-8 inline-flex items-center gap-2.5 rounded-lg bg-[#425664] px-6 py-3.5 text-[15px] font-bold text-white transition-all duration-300 hover:bg-[#364753] shadow-md hover:shadow-lg group"
             >
-              <MessageSquare size={16} aria-hidden="true" />
-              Contact Us
-            </Link>
+              <Phone size={18} className="text-[#C6AD8F]" />
+              Call {PHONE_DISPLAY}
+              <ArrowRight 
+                size={20} 
+                className="text-red-500 animate-[pulse-x_1.5s_ease-in-out_infinite] ml-1" 
+              />
+            </a>
           </div>
 
           <div className="rounded-xl border border-[#1f2a33]/10 bg-[#F6F4F2] p-6 sm:p-8">
@@ -115,10 +126,10 @@ export default function Coupons() {
             
             <ol className="mt-4 space-y-0">
               {[
-                ["Inspect first", "We diagnose the problem before quoting any work."],
-                ["Explain clearly", "We show you the issue and explain your options."],
-                ["Approve the price", "You agree to the flat rate before we start."],
-                ["Fix it right", "We complete the work, clean up, and back it with our warranty."],
+                ["Inspect first", "We help you find pros who diagnose the problem before quoting any work."],
+                ["Explain clearly", "The technicians show you the issue and explain your options."],
+                ["Approve the price", "You agree to the flat rate before they start."],
+                ["Fix it right", "The work is completed, cleaned up, and backed by professional standards."],
               ].map(([t, d], i) => (
                 <li key={t} className="flex gap-4 border-b border-[#1f2a33]/10 py-4 last:border-0 last:pb-0">
                   <span className="gf-display flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-[#C6AD8F]/20 text-[14px] text-[#8a6f4d]">
@@ -135,7 +146,7 @@ export default function Coupons() {
         </div>
       </section>
 
-      {/* ================= Guarantees (Replacing Current Offers) ================= */}
+      {/* ================= Guarantees ================= */}
       <section className="py-16 sm:py-24">
         <div className="mx-auto max-w-7xl px-5 sm:px-8">
           <div className="mb-10 max-w-2xl">
@@ -216,18 +227,22 @@ export default function Coupons() {
                 Ready to book?
               </h2>
               <p className="mt-3 max-w-[44ch] text-[14.5px] leading-relaxed text-white/80">
-                Contact us today. We'll diagnose the problem, explain your options, and give you a flat-rate quote before any work begins.
+                Call us today. We'll help you find a pro who will diagnose the problem, explain your options, and give you a flat-rate quote before any work begins.
               </p>
             </div>
             <div className="flex flex-col gap-3 sm:flex-row">
-              <Link 
-                to={CONTACT} 
-                className="group inline-flex items-center justify-center gap-2.5 rounded-lg bg-[#C6AD8F] px-7 py-3.5 text-[14px] font-bold text-[#1f2a33] transition-colors duration-300 hover:bg-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
+              {/* Call Button Replaced */}
+              <a 
+                href={PHONE_TEL} 
+                className="group inline-flex items-center justify-center gap-2.5 rounded-lg bg-[#C6AD8F] px-7 py-3.5 text-[15px] font-bold text-[#1f2a33] transition-all duration-300 hover:bg-white shadow-md hover:shadow-lg"
               >
-                <MessageSquare size={16} aria-hidden="true" />
-                Contact Us
-                <ArrowRight size={16} className="transition-transform duration-300 group-hover:translate-x-1" aria-hidden="true" />
-              </Link>
+                <Phone size={18} />
+                Call {PHONE_DISPLAY}
+                <ArrowRight 
+                  size={18} 
+                  className="text-red-500 animate-[pulse-x_1.5s_ease-in-out_infinite] ml-1" 
+                />
+              </a>
             </div>
           </div>
         </div>

@@ -1,8 +1,7 @@
 // pages/LeakDetection.jsx
 import { useState, useRef } from "react";
-import { Link } from "react-router-dom";
 import {
-  MessageSquare,
+  Phone,
   ArrowRight,
   Check,
   Waves,
@@ -19,7 +18,8 @@ import {
 
 /* Palette: #F6F4F2 paper | #425664 slate | #C6AD8F sand | #1f2a33 ink */
 
-const CONTACT = "/contact";
+const PHONE_DISPLAY = "(844) 212-9186";
+const PHONE_TEL = "tel:+18442129186";
 
 /* ---------- Hero artwork: a wall with a hidden leak, revealed by a scanner lens ---------- */
 const W = 1000, H = 420, R = 118;
@@ -116,7 +116,7 @@ const METER = [
   "Turn off every tap and appliance that uses water.",
   "Find your water meter and its small leak indicator (a dial or triangle).",
   "If it's moving, or the reading changes after 30 minutes, water is going somewhere.",
-  "Contact us before the damage spreads.",
+  "Call us before the damage spreads.",
 ];
 
 const SIGNS = [
@@ -153,6 +153,12 @@ export default function LeakDetection() {
         
         .gf-ring { transform-box: fill-box; transform-origin: center; animation: gfripple 4s ease-out infinite; }
         @media (prefers-reduced-motion: reduce) { .gf-page *, .gf-page *::before { animation: none !important; transition: none !important; } }
+        
+        /* Red Arrow Animation */
+        @keyframes pulse-x {
+          0%, 100% { transform: translateX(0); }
+          50% { transform: translateX(5px); }
+        }
       `}</style>
 
       {/* ================= Hero: centered, scanner is the star ================= */}
@@ -276,11 +282,15 @@ export default function LeakDetection() {
             </p>
           </div>
           <div className="flex flex-col gap-3 sm:flex-row">
-            <Link to={CONTACT} className="group inline-flex items-center justify-center gap-2.5 rounded-lg bg-[#C6AD8F] px-7 py-3.5 text-[14px] font-bold text-[#1f2a33] transition duration-300 hover:-translate-y-0.5 hover:bg-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white">
-              <MessageSquare size={16} aria-hidden="true" />
-              Contact Us
-              <ArrowRight size={16} className="transition-transform duration-300 group-hover:translate-x-1" aria-hidden="true" />
-            </Link>
+            {/* Big Call Button Replaced */}
+            <a href={PHONE_TEL} className="group inline-flex items-center justify-center gap-2.5 rounded-lg bg-[#C6AD8F] px-7 py-3.5 text-[15px] font-bold text-[#1f2a33] transition-all duration-300 hover:-translate-y-0.5 hover:bg-white shadow-md hover:shadow-lg">
+              <Phone size={18} />
+              Call {PHONE_DISPLAY}
+              <ArrowRight 
+                size={18} 
+                className="text-red-500 animate-[pulse-x_1.5s_ease-in-out_infinite] ml-1" 
+              />
+            </a>
           </div>
         </div>
       </section>

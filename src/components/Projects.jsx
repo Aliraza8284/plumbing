@@ -1,7 +1,10 @@
 // src/components/Projects.jsx
 import React from "react";
-import { Link } from "react-router-dom";
-import { ArrowUpRight, Droplets, Flame, Wrench } from "lucide-react";
+import { Phone, ArrowUpRight, Droplets, Flame, Wrench, ArrowRight } from "lucide-react";
+
+
+const PHONE_DISPLAY = "(844) 212-9186";
+const PHONE_TEL = "tel:+18442129186";
 
 const projects = [
   {
@@ -47,7 +50,7 @@ export default function Projects() {
         {projects.map(({ tag, title, color, icon: Icon }, i) => (
           <article
             key={title}
-            className="group overflow-hidden rounded-xl border border-[#1f2a33]/10 bg-white shadow-sm transition-all hover:-translate-y-1 hover:shadow-md"
+            className="group overflow-hidden rounded-xl border border-[#1f2a33]/10 bg-white shadow-sm transition-all hover:-translate-y-1 hover:shadow-md flex flex-col"
           >
             {/* Card Header Image/Graphic area */}
             <div className={`relative grid h-56 place-items-center bg-gradient-to-br ${color}`}>
@@ -65,24 +68,34 @@ export default function Projects() {
             </div>
 
             {/* Card Content */}
-            <div className="p-6">
-              <h3 className="text-[18px] font-extrabold text-[#1f2a33] leading-snug">
+            <div className="p-6 flex flex-col flex-grow">
+              <h3 className="text-[18px] font-extrabold text-[#1f2a33] leading-snug flex-grow">
                 {title}
               </h3>
-              <Link
-                to="/contact"
-                className="mt-5 inline-flex items-center gap-2 text-[13px] font-bold text-[#8a6f4d] transition-colors hover:text-[#1f2a33]"
+              {/* Call Link Replaced */}
+              <a
+                href={PHONE_TEL}
+                className="mt-5 inline-flex items-center gap-2 text-[13px] font-bold text-[#8a6f4d] transition-colors hover:text-[#1f2a33] group/call"
               >
-                Discuss a similar job{" "}
-                <ArrowUpRight
+                <Phone size={14} /> 
+                Call for similar work
+                <ArrowRight
                   size={16}
-                  className="transition-transform duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5"
+                  className="text-red-500 animate-[pulse-x_1.5s_ease-in-out_infinite] ml-1"
                 />
-              </Link>
+              </a>
             </div>
           </article>
         ))}
       </div>
+
+      {/* Custom Animation for the Red Arrow */}
+      <style>{`
+        @keyframes pulse-x {
+          0%, 100% { transform: translateX(0); }
+          50% { transform: translateX(5px); }
+        }
+      `}</style>
     </section>
   );
 }

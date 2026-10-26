@@ -5,43 +5,38 @@ import {
   Clock,
   BadgeCheck,
   MapPin,
-  MessageSquare,
-  Star,
+  Phone,
+  CheckCircle2,
   ArrowRight,
 } from "lucide-react";
 
 /* Palette: #F6F4F2 paper | #425664 slate | #C6AD8F sand | #1f2a33 ink */
 
-const CONTACT = "/contact";
+
+const PHONE_DISPLAY = "(844) 212-9186";
+const PHONE_TEL = "tel:+18442129186";
 
 const FEATURES = [
   {
     Icon: ShieldCheck,
     title: "Licensed & insured",
-    text: "Master plumbers, bonded and insured — lifetime workmanship warranty.",
+    text: "We connect you with master plumbers who are bonded and insured.",
   },
   {
     Icon: Clock,
-    title: "24/7 emergency",
-    text: "A live technician answers and a truck rolls out — day or night.",
+    title: "Urgent response",
+    text: "A live technician answers your call to dispatch help for urgent needs.",
   },
   {
     Icon: BadgeCheck,
     title: "Flat-rate pricing",
-    text: "You approve the price before we start. No hourly surprises.",
+    text: "You approve the price before work starts. No hourly surprises.",
   },
   {
     Icon: MapPin,
-    title: "Local & family-owned",
-    text: "Three generations serving Greater Los Angeles.",
+    title: "Local network",
+    text: "Connecting you with trusted technicians serving your local area.",
   },
-];
-
-const STATS = [
-  { value: "35+", label: "Years" },
-  { value: "40+", label: "Technicians" },
-  { value: "12K+", label: "Jobs" },
-  { value: "4.9", label: "Rating" },
 ];
 
 export default function WhyChooseUs() {
@@ -51,6 +46,12 @@ export default function WhyChooseUs() {
         @import url('https://fonts.googleapis.com/css2?family=Young+Serif&family=Nunito+Sans:wght@400;600;700;800&display=swap');
         .gf-why { font-family: 'Nunito Sans', system-ui, sans-serif; }
         .gf-why .gf-display { font-family: 'Young Serif', Georgia, serif; font-weight: 400; letter-spacing: -0.01em; }
+        
+        /* Red Arrow Animation */
+        @keyframes pulse-x {
+          0%, 100% { transform: translateX(0); }
+          50% { transform: translateX(5px); }
+        }
       `}</style>
 
       {/* soft grid lines */}
@@ -68,7 +69,7 @@ export default function WhyChooseUs() {
 
       <div className="gf-why relative mx-auto max-w-6xl px-5 py-12 sm:px-8 sm:py-14">
         <div className="grid gap-8 lg:grid-cols-12 lg:gap-10">
-          {/* LEFT: heading + features + stats */}
+          {/* LEFT: heading + features */}
           <div className="lg:col-span-7">
             <div className="flex items-center gap-3">
               <span className="h-px w-8 bg-[#C6AD8F]" aria-hidden="true" />
@@ -80,8 +81,7 @@ export default function WhyChooseUs() {
               Fix it right the first time.
             </h2>
             <p className="mt-3 max-w-lg text-sm leading-relaxed text-[#425664]">
-              Family-owned for three generations. Licensed technicians, flat-rate
-              pricing, lifetime warranty — no shortcuts, no surprises.
+              We connect you with trusted local professionals. Enjoy flat-rate pricing and reliable service — no shortcuts, no surprises.
             </p>
 
             {/* Feature grid (2×2) */}
@@ -107,46 +107,25 @@ export default function WhyChooseUs() {
                 ))}
               </div>
             </div>
-
-            {/* Stats strip */}
-            <dl className="mt-5 grid grid-cols-4 gap-2">
-              {STATS.map((s) => (
-                <div
-                  key={s.label}
-                  className="rounded-lg border border-[#1f2a33]/10 bg-white px-2 py-2.5 text-center"
-                >
-                  <dd className="gf-display text-[18px] text-[#1f2a33]">
-                    {s.value}
-                  </dd>
-                  <dt className="mt-0.5 text-[10px] font-semibold uppercase tracking-wide text-[#425664]">
-                    {s.label}
-                  </dt>
-                </div>
-              ))}
-            </dl>
           </div>
 
-          {/* RIGHT: testimonial + CTA card */}
+          {/* RIGHT: Trust Badge + CTA card */}
           <div className="lg:col-span-5">
-            {/* mini testimonial */}
-            <div className="rounded-xl border border-[#1f2a33]/10 bg-white p-5 shadow-sm">
-              <div className="mb-2 flex gap-0.5" aria-label="5 out of 5 stars">
-                {Array.from({ length: 5 }).map((_, i) => (
-                  <Star
-                    key={i}
-                    size={14}
-                    className="fill-[#C6AD8F] text-[#C6AD8F]"
-                    aria-hidden="true"
-                  />
-                ))}
+            
+            {/* Compliance Trust Box (Removed the word "Free") */}
+            <div className="rounded-xl border border-[#1f2a33]/10 bg-white p-6 shadow-sm">
+              <div className="mb-3 flex items-center gap-2 text-[#425664]">
+                <CheckCircle2 size={20} className="text-[#C6AD8F]" />
+                <h3 className="font-bold text-[15px]">Our Commitment to You</h3>
               </div>
-              <blockquote className="text-[13.5px] leading-relaxed text-[#1f2a33]">
-                “Called late at night with a burst pipe. Technician was here in under
-                an hour, fixed it, and cleaned up like nothing happened.”
-              </blockquote>
-              <p className="mt-3 border-t border-[#1f2a33]/10 pt-2.5 text-[12.5px] font-bold">
-                Sarah M. <span className="font-normal text-[#425664]">— Hollywood, CA</span>
+              <p className="text-[13.5px] leading-relaxed text-[#425664] mb-3">
+                We are a service designed to connect homeowners with independent local contractors. 
               </p>
+              <ul className="text-[12.5px] text-[#425664] space-y-2 list-disc pl-4 marker:text-[#C6AD8F]">
+                <li>Independent, pre-screened local providers</li>
+                <li>No hidden fees or obligation to hire</li>
+                <li>Verify licenses and insurance before work begins</li>
+              </ul>
             </div>
 
             {/* CTA card */}
@@ -158,23 +137,26 @@ export default function WhyChooseUs() {
               />
               <div className="relative">
                 <h3 className="gf-display text-lg leading-tight">
-                  Talk to a real technician.
+                  Call a real technician.
                 </h3>
                 <p className="mt-1.5 text-[12.5px] leading-relaxed text-white/75">
-                  Describe the problem — we'll give you a flat-rate quote.
+                  Describe the problem — we'll connect you with a local pro.
                 </p>
                 <div className="mt-4 flex flex-wrap gap-2">
-                  <Link
-                    to={CONTACT}
-                    className="inline-flex items-center gap-1.5 rounded-lg bg-[#C6AD8F] px-4 py-2 text-[13px] font-bold text-[#1f2a33] transition-colors hover:bg-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
+                  {/* Call Button */}
+                  <a
+                    href={PHONE_TEL}
+                    className="inline-flex items-center gap-1.5 rounded-lg bg-[#C6AD8F] px-4 py-2.5 text-[13.5px] font-bold text-[#1f2a33] transition-all duration-300 hover:bg-white shadow-md hover:shadow-lg group"
                   >
-                    <MessageSquare size={14} aria-hidden="true" /> Contact Us
-                  </Link>
+                    <Phone size={15} />
+                    Call {PHONE_DISPLAY}
+                    <ArrowRight size={15} className="text-red-500 animate-[pulse-x_1.5s_ease-in-out_infinite] ml-1" />
+                  </a>
                   <Link
                     to="/services"
-                    className="inline-flex items-center gap-1.5 rounded-lg border border-white/25 px-4 py-2 text-[13px] font-bold text-white transition-colors hover:bg-white/10"
+                    className="inline-flex items-center gap-1.5 rounded-lg border border-white/25 px-4 py-2.5 text-[13.5px] font-bold text-white transition-colors hover:bg-white/10"
                   >
-                    Services <ArrowRight size={14} aria-hidden="true" />
+                    Services <ArrowRight size={15} aria-hidden="true" />
                   </Link>
                 </div>
               </div>

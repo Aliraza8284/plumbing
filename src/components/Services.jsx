@@ -16,13 +16,13 @@ import {
   MapPin,
   Clock,
   BadgeCheck,
-  MessageSquare,
 } from "lucide-react";
 
 /* Palette: #F6F4F2 paper | #425664 slate | #C6AD8F sand | #1f2a33 ink */
 
-const PHONE = "+1 (844) 212-91-86";
-const TEL = "tel:+18442129186";
+
+const PHONE_DISPLAY = "(844) 212-9186";
+const PHONE_TEL = "tel:+18442129186";
 
 const CATEGORIES = [
   { id: "all", name: "All Services" },
@@ -37,17 +37,15 @@ const SERVICES = [
     title: "Leak Detection",
     category: "plumbing",
     Icon: Search,
-    blurb:
-      "Pinpoint hidden leaks with acoustic and thermal tools — no guesswork, no unnecessary demolition.",
-    tags: ["Non-invasive", "Same-day"],
+    blurb: "Pinpoint hidden leaks with acoustic and thermal tools — no guesswork, no unnecessary demolition.",
+    tags: ["Non-invasive", "Fast Response"],
     href: "/plumbing/leak-detection",
   },
   {
     title: "Repair & Replacement",
     category: "plumbing",
     Icon: Wrench,
-    blurb:
-      "Cracked pipes, failing fittings, corroded lines — repaired or replaced with minimal digging.",
+    blurb: "Cracked pipes, failing fittings, corroded lines — repaired or replaced with minimal digging.",
     tags: ["Spot fixes", "Full replacement"],
     href: "/sewers/repair-and-replacement",
   },
@@ -55,8 +53,7 @@ const SERVICES = [
     title: "Piping & Repiping",
     category: "plumbing",
     Icon: Droplets,
-    blurb:
-      "Whole-home repiping in copper or PEX, sized for your fixtures and future additions.",
+    blurb: "Whole-home repiping in copper or PEX, sized for your fixtures and future additions.",
     tags: ["Copper", "PEX"],
     href: "/plumbing/piping-repiping",
   },
@@ -64,8 +61,7 @@ const SERVICES = [
     title: "Gas Plumbing",
     category: "plumbing",
     Icon: Flame,
-    blurb:
-      "Gas line installs, leak tests and appliance hookups — permitted and inspected.",
+    blurb: "Gas line installs, leak tests and appliance hookups — permitted and inspected.",
     tags: ["Certified", "Permitted"],
     href: "/plumbing/gas-plumbing",
   },
@@ -73,17 +69,15 @@ const SERVICES = [
     title: "Water Heaters",
     category: "plumbing",
     Icon: Gauge,
-    blurb:
-      "Tank and tankless install, repair and flush. Right-sized for your household.",
-    tags: ["Tankless", "Same-day"],
+    blurb: "Tank and tankless install, repair and flush. Right-sized for your household.",
+    tags: ["Tankless", "Fast Response"],
     href: "/plumbing/water-heaters",
   },
   {
     title: "Sewer Repair & Replacement",
     category: "sewer",
     Icon: Waves,
-    blurb:
-      "Trenchless and conventional sewer line repair, from single joints to full runs.",
+    blurb: "Trenchless and conventional sewer line repair, from single joints to full runs.",
     tags: ["Trenchless", "Full line"],
     href: "/plumbing/sewer-repair-and-replacement",
   },
@@ -91,8 +85,7 @@ const SERVICES = [
     title: "Sewer Inspection",
     category: "sewer",
     Icon: Search,
-    blurb:
-      "HD camera inspection with a written report — know exactly what's underground.",
+    blurb: "HD camera inspection with a written report — know exactly what's underground.",
     tags: ["Camera", "Report"],
     href: "/sewers/inspection",
   },
@@ -100,8 +93,7 @@ const SERVICES = [
     title: "Hydro Jetting",
     category: "sewer",
     Icon: Waves,
-    blurb:
-      "High-pressure jetting clears grease, roots and scale — restores full pipe diameter.",
+    blurb: "High-pressure jetting clears grease, roots and scale — restores full pipe diameter.",
     tags: ["Roots", "Grease"],
     href: "/sewers/hydro-jetting",
   },
@@ -109,8 +101,7 @@ const SERVICES = [
     title: "Trenchless Sewers",
     category: "sewer",
     Icon: Wrench,
-    blurb:
-      "Pipe bursting and lining that replaces or rehabilitates lines with minimal digging.",
+    blurb: "Pipe bursting and lining that replaces or rehabilitates lines with minimal digging.",
     tags: ["No-dig", "Fast"],
     href: "/sewers/trenchless-technology",
   },
@@ -118,17 +109,15 @@ const SERVICES = [
     title: "Drain Cleaning",
     category: "sewer",
     Icon: Droplets,
-    blurb:
-      "Kitchen, bath and main-line clogs cleared with the right tool for the blockage.",
-    tags: ["Same-day", "Main line"],
+    blurb: "Kitchen, bath and main-line clogs cleared with the right tool for the blockage.",
+    tags: ["Fast Response", "Main line"],
     href: "/sewers/cleaning",
   },
   {
     title: "HVAC Repair",
     category: "hvac",
     Icon: Fan,
-    blurb:
-      "Diagnostics and repair for AC, furnace and heat pumps. Honest quotes, no upsell.",
+    blurb: "Diagnostics and repair for AC, furnace and heat pumps. Honest quotes, no upsell.",
     tags: ["AC", "Furnace"],
     href: "/hvac/emergency-hvac",
   },
@@ -136,8 +125,7 @@ const SERVICES = [
     title: "Heat Pumps",
     category: "hvac",
     Icon: Fan,
-    blurb:
-      "High-efficiency heat pump install and service — rebates handled for you.",
+    blurb: "Energy-efficient heat pump install and service — rebates handled for you.",
     tags: ["Rebates", "Efficient"],
     href: "/hvac/heat-pumps",
   },
@@ -145,26 +133,23 @@ const SERVICES = [
     title: "Emergency HVAC",
     category: "emergency",
     Icon: AlertTriangle,
-    blurb:
-      "No heat, no AC? 24/7 emergency response with a live technician on the line.",
-    tags: ["24/7", "Fast"],
+    blurb: "No heat, no AC? Urgent emergency response with a live technician on the line.",
+    tags: ["Urgent", "Fast"],
     href: "/hvac/emergency-hvac",
   },
   {
     title: "Emergency Plumbing",
     category: "emergency",
     Icon: AlertTriangle,
-    blurb:
-      "Burst pipes, overflowing toilets, no water — we're on call around the clock.",
-    tags: ["24/7", "Fast"],
+    blurb: "Burst pipes, overflowing toilets, no water — we're on call for urgent needs.",
+    tags: ["Urgent", "Fast"],
     href: "/plumbing/emergency-services",
   },
   {
     title: "Earthquake Shut-Off Valves",
     category: "emergency",
     Icon: ShieldCheck,
-    blurb:
-      "Automatic gas shut-off valves that close the line the moment shaking is detected.",
+    blurb: "Automatic gas shut-off valves that close the line the moment shaking is detected.",
     tags: ["Safety", "Auto"],
     href: "/plumbing/earthquake-shut-off-valves",
   },
@@ -174,27 +159,27 @@ const WHY = [
   {
     Icon: ShieldCheck,
     title: "Licensed & insured",
-    text: "Master plumbers, bonded and insured, with a lifetime workmanship warranty on every job.",
+    text: "Master plumbers, bonded and insured. We ensure all contractors are verified.",
   },
   {
     Icon: MapPin,
     title: "Local & fast",
-    text: "Family-owned for three generations, with technicians stationed across the area for quick response.",
+    text: "Connecting you with technicians stationed across the area for quick response.",
   },
   {
     Icon: Gauge,
     title: "Flat-rate pricing",
-    text: "You approve the price before we start. No hourly surprises, no upselling on the job.",
+    text: "You approve the price before work starts. No hourly surprises, no upselling.",
   },
   {
     Icon: Clock,
-    title: "24/7 emergency",
-    text: "Burst pipe or no heat at 2 AM? A live technician answers and a truck rolls out.",
+    title: "Emergency response",
+    text: "Burst pipe or no heat? A live technician answers your call and dispatches help.",
   },
   {
     Icon: BadgeCheck,
-    title: "Workmanship warranty",
-    text: "Lifetime warranty on workmanship, plus manufacturer warranties on parts we install.",
+    title: "Workmanship standards",
+    text: "We connect you with pros who stand behind their workmanship and parts.",
   },
   {
     Icon: Phone,
@@ -215,6 +200,12 @@ export default function Services() {
         @import url('https://fonts.googleapis.com/css2?family=Young+Serif&family=Nunito+Sans:wght@400;600;700;800&display=swap');
         .gf-services { font-family: 'Nunito Sans', system-ui, sans-serif; }
         .gf-services .gf-display { font-family: 'Young Serif', Georgia, serif; font-weight: 400; letter-spacing: -0.01em; }
+        
+        /* Red Arrow Animation */
+        @keyframes pulse-x {
+          0%, 100% { transform: translateX(0); }
+          50% { transform: translateX(5px); }
+        }
       `}</style>
 
       <div className="gf-services">
@@ -263,17 +254,21 @@ export default function Services() {
             </h1>
 
             <p className="mt-5 max-w-xl text-sm leading-relaxed text-white/75 sm:text-[15px]">
-              Licensed master plumbers and HVAC technicians, flat-rate pricing, and a
-              lifetime workmanship warranty on every job.
+              Connecting you with licensed master plumbers and HVAC technicians for reliable home services.
             </p>
 
             <div className="mt-8 flex flex-wrap items-center gap-3">
+              {/* Yahan TEL ko PHONE_TEL kiya gaya hai */}
               <a
-                href={TEL}
-                className="group inline-flex items-center gap-2 rounded-lg bg-[#C6AD8F] px-5 py-3 text-sm font-bold text-[#1f2a33] shadow-lg shadow-black/20 transition-all hover:bg-white hover:shadow-xl focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
+                href={PHONE_TEL}
+                className="group inline-flex items-center gap-2.5 rounded-lg bg-[#C6AD8F] px-5 py-3 text-[15px] font-bold text-[#1f2a33] shadow-lg shadow-black/20 transition-all hover:bg-white hover:shadow-xl focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
               >
-                <Phone size={16} aria-hidden="true" />
-                Call Now
+                <Phone size={18} />
+                Call {PHONE_DISPLAY}
+                <ArrowRight 
+                  size={18} 
+                  className="text-red-500 animate-[pulse-x_1.5s_ease-in-out_infinite] ml-1" 
+                />
               </a>
               <a
                 href="#list"
@@ -287,7 +282,6 @@ export default function Services() {
                 />
               </a>
             </div>
-
           </div>
         </section>
 
@@ -387,15 +381,19 @@ export default function Services() {
                   Why homeowners pick us
                 </h2>
                 <p className="mt-4 text-sm leading-relaxed text-[#425664]">
-                  We've been family-owned for three generations. The same things keep
-                  bringing customers back — and it's not just the price.
+                  We connect you with trusted local professionals. Here is what keeps our users coming back.
                 </p>
+                {/* Yahan bhi TEL ko PHONE_TEL kiya gaya hai */}
                 <a
-                  href={TEL}
-                  className="mt-6 inline-flex items-center gap-2 rounded-lg bg-[#425664] px-5 py-3 text-sm font-bold text-white transition-colors hover:bg-[#364753] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#425664]"
+                  href={PHONE_TEL}
+                  className="mt-6 inline-flex items-center gap-2.5 rounded-lg bg-[#425664] px-5 py-3 text-[15px] font-bold text-white transition-all duration-300 hover:bg-[#364753] shadow-md hover:shadow-lg group"
                 >
-                  <Phone size={16} aria-hidden="true" />
-                  Talk to a technician
+                  <Phone size={18} className="text-[#C6AD8F]" />
+                  Call {PHONE_DISPLAY}
+                  <ArrowRight 
+                    size={18} 
+                    className="text-red-500 animate-[pulse-x_1.5s_ease-in-out_infinite] ml-1" 
+                  />
                 </a>
               </div>
 

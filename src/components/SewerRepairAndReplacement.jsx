@@ -1,7 +1,6 @@
 // pages/SewerRepairAndReplacement.jsx
-import { Link } from "react-router-dom";
 import {
-  MessageSquare,
+  Phone,
   ArrowRight,
   Check,
   Camera,
@@ -14,12 +13,13 @@ import {
   ShieldCheck,
   ClipboardCheck,
   Hammer,
-  Phone,
 } from "lucide-react";
 
 /* Palette: #F6F4F2 paper | #425664 slate | #C6AD8F sand | #1f2a33 ink */
 
-const CONTACT = "/contact";
+
+const PHONE_DISPLAY = "(844) 212-9186";
+const PHONE_TEL = "tel:+18442129186";
 
 const METHODS = [
   {
@@ -32,7 +32,7 @@ const METHODS = [
     title: "Traditional replacement",
     best: "Best when the pipe has collapsed or sunk out of line",
     text: "We open a trench, remove the failed section and lay new pipe at the right slope, then restore the ground.",
-    points: ["Fixes collapsed or bellied pipe", "Full section replaced end to end", "Backed by our full warranty"],
+    points: ["Fixes collapsed or bellied pipe", "Full section replaced end to end", "Done to local code standards"], // Warranty hataya
   },
 ];
 
@@ -49,7 +49,7 @@ const STEPS = [
   { icon: Camera, title: "Camera inspection", text: "We look inside the line and show you the footage." },
   { icon: ClipboardCheck, title: "Written quote", text: "You get the cause, the options and one clear price." },
   { icon: Hammer, title: "Repair or replace", text: "We use the method that suits your pipe and property." },
-  { icon: ShieldCheck, title: "Final check", text: "We re-inspect, clean up and hand over your warranty." },
+  { icon: ShieldCheck, title: "Final check", text: "We re-inspect, clean up and make sure everything is right." }, // Warranty hataya
 ];
 
 export default function SewerRepairAndReplacement() {
@@ -70,15 +70,17 @@ export default function SewerRepairAndReplacement() {
         }
         .gf-sweep:hover::before, .gf-sweep:focus-within::before { transform: translateY(0); }
 
-        /* Link underline that grows from the left */
-        .gf-grow { background: linear-gradient(currentColor, currentColor) 0 100% / 0 2px no-repeat; transition: background-size .35s ease; }
-        .gf-grow:hover, .gf-grow:focus-visible { background-size: 100% 2px; }
-
         /* Water flowing through the pipe */
         .gf-flow { stroke-dasharray: 2 14; animation: gfflow 1.1s linear infinite; }
         @keyframes gfflow { to { stroke-dashoffset: -16; } }
         .gf-pulse { transform-origin: 250px 150px; animation: gfpulse 2s ease-out infinite; }
         @keyframes gfpulse { from { transform: scale(.6); opacity: .8; } to { transform: scale(2.2); opacity: 0; } }
+
+        /* Red Arrow Animation */
+        @keyframes pulse-x {
+          0%, 100% { transform: translateX(0); }
+          50% { transform: translateX(5px); }
+        }
 
         @media (prefers-reduced-motion: reduce) {
           .gf-page *, .gf-page *::before { animation: none !important; transition: none !important; }
@@ -100,24 +102,19 @@ export default function SewerRepairAndReplacement() {
               Sewer repair and replacement, without wrecking your yard
             </h1>
             <p className="mt-5 max-w-[54ch] text-[15.5px] leading-relaxed text-[#425664]">
-              Trenchless and traditional sewer repair with full warranty. We start with a camera so you
-              see the problem before you pay to fix it.
+              Trenchless and traditional sewer repair. We start with a camera so you
+              see the problem before you pay to fix it. {/* Yahan warranty hata diya */}
             </p>
 
             <div className="mt-8 flex flex-col gap-3 sm:flex-row">
-              <Link
-                to={CONTACT}
-                className="group inline-flex items-center justify-center gap-2.5 rounded-lg bg-[#425664] px-7 py-3.5 text-[14px] font-bold text-white transition duration-300 hover:bg-[#364753] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#425664]"
-              >
-                <MessageSquare size={16} aria-hidden="true" />
-                Contact Us
-              </Link>
+              {/* Call Button Replaced */}
               <a
-                href="tel:+18442129186"
-                className="group inline-flex items-center justify-center gap-2.5 rounded-lg border border-[#1f2a33]/20 px-7 py-3.5 text-[14px] font-bold text-[#425664] transition duration-300 hover:border-[#425664] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#425664]"
+                href={PHONE_TEL}
+                className="group inline-flex items-center justify-center gap-2.5 rounded-lg bg-[#425664] px-7 py-3.5 text-[15px] font-bold text-white transition-all duration-300 hover:bg-[#364753] shadow-md hover:shadow-lg"
               >
-                <Phone size={16} className="transition-transform duration-300 group-hover:-rotate-12" aria-hidden="true" />
-                Call Now
+                <Phone size={18} className="text-[#C6AD8F]" />
+                Call {PHONE_DISPLAY}
+                <ArrowRight size={18} className="text-red-500 animate-[pulse-x_1.5s_ease-in-out_infinite] ml-1" />
               </a>
             </div>
           </div>
@@ -240,24 +237,20 @@ export default function SewerRepairAndReplacement() {
                 Not sure what's wrong with your sewer line?
               </h2>
               <p className="mt-3 max-w-[50ch] text-[14.5px] leading-relaxed text-white/80">
-                Book a camera inspection and we'll show you what's in the pipe. If water is backing up
+                Call us to book a camera inspection and we'll show you what's in the pipe. If water is backing up
                 right now, call and we'll dispatch a technician.
               </p>
             </div>
             <div className="flex flex-col gap-4">
+              {/* Big Call Button Replaced */}
               <a
-                href="tel:+18442129186"
-                className="group inline-flex items-center justify-center gap-2.5 rounded-lg bg-[#C6AD8F] px-7 py-3.5 text-[14px] font-bold text-[#1f2a33] transition duration-300 hover:bg-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
+                href={PHONE_TEL}
+                className="group inline-flex items-center justify-center gap-2.5 rounded-lg bg-[#C6AD8F] px-7 py-3.5 text-[15px] font-bold text-[#1f2a33] transition-all duration-300 hover:bg-white shadow-md hover:shadow-lg"
               >
-                <Phone size={16} className="transition-transform duration-300 group-hover:-rotate-12" aria-hidden="true" />
-                Call Now
+                <Phone size={18} />
+                Call {PHONE_DISPLAY}
+                <ArrowRight size={18} className="text-red-500 animate-[pulse-x_1.5s_ease-in-out_infinite] ml-1" />
               </a>
-              <Link
-                to={CONTACT}
-                className="gf-grow mx-auto w-fit pb-1 text-[14px] font-bold text-white focus-visible:outline-none"
-              >
-                Or send us a message
-              </Link>
             </div>
           </div>
         </div>

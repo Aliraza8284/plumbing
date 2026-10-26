@@ -1,13 +1,10 @@
 // pages/WaterLinePlumbing.jsx
-import { Link } from "react-router-dom";
 import {
   Phone,
-  MessageSquare,
   ArrowRight,
   Droplets,
   Gauge,
   ShieldAlert,
-  MapPin,
   Search,
   Wrench,
   ShieldCheck,
@@ -16,7 +13,9 @@ import {
 
 /* Palette: #F6F4F2 paper | #425664 slate | #C6AD8F sand | #1f2a33 ink */
 
-const CONTACT = "/contact";
+
+const PHONE_DISPLAY = "(844) 212-9186";
+const PHONE_TEL = "tel:+18442129186";
 
 const IMG = {
   hero: "https://images.unsplash.com/photo-1542013936693-884638332954?auto=format&fit=crop&w=1800&q=85",
@@ -62,6 +61,13 @@ export default function WaterLinePlumbing() {
         @import url('https://fonts.googleapis.com/css2?family=Young+Serif&family=Nunito+Sans:wght@400;600;700;800;900&display=swap');
         .gf-page { font-family: 'Nunito Sans', system-ui, sans-serif; }
         .gf-page .gf-display { font-family: 'Young Serif', Georgia, serif; font-weight: 400; letter-spacing: -0.01em; }
+        
+        /* Red Arrow Animation */
+        @keyframes pulse-x {
+          0%, 100% { transform: translateX(0); }
+          50% { transform: translateX(5px); }
+        }
+        
         @media (prefers-reduced-motion: reduce) { .gf-page *, .gf-page *::before { animation: none !important; transition: none !important; } }
       `}</style>
 
@@ -89,20 +95,15 @@ export default function WaterLinePlumbing() {
             </p>
 
             <div className="mt-10 flex flex-wrap gap-3">
+              {/* Call Button Replaced */}
               <a
-                href="tel:+18442129186"
-                className="inline-flex items-center gap-2 rounded-lg bg-[#425664] px-6 py-3.5 text-[14px] font-bold text-white transition hover:bg-[#364753]"
+                href={PHONE_TEL}
+                className="inline-flex items-center gap-2.5 rounded-lg bg-[#425664] px-7 py-3.5 text-[15px] font-bold text-white transition-all duration-300 hover:bg-[#364753] shadow-md hover:shadow-lg group"
               >
-                <Phone size={16} />
-                Call Now
+                <Phone size={18} className="text-[#C6AD8F]" />
+                Call {PHONE_DISPLAY}
+                <ArrowRight size={18} className="text-red-500 animate-[pulse-x_1.5s_ease-in-out_infinite] ml-1" />
               </a>
-              <Link
-                to={CONTACT}
-                className="inline-flex items-center gap-2 rounded-lg border border-[#1f2a33]/15 bg-white px-6 py-3.5 text-[14px] font-bold text-[#425664] transition hover:border-[#425664]"
-              >
-                <MessageSquare size={16} />
-                Contact Us
-              </Link>
             </div>
           </div>
 
@@ -193,7 +194,7 @@ export default function WaterLinePlumbing() {
             </h2>
             <p className="max-w-[46ch] text-[14.5px] leading-relaxed text-white/70 mb-8">
               A broken water line can waste hundreds of gallons a day. If you notice these signs, 
-              contact us immediately.
+              call us immediately.
             </p>
             
             <ul className="space-y-4">
@@ -231,20 +232,15 @@ export default function WaterLinePlumbing() {
               </div>
               
               <div className="flex flex-col gap-3 sm:flex-row lg:flex-col lg:items-end">
+                {/* Big Call Button Replaced */}
                 <a
-                  href="tel:+18442129186"
-                  className="inline-flex w-full sm:w-auto items-center justify-center gap-2 rounded-lg bg-[#C6AD8F] px-8 py-3.5 text-[14.5px] font-bold text-[#1f2a33] transition hover:bg-white"
+                  href={PHONE_TEL}
+                  className="inline-flex w-full sm:w-auto items-center justify-center gap-2.5 rounded-lg bg-[#C6AD8F] px-8 py-4 text-[15px] font-bold text-[#1f2a33] transition-all duration-300 hover:bg-white shadow-md hover:shadow-lg group"
                 >
-                  <Phone size={16} />
-                  Call Now
+                  <Phone size={18} />
+                  Call {PHONE_DISPLAY}
+                  <ArrowRight size={18} className="text-red-500 animate-[pulse-x_1.5s_ease-in-out_infinite] ml-1" />
                 </a>
-                <Link
-                  to={CONTACT}
-                  className="inline-flex w-full sm:w-auto items-center justify-center gap-2 rounded-lg border border-white/30 bg-white/5 px-8 py-3.5 text-[14.5px] font-bold text-white transition hover:bg-white/10"
-                >
-                  <MessageSquare size={16} />
-                  Contact Us
-                </Link>
               </div>
             </div>
           </div>

@@ -1,12 +1,14 @@
 // src/components/FAQ.jsx
 import React from "react";
-import { Link } from "react-router-dom";
-import { ChevronDown, MessageSquare } from "lucide-react";
+import { ChevronDown, Phone, ArrowRight } from "lucide-react";
+
+const PHONE_DISPLAY = "(844) 212-9186";
+const PHONE_TEL = "tel:+18442129186";
 
 const faqs = [
   [
     "What plumbing jobs can you help with?",
-    "We handle leaks, drains, water heaters, fixtures, bathroom plumbing, sewer lines, and more. Contact us to confirm your specific job.",
+    "We handle leaks, drains, water heaters, fixtures, bathroom plumbing, sewer lines, and more. Call us to confirm your specific job.",
   ],
   [
     "Will I get a quote before work starts?",
@@ -18,7 +20,7 @@ const faqs = [
   ],
   [
     "How do I book a visit?",
-    "Use the contact form below or give us a call. Share your details and the service you need, and we'll get back to you.",
+    "Give us a call. Share your details and the service you need, and we'll get a technician dispatched.",
   ],
 ];
 
@@ -41,16 +43,21 @@ export default function FAQ() {
           </h2>
           
           <p className="mt-4 max-w-sm text-[14.5px] leading-relaxed text-[#425664]">
-            Have a different question? Send us a note and we'll help you figure out the next step.
+            Have a different question? Give us a call and we'll help you figure out the next step.
           </p>
           
-          <Link
-            to="/contact"
-            className="mt-6 inline-flex items-center gap-2 text-[14px] font-bold text-[#8a6f4d] transition-colors hover:text-[#1f2a33]"
+          {/* Call Button Replaced */}
+          <a
+            href={PHONE_TEL}
+            className="mt-6 inline-flex items-center gap-2.5 rounded-lg bg-[#425664] px-6 py-3.5 text-[14px] font-bold text-white transition-all duration-300 hover:bg-[#364753] shadow-md hover:shadow-lg group"
           >
-            <MessageSquare size={16} />
-            Ask a question
-          </Link>
+            <Phone size={16} className="text-[#C6AD8F]" />
+            Call {PHONE_DISPLAY}
+            <ArrowRight 
+              size={18} 
+              className="text-red-500 animate-[pulse-x_1.5s_ease-in-out_infinite] ml-1" 
+            />
+          </a>
         </div>
 
         {/* Right Side: FAQs */}
@@ -75,6 +82,14 @@ export default function FAQ() {
         </div>
 
       </div>
+      
+      {/* Custom Animation for the Red Arrow */}
+      <style>{`
+        @keyframes pulse-x {
+          0%, 100% { transform: translateX(0); }
+          50% { transform: translateX(5px); }
+        }
+      `}</style>
     </section>
   );
 }

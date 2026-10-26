@@ -2,7 +2,6 @@
 import { Link } from "react-router-dom";
 import {
   Phone,
-  MessageSquare,
   ArrowRight,
   Droplets,
   ShieldCheck,
@@ -11,8 +10,8 @@ import {
   CheckCircle2,
 } from "lucide-react";
 
-const CONTACT = "/contact";
-const PHONE_DISPLAY = "+1 (844) 212-91-86";
+
+const PHONE_DISPLAY = "(844) 212-9186";
 const PHONE_TEL = "tel:+18442129186";
 
 const IMG = {
@@ -49,7 +48,7 @@ const SIGNS = [
 const FAQ = [
   ["How fast can you get here?", "For emergencies, usually within the hour in our service area. For standard jobs, we can often schedule same-day or next-day."],
   ["Do you charge for estimates?", "We give you a clear price before any work begins, so there are no surprises on the bill."],
-  ["Can you handle commercial plumbing?", "Yes — from small businesses to larger commercial properties. Ask us about scheduled maintenance contracts."],
+  ["What areas do you serve?", "We serve Pasadena and the surrounding communities. Give us a call to confirm we can reach your address."],
 ];
 
 function Photo({ src, alt, eager = false, className = "" }) {
@@ -74,6 +73,12 @@ export default function Plumbing() {
         .gf-page details > summary::-webkit-details-marker { display: none; }
         .gf-page details[open] .gf-plus { transform: rotate(45deg); }
         @media (prefers-reduced-motion: reduce) { .gf-page *, .gf-page *::before { animation: none !important; transition: none !important; } }
+        
+        /* Red Arrow Animation */
+        @keyframes pulse-x {
+          0%, 100% { transform: translateX(0); }
+          50% { transform: translateX(5px); }
+        }
       `}</style>
 
       {/* Hero */}
@@ -88,15 +93,18 @@ export default function Plumbing() {
               Plumbing done right, the first time
             </h1>
             <p className="mt-5 max-w-[44ch] text-[15px] leading-relaxed text-[#425664]">
-              From a dripping faucet to a full repipe, we handle the work that keeps your home or business running. Clear pricing, no runaround.
+              From a dripping faucet to a full repipe, we handle the work that keeps your home running. Clear pricing, no runaround.
             </p>
             <div className="mt-8 flex flex-col gap-3 sm:flex-row">
-              <a href={PHONE_TEL} className="inline-flex items-center justify-center gap-2 rounded-lg bg-[#425664] px-6 py-3.5 text-[14px] font-bold text-white transition-colors duration-300 hover:bg-[#364753]">
-                <Phone size={16} /> {PHONE_DISPLAY}
+              {/* Call Button Replaced */}
+              <a href={PHONE_TEL} className="inline-flex items-center justify-center gap-2.5 rounded-lg bg-[#425664] px-6 py-3.5 text-[15px] font-bold text-white transition-all duration-300 hover:bg-[#364753] shadow-md hover:shadow-lg group">
+                <Phone size={18} className="text-[#C6AD8F]" />
+                Call {PHONE_DISPLAY}
+                <ArrowRight 
+                  size={18} 
+                  className="text-red-500 animate-[pulse-x_1.5s_ease-in-out_infinite] ml-1" 
+                />
               </a>
-              <Link to={CONTACT} className="inline-flex items-center justify-center gap-2 rounded-lg border border-[#1f2a33]/20 bg-white px-6 py-3.5 text-[14px] font-bold text-[#425664] transition-colors duration-300 hover:border-[#425664]">
-                <MessageSquare size={16} /> Contact Us
-              </Link>
             </div>
           </div>
           <div className="relative mx-auto w-full max-w-[420px] lg:mr-0">
@@ -171,8 +179,9 @@ export default function Plumbing() {
                 </li>
               ))}
             </ul>
-            <a href={PHONE_TEL} className="mt-6 inline-flex items-center gap-2 rounded-lg bg-[#425664] px-5 py-3 text-[13.5px] font-bold text-white hover:bg-[#364753] transition-colors">
-              <Phone size={15} /> Call {PHONE_DISPLAY}
+            <a href={PHONE_TEL} className="mt-6 inline-flex items-center gap-2.5 rounded-lg bg-[#425664] px-5 py-3 text-[14px] font-bold text-white hover:bg-[#364753] transition-all duration-300 shadow-sm hover:shadow-md">
+              <Phone size={16} className="text-[#C6AD8F]" /> Call {PHONE_DISPLAY}
+              <ArrowRight size={16} className="text-red-500 ml-1" />
             </a>
           </aside>
 
@@ -202,16 +211,19 @@ export default function Plumbing() {
                 Something leaking? Let's take a look.
               </h2>
               <p className="mt-3 max-w-[44ch] text-[14.5px] leading-relaxed text-white/80">
-                Call us or send a message. We'll tell you what's wrong and what it'll cost.
+                Call us directly. We'll tell you what's wrong and what it'll cost.
               </p>
             </div>
             <div className="flex flex-col gap-3 sm:flex-row">
-              <a href={PHONE_TEL} className="inline-flex items-center justify-center gap-2.5 rounded-lg bg-[#C6AD8F] px-7 py-3.5 text-[14px] font-bold text-[#1f2a33] transition-colors duration-300 hover:bg-white">
-                <Phone size={16} /> {PHONE_DISPLAY}
+              {/* Big Call Button Replaced */}
+              <a href={PHONE_TEL} className="inline-flex items-center justify-center gap-2.5 rounded-lg bg-[#C6AD8F] px-7 py-3.5 text-[15px] font-bold text-[#1f2a33] transition-all duration-300 hover:bg-white shadow-md hover:shadow-lg group">
+                <Phone size={18} />
+                Call {PHONE_DISPLAY}
+                <ArrowRight 
+                  size={18} 
+                  className="text-red-500 animate-[pulse-x_1.5s_ease-in-out_infinite] ml-1" 
+                />
               </a>
-              <Link to={CONTACT} className="inline-flex items-center justify-center gap-2.5 rounded-lg border border-white/30 bg-white/5 px-7 py-3.5 text-[14px] font-bold text-white transition-colors duration-300 hover:bg-white/10">
-                <MessageSquare size={16} /> Contact Us
-              </Link>
             </div>
           </div>
         </div>

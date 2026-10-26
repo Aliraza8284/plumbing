@@ -1,6 +1,5 @@
 // src/components/PlumbingPage.jsx
 import Services from "./Services";
-import { Droplets } from "lucide-react";
 
 export default function PlumbingPage() {
   return (
@@ -31,11 +30,11 @@ export default function PlumbingPage() {
 
             <h1 className="gf-display text-[38px] leading-[1.05] text-white sm:text-[48px] lg:text-[56px]">
               Full-service <span className="text-[#C6AD8F]">plumbing</span><br />
-              for homes and businesses.
+              for your home.
             </h1>
 
             <p className="mt-5 max-w-2xl text-[15.5px] leading-[1.75] text-white/80">
-              From a single dripping faucet to a full commercial repipe — our licensed 
+              From a single dripping faucet to a full repipe — our licensed 
               plumbers bring master-level craft to every job.
             </p>
           </div>

@@ -1,11 +1,12 @@
 // src/components/Testimonials.jsx
 import { useMemo, useState } from "react";
-import { Link } from "react-router-dom";
-import { Star, MapPin, MessageSquare, ArrowRight } from "lucide-react";
+import { Star, MapPin, Phone, ArrowRight } from "lucide-react";
 
 /* Palette: #F6F4F2 paper | #425664 slate | #C6AD8F sand | #1f2a33 ink */
 
-const CONTACT = "/contact";
+
+const PHONE_DISPLAY = "(844) 212-9186";
+const PHONE_TEL = "tel:+18442129186";
 
 const REVIEWS = [
   {
@@ -22,7 +23,7 @@ const REVIEWS = [
     service: "Sewer Line Replacement",
     rating: 5,
     quote:
-      "Got three quotes for a sewer line replacement. GlobelFixs was the only one who explained the issue clearly, showed me the camera footage, and stuck to the original price. No surprises on the bill.",
+      "Got three quotes for a sewer line replacement. GlobalFixs was the only one who explained the issue clearly, showed me the camera footage, and stuck to the original price. No surprises on the bill.",
   },
   {
     name: "Linda Kim",
@@ -38,7 +39,7 @@ const REVIEWS = [
     service: "Leak Detection",
     rating: 5,
     quote:
-      "Had a mystery leak that two other plumbers couldn't find. GlobelFixs used acoustic and thermal tools and pinpointed it in 20 minutes — behind a wall, no demolition needed. Fixed the same day.",
+      "Had a mystery leak that two other plumbers couldn't find. GlobalFixs used acoustic and thermal tools and pinpointed it in 20 minutes — behind a wall, no demolition needed. Fixed the same day.",
   },
   {
     name: "Priya Patel",
@@ -100,6 +101,12 @@ export default function Testimonials() {
         @import url('https://fonts.googleapis.com/css2?family=Young+Serif&family=Nunito+Sans:wght@400;600;700;800;900&display=swap');
         .gf-testimonials { font-family: 'Nunito Sans', system-ui, sans-serif; }
         .gf-testimonials .gf-display { font-family: 'Young Serif', Georgia, serif; font-weight: 400; letter-spacing: -0.01em; }
+        
+        /* Red Arrow Animation */
+        @keyframes pulse-x {
+          0%, 100% { transform: translateX(0); }
+          50% { transform: translateX(5px); }
+        }
       `}</style>
 
       {/* Soft grid texture */}
@@ -219,23 +226,28 @@ export default function Testimonials() {
           </div>
         </div>
 
-        {/* ---------- Contact CTA (Yahan Link use kiya gaya hai) ---------- */}
+        {/* ---------- Call CTA ---------- */}
         <div className="mt-16 sm:mt-24 flex flex-col items-center text-center">
           <h2 className="gf-display text-2xl leading-tight text-[#1f2a33] sm:text-3xl">
             Ready to become our next <span className="text-[#C6AD8F]">5-star review?</span>
           </h2>
           <p className="mt-2 text-[14px] text-[#425664] max-w-md mx-auto">
-            Flat-rate quote, licensed technician, lifetime workmanship warranty.
+            Flat-rate quote, licensed technician, and quality service. {/* Warranty hataya */}
           </p>
           
-          <Link
-            to={CONTACT}
-            className="group mt-6 inline-flex items-center gap-2 rounded-full bg-[#425664] px-7 py-3 text-[14px] font-bold text-white transition-all hover:bg-[#364753] hover:-translate-y-0.5 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#425664]"
+          {/* Call Button Replaced */}
+          <a
+            href={PHONE_TEL}
+            className="group mt-6 inline-flex items-center gap-2.5 rounded-full bg-[#425664] px-7 py-3.5 text-[15px] font-bold text-white transition-all duration-300 hover:bg-[#364753] shadow-md hover:shadow-lg hover:-translate-y-0.5"
           >
-            <MessageSquare size={16} aria-hidden="true" />
-            Contact Us
-            <ArrowRight size={16} className="transition-transform group-hover:translate-x-1" aria-hidden="true" />
-          </Link>
+            <Phone size={18} className="text-[#C6AD8F]" aria-hidden="true" />
+            Call {PHONE_DISPLAY}
+            <ArrowRight 
+              size={18} 
+              className="text-red-500 animate-[pulse-x_1.5s_ease-in-out_infinite] ml-1" 
+              aria-hidden="true" 
+            />
+          </a>
         </div>
         
       </div>

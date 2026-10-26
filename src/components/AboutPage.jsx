@@ -1,13 +1,13 @@
 // src/components/About.jsx
 import React from 'react';
-import { Link } from 'react-router-dom';
-import { ArrowRight, CheckCircle2, ShieldCheck, Clock, MessageSquare, Award, Users, Wrench, Droplets } from 'lucide-react';
+import { ArrowRight, CheckCircle2, ShieldCheck, Clock, Phone, Award, Users, Wrench, Droplets } from 'lucide-react';
 
-const CONTACT = "/contact";
+const PHONE_DISPLAY = "(844) 212-9186";
+const PHONE_TEL = "tel:+18442129186";
 
 const points = [
   'Upfront, flat-rate pricing before any work begins',
-  'Respectful, tidy service in your home or business',
+  'Respectful, tidy service in your home',
   'Practical, code-compliant solutions built to last',
 ];
 
@@ -104,10 +104,10 @@ export default function About() {
               </h1>
 
               <p className="text-[15px] leading-relaxed text-white/75 mb-6 max-w-lg">
-                GlobelFixs was founded in 2002 with a simple goal: to provide honest, reliable plumbing services to our local community. In 2008, we expanded our reach by launching our website, making it easier for homeowners and businesses to connect with us.
+                GlobalFixs was founded in 2002 with a simple goal: to provide honest, reliable plumbing services to our local community. In 2008, we expanded our reach by launching our website, making it easier for homeowners to connect with us.
               </p>
               <p className="text-[15px] leading-relaxed text-white/75 mb-8 max-w-lg">
-                Today, we are a full-service plumbing and HVAC company. From emergency repairs to complete system installations, we treat every home and business like it's our own.
+                Today, we are a full-service plumbing and HVAC company. From emergency repairs to complete system installations, we treat every home like it's our own.
               </p>
 
               <div className="space-y-4 mb-8">
@@ -121,15 +121,14 @@ export default function About() {
                 ))}
               </div>
 
-              {/* ✅ FIXED: <a> → <Link> */}
-              <Link
-                to={CONTACT}
-                className="inline-flex items-center gap-2.5 rounded-lg bg-[#C6AD8F] px-7 py-3.5 text-[14px] font-bold text-[#1f2a33] shadow-md transition-all duration-300 hover:bg-white hover:-translate-y-0.5"
+              {/* ✅ Call Button (Replaced Contact Link) */}
+              <a
+                href={PHONE_TEL}
+                className="inline-flex items-center gap-2.5 rounded-lg bg-[#C6AD8F] px-7 py-3.5 text-[15px] font-bold text-[#1f2a33] shadow-md transition-all duration-300 hover:bg-white hover:-translate-y-0.5"
               >
-                <MessageSquare size={16} strokeWidth={2.5} />
-                Contact Us
-                <ArrowRight size={16} strokeWidth={2.5} />
-              </Link>
+                <Phone size={18} strokeWidth={2.5} />
+                Call {PHONE_DISPLAY}
+              </a>
             </div>
           </div>
         </div>

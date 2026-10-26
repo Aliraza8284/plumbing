@@ -1,13 +1,12 @@
 // src/components/DrainCleaning.jsx
 import { useState } from "react";
-import { Link } from "react-router-dom";
 import {
   Droplets,
   Wrench,
   ShieldCheck,
   Clock,
   ArrowRight,
-  MessageSquare,
+  Phone,
   CheckCircle2,
   ChevronDown,
   Waves,
@@ -15,7 +14,8 @@ import {
 
 /* Palette: #F6F4F2 paper | #425664 slate | #C6AD8F sand | #1f2a33 ink */
 
-const CONTACT = "/contact";
+const PHONE_DISPLAY = "(844) 212-9186";
+const PHONE_TEL = "tel:+18442129186";
 
 const services = [
   {
@@ -68,6 +68,12 @@ export default function DrainCleaning() {
         @import url('https://fonts.googleapis.com/css2?family=Young+Serif&family=Nunito+Sans:wght@400;600;700;800;900&display=swap');
         .gf-page { font-family: 'Nunito Sans', system-ui, sans-serif; }
         .gf-page .gf-display { font-family: 'Young Serif', Georgia, serif; font-weight: 400; letter-spacing: -0.01em; }
+        
+        /* Red Arrow Animation */
+        @keyframes pulse-x {
+          0%, 100% { transform: translateX(0); }
+          50% { transform: translateX(5px); }
+        }
       `}</style>
 
       {/* ================= HERO SECTION ================= */}
@@ -96,13 +102,18 @@ export default function DrainCleaning() {
             </p>
 
             <div className="flex flex-col gap-3 sm:flex-row">
-              <Link
-                to={CONTACT}
-                className="inline-flex items-center justify-center gap-2 rounded-lg bg-[#425664] px-6 py-3 text-[14px] font-bold text-white transition-colors hover:bg-[#364753] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#425664]"
+              {/* Call Button Replaced */}
+              <a
+                href={PHONE_TEL}
+                className="inline-flex items-center justify-center gap-2.5 rounded-lg bg-[#425664] px-6 py-3.5 text-[15px] font-bold text-white transition-all duration-300 hover:bg-[#364753] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#425664] group shadow-md hover:shadow-lg"
               >
-                <MessageSquare size={16} />
-                Get in Touch
-              </Link>
+                <Phone size={18} className="text-[#C6AD8F]" />
+                Call {PHONE_DISPLAY}
+                <ArrowRight 
+                  size={20} 
+                  className="text-red-500 animate-[pulse-x_1.5s_ease-in-out_infinite] ml-1" 
+                />
+              </a>
 
               <a
                 href="#drain-services"
@@ -195,12 +206,13 @@ export default function DrainCleaning() {
                     {service.description}
                   </p>
 
-                  <Link
-                    to={CONTACT}
+                  {/* Call Link Replaced */}
+                  <a
+                    href={PHONE_TEL}
                     className="mt-5 inline-flex items-center gap-1.5 text-[13px] font-bold text-[#8a6f4d] hover:text-[#1f2a33]"
                   >
-                    Get Help <ArrowRight size={14} />
-                  </Link>
+                    Call for help <ArrowRight size={14} />
+                  </a>
                 </article>
               );
             })}
@@ -260,12 +272,18 @@ export default function DrainCleaning() {
               ))}
             </div>
 
-            <Link
-              to={CONTACT}
-              className="mt-9 inline-flex items-center gap-2 rounded-lg bg-[#C6AD8F] px-6 py-3 text-[14px] font-bold text-[#1f2a33] transition-colors hover:bg-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
+            {/* Call Button Replaced */}
+            <a
+              href={PHONE_TEL}
+              className="mt-9 inline-flex items-center gap-2.5 rounded-lg bg-[#C6AD8F] px-6 py-3.5 text-[14px] font-bold text-[#1f2a33] transition-all duration-300 hover:bg-white group shadow-md hover:shadow-lg"
             >
-              Discuss Your Problem <ArrowRight size={16} />
-            </Link>
+              <Phone size={18} />
+              Call {PHONE_DISPLAY}
+              <ArrowRight 
+                size={18} 
+                className="text-red-500 animate-[pulse-x_1.5s_ease-in-out_infinite] ml-1" 
+              />
+            </a>
           </div>
         </div>
       </section>
@@ -296,15 +314,16 @@ export default function DrainCleaning() {
                 Need help with a stubborn clog?
               </h3>
               <p className="mt-2 text-[13.5px] leading-relaxed text-[#425664]">
-                Contact a plumbing professional to discuss your issue and
+                Call a plumbing professional to discuss your issue and
                 confirm service availability.
               </p>
-              <Link
-                to={CONTACT}
+              {/* Call Link Replaced */}
+              <a
+                href={PHONE_TEL}
                 className="mt-4 inline-flex items-center gap-2 text-[13.5px] font-bold text-[#8a6f4d] hover:text-[#1f2a33]"
               >
-                <MessageSquare size={15} /> Contact Us
-              </Link>
+                <Phone size={15} /> Call {PHONE_DISPLAY}
+              </a>
             </div>
           </div>
 
@@ -363,13 +382,18 @@ export default function DrainCleaning() {
               </p>
             </div>
 
-            <Link
-              to={CONTACT}
-              className="inline-flex shrink-0 items-center justify-center gap-2 rounded-lg bg-[#425664] px-8 py-3.5 text-[14.5px] font-bold text-white transition-colors hover:bg-[#364753] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#425664]"
+            {/* Big Call Button Replaced */}
+            <a
+              href={PHONE_TEL}
+              className="inline-flex shrink-0 items-center justify-center gap-3 rounded-lg bg-[#425664] px-8 py-4 text-[15px] font-bold text-white transition-all duration-300 hover:bg-[#364753] group shadow-md hover:shadow-lg hover:-translate-y-0.5"
             >
-              <MessageSquare size={16} />
-              Contact Us
-            </Link>
+              <Phone size={20} className="text-[#C6AD8F]" />
+              Call {PHONE_DISPLAY}
+              <ArrowRight 
+                size={20} 
+                className="text-red-500 animate-[pulse-x_1.5s_ease-in-out_infinite] ml-1" 
+              />
+            </a>
           </div>
         </div>
       </section>

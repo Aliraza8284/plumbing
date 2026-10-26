@@ -1,12 +1,10 @@
 // pages/EmergencyHVAC.jsx
 import { useState } from "react";
-import { Link } from "react-router-dom";
-import { Phone, MessageSquare, ArrowRight, AlertTriangle, Flame, Snowflake, Check } from "lucide-react";
+import { Phone, ArrowRight, AlertTriangle, Flame, Snowflake, Check } from "lucide-react";
 
 /* Palette: #F6F4F2 paper | #425664 slate | #C6AD8F sand | #1f2a33 ink */
-
-const CONTACT = "/contact";
-
+const PHONE_DISPLAY = "(844) 212-9186";
+const PHONE_TEL = "tel:+18442129186";
 const IMG = {
   hero: "https://images.pexels.com/photos/12045663/pexels-photo-12045663.jpeg?_gl=1*ibec8e*_ga*MTIyNzI3MzQwOC4xNzkyMjQ5NzQx*_ga_8JE65Q40S6*czE3OTIyNDk3NDEkbzEkZzEkdDE3OTIyNTA0MjQkajUzJGwwJGgw",
   furnace: "https://images.pexels.com/photos/36423794/pexels-photo-36423794.jpeg?_gl=1*14isem5*_ga*MTIyNzI3MzQwOC4xNzkyMjQ5NzQx*_ga_8JE65Q40S6*czE3OTIyNDk3NDEkbzEkZzEkdDE3OTIyNTAwMzIkajQyJGwwJGgw",
@@ -78,6 +76,12 @@ export default function EmergencyHVAC() {
         .gf-page { font-family: 'Nunito Sans', system-ui, sans-serif; }
         .gf-page .gf-display { font-family: 'Young Serif', Georgia, serif; font-weight: 400; letter-spacing: -0.01em; }
         @media (prefers-reduced-motion: reduce) { .gf-page *, .gf-page *::before { animation: none !important; transition: none !important; } }
+        
+        /* Red Arrow Animation */
+        @keyframes pulse-x {
+          0%, 100% { transform: translateX(0); }
+          50% { transform: translateX(5px); }
+        }
       `}</style>
 
       {/* ================= Hero ================= */}
@@ -97,14 +101,15 @@ export default function EmergencyHVAC() {
             </p>
 
             <div className="mt-8 flex flex-col gap-3 sm:flex-row">
-              <a href="tel:+18442129186" className="inline-flex items-center justify-center gap-2.5 rounded-lg bg-[#C6AD8F] px-6 py-3.5 text-[14px] font-bold text-[#1f2a33] transition-colors duration-300 hover:bg-white">
-                <Phone size={16} aria-hidden="true" />
-                Call Now
+              {/* Call Button Replaced */}
+              <a href={PHONE_TEL} className="inline-flex items-center justify-center gap-2.5 rounded-lg bg-[#C6AD8F] px-6 py-3.5 text-[15px] font-bold text-[#1f2a33] transition-all duration-300 hover:bg-white group shadow-md hover:shadow-lg">
+                <Phone size={18} />
+                Call {PHONE_DISPLAY}
+                <ArrowRight 
+                  size={20} 
+                  className="text-red-500 animate-[pulse-x_1.5s_ease-in-out_infinite] ml-1" 
+                />
               </a>
-              <Link to={CONTACT} className="inline-flex items-center justify-center gap-2.5 rounded-lg border border-white/30 bg-white/5 px-6 py-3.5 text-[14px] font-bold text-white transition-colors duration-300 hover:bg-white/10">
-                <MessageSquare size={16} aria-hidden="true" />
-                Contact Us
-              </Link>
             </div>
 
             <ul className="mt-9 flex flex-col gap-2 border-t border-white/20 pt-5 text-[13.5px] font-semibold sm:flex-row sm:gap-8">
@@ -245,14 +250,15 @@ export default function EmergencyHVAC() {
             </p>
           </div>
           <div className="flex flex-col gap-3 sm:flex-row">
-            <a href="tel:+18442129186" className="inline-flex items-center justify-center gap-2.5 rounded-lg bg-[#C6AD8F] px-6 py-3.5 text-[14px] font-bold text-[#1f2a33] transition-colors duration-300 hover:bg-white">
-              <Phone size={16} aria-hidden="true" />
-              Call Now
+            {/* Big Call Button Replaced */}
+            <a href={PHONE_TEL} className="inline-flex items-center justify-center gap-3 rounded-lg bg-[#C6AD8F] px-7 py-3.5 text-[15px] font-bold text-[#1f2a33] transition-all duration-300 hover:bg-white group shadow-md hover:shadow-lg">
+              <Phone size={18} />
+              Call {PHONE_DISPLAY}
+              <ArrowRight 
+                size={20} 
+                className="text-red-500 animate-[pulse-x_1.5s_ease-in-out_infinite] ml-1" 
+              />
             </a>
-            <Link to={CONTACT} className="inline-flex items-center justify-center gap-2.5 rounded-lg border border-white/30 bg-white/5 px-6 py-3.5 text-[14px] font-bold text-white transition-colors duration-300 hover:bg-white/10">
-              <MessageSquare size={16} aria-hidden="true" />
-              Contact Us
-            </Link>
           </div>
         </div>
       </section>

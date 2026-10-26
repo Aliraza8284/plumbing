@@ -1,11 +1,12 @@
 // src/components/PlumbingMaintenance.jsx
 import React from "react";
-import { Link } from "react-router-dom";
-import { Check, MessageSquare, ArrowRight, ShieldCheck, Wrench, Clock } from "lucide-react";
+import { Check, Phone, ArrowRight, ShieldCheck, Wrench, Clock } from "lucide-react";
 
 /* Palette: #F6F4F2 paper | #425664 slate | #C6AD8F sand | #1f2a33 ink */
 
-const CONTACT = "/contact";
+
+const PHONE_DISPLAY = "(844) 212-9186";
+const PHONE_TEL = "tel:+18442129186";
 
 const services = [
   {
@@ -54,6 +55,12 @@ export default function PlumbingMaintenance() {
         @import url('https://fonts.googleapis.com/css2?family=Young+Serif&family=Nunito+Sans:wght@400;600;700;800;900&display=swap');
         .gf-page { font-family: 'Nunito Sans', system-ui, sans-serif; }
         .gf-page .gf-display { font-family: 'Young Serif', Georgia, serif; font-weight: 400; letter-spacing: -0.01em; }
+        
+        /* Red Arrow Animation */
+        @keyframes pulse-x {
+          0%, 100% { transform: translateX(0); }
+          50% { transform: translateX(5px); }
+        }
       `}</style>
 
       {/* ================= HERO SECTION ================= */}
@@ -79,13 +86,18 @@ export default function PlumbingMaintenance() {
               </p>
 
               <div className="flex flex-wrap gap-3">
-                <Link
-                  to={CONTACT}
-                  className="inline-flex items-center gap-2 rounded-lg bg-[#425664] px-6 py-3 text-[14px] font-bold text-white transition-colors hover:bg-[#364753] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#425664]"
+                {/* Call Button Replaced */}
+                <a
+                  href={PHONE_TEL}
+                  className="inline-flex items-center gap-2.5 rounded-lg bg-[#425664] px-6 py-3.5 text-[15px] font-bold text-white transition-all duration-300 hover:bg-[#364753] shadow-md hover:shadow-lg group"
                 >
-                  <MessageSquare size={16} />
-                  Book an Inspection
-                </Link>
+                  <Phone size={18} className="text-[#C6AD8F]" />
+                  Call {PHONE_DISPLAY}
+                  <ArrowRight 
+                    size={18} 
+                    className="text-red-500 animate-[pulse-x_1.5s_ease-in-out_infinite] ml-1" 
+                  />
+                </a>
                 <a
                   href="#services"
                   className="inline-flex items-center gap-2 rounded-lg border border-[#1f2a33]/15 bg-white px-6 py-3 text-[14px] font-bold text-[#425664] transition-colors hover:border-[#425664]"
@@ -151,9 +163,10 @@ export default function PlumbingMaintenance() {
                   <p className="text-[14px] leading-relaxed text-[#425664] flex-grow">
                     {service.desc}
                   </p>
-                  <Link to={CONTACT} className="mt-4 inline-flex items-center gap-1.5 text-[13px] font-bold text-[#8a6f4d] hover:text-[#1f2a33] transition-colors">
-                    Ask about this <ArrowRight size={14} />
-                  </Link>
+                  {/* Call Link Replaced */}
+                  <a href={PHONE_TEL} className="mt-4 inline-flex items-center gap-1.5 text-[13px] font-bold text-[#8a6f4d] hover:text-[#1f2a33] transition-colors">
+                    Call to ask <ArrowRight size={14} />
+                  </a>
                 </div>
               </div>
             ))}
@@ -217,16 +230,22 @@ export default function PlumbingMaintenance() {
             Schedule your maintenance today.
           </h2>
           <p className="mx-auto mt-4 max-w-xl text-[14.5px] leading-relaxed text-[#425664]">
-            Don't wait for a plumbing emergency. Book a routine inspection and keep your home protected.
+            Don't wait for a plumbing emergency. Call us to book a routine inspection and keep your home protected.
           </p>
           
           <div className="mt-8 flex flex-wrap justify-center gap-3">
-            <Link
-              to={CONTACT}
-              className="inline-flex items-center gap-2 rounded-lg bg-[#425664] px-8 py-3.5 text-[14.5px] font-bold text-white transition-colors hover:bg-[#364753] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#425664]"
+            {/* Big Call Button Replaced */}
+            <a
+              href={PHONE_TEL}
+              className="inline-flex items-center gap-2.5 rounded-lg bg-[#425664] px-8 py-4 text-[15px] font-bold text-white transition-all duration-300 hover:bg-[#364753] shadow-md hover:shadow-lg group"
             >
-              <MessageSquare size={16} /> Contact Us
-            </Link>
+              <Phone size={18} className="text-[#C6AD8F]" />
+              Call {PHONE_DISPLAY}
+              <ArrowRight 
+                size={18} 
+                className="text-red-500 animate-[pulse-x_1.5s_ease-in-out_infinite] ml-1" 
+              />
+            </a>
           </div>
         </div>
       </section>

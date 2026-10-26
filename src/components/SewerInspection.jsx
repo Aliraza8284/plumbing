@@ -1,11 +1,12 @@
 // pages/SewerInspection.jsx
 import { useState } from "react";
-import { Link } from "react-router-dom";
-import { MessageSquare, ArrowRight, ChevronDown } from "lucide-react";
+import { Phone, ArrowRight, ChevronDown } from "lucide-react";
 
 /* Palette: #F6F4F2 paper | #425664 slate | #C6AD8F sand | #1f2a33 ink */
 
-const CONTACT = "/contact";
+
+const PHONE_DISPLAY = "(844) 212-9186";
+const PHONE_TEL = "tel:+18442129186";
 
 const FINDINGS = [
   { id: "roots", name: "Tree roots", note: "roots coming in at a joint", look: "Thin hairs or thick ropes pushing in through the joints and across the pipe.", means: "Roots found a small gap and moved in. They catch paper and grease, which is why the clog keeps coming back.", next: "Usually jetting or root cutting to clear it. If a joint is open, we talk about repairing or lining that section." },
@@ -119,6 +120,12 @@ export default function SewerInspection() {
         .gf-chev { transition: transform .3s ease; }
         .gf-faq[open] .gf-chev { transform: rotate(180deg); }
         
+        /* Red Arrow Animation */
+        @keyframes pulse-x {
+          0%, 100% { transform: translateX(0); }
+          50% { transform: translateX(5px); }
+        }
+        
         @media (prefers-reduced-motion: reduce) { .gf-page *, .gf-page *::before { animation: none !important; transition: none !important; } }
       `}</style>
 
@@ -134,14 +141,12 @@ export default function SewerInspection() {
               and you get a written report of what we saw.
             </p>
             <div className="mt-8 flex flex-col gap-3 sm:flex-row">
-              <Link to={CONTACT} className="group inline-flex items-center justify-center gap-2.5 rounded-lg bg-[#425664] px-7 py-3.5 text-[14px] font-bold text-white transition duration-300 hover:bg-[#364753] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#425664]">
-                Book a camera inspection
-                <ArrowRight size={16} className="transition-transform duration-300 group-hover:translate-x-1" aria-hidden="true" />
-              </Link>
-              <Link to={CONTACT} className="group inline-flex items-center justify-center gap-2.5 rounded-lg border border-[#1f2a33]/20 px-7 py-3.5 text-[14px] font-bold text-[#425664] transition duration-300 hover:border-[#425664] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#425664]">
-                <MessageSquare size={16} className="transition-transform duration-300 group-hover:-rotate-12" aria-hidden="true" />
-                Contact Us
-              </Link>
+              {/* Call Button Replaced */}
+              <a href={PHONE_TEL} className="group inline-flex items-center justify-center gap-2.5 rounded-lg bg-[#425664] px-7 py-3.5 text-[15px] font-bold text-white transition-all duration-300 hover:bg-[#364753] shadow-md hover:shadow-lg">
+                <Phone size={18} className="text-[#C6AD8F]" />
+                Call {PHONE_DISPLAY}
+                <ArrowRight size={18} className="text-red-500 animate-[pulse-x_1.5s_ease-in-out_infinite] ml-1" />
+              </a>
             </div>
           </div>
 
@@ -251,14 +256,15 @@ export default function SewerInspection() {
           <div>
             <p className="gf-hand text-[28px] leading-none text-[#8a6f4d]">Not sure what's wrong?</p>
             <h2 className="gf-display mt-2 max-w-[20ch] text-[32px] leading-[1.05] sm:text-[42px]">Let's take a look inside.</h2>
-            <p className="mt-3 max-w-[46ch] text-[14.5px] leading-relaxed text-[#1f2a33]">Contact us and tell us what you've noticed. We'll set up a time.</p>
+            <p className="mt-3 max-w-[46ch] text-[14.5px] leading-relaxed text-[#1f2a33]">Call us and tell us what you've noticed. We'll set up a time.</p>
           </div>
           <div className="flex flex-col gap-3 sm:flex-row">
-            <Link to={CONTACT} className="group inline-flex items-center justify-center gap-2.5 rounded-lg bg-[#425664] px-7 py-3.5 text-[14px] font-bold text-white transition duration-300 hover:bg-[#1f2a33] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#1f2a33]">
-              <MessageSquare size={16} aria-hidden="true" />
-              Contact Us
-              <ArrowRight size={16} className="transition-transform duration-300 group-hover:translate-x-1" aria-hidden="true" />
-            </Link>
+            {/* Big Call Button Replaced */}
+            <a href={PHONE_TEL} className="group inline-flex items-center justify-center gap-2.5 rounded-lg bg-[#425664] px-7 py-3.5 text-[15px] font-bold text-white transition-all duration-300 hover:bg-[#1f2a33] shadow-md hover:shadow-lg">
+              <Phone size={18} className="text-[#C6AD8F]" />
+              Call {PHONE_DISPLAY}
+              <ArrowRight size={18} className="text-red-500 animate-[pulse-x_1.5s_ease-in-out_infinite] ml-1" />
+            </a>
           </div>
         </div>
       </section>

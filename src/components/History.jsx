@@ -1,13 +1,14 @@
 // src/components/History.jsx
 import React from "react";
-import { Link } from "react-router-dom";
-import { Calendar, Award, Users, Wrench, ShieldCheck, ArrowRight } from "lucide-react";
+import { Calendar, Award, Users, Wrench, ShieldCheck, Phone, ArrowRight } from "lucide-react";
+const PHONE_DISPLAY = "(844) 212-9186";
+const PHONE_TEL = "tel:+18442129186";
 
 const milestones = [
   {
     year: "1998",
     title: "The First Van",
-    desc: "Founder Marcus Reyes launches GlobelFixs with a single van, a master plumber's license, and a promise to fix it right the first time.",
+    desc: "Founder Marcus Reyes launches GlobalFixs with a single van, a master plumber's license, and a promise to fix it right the first time.",
     icon: Wrench,
   },
   {
@@ -31,7 +32,7 @@ const milestones = [
   {
     year: "2024",
     title: "18,000+ Homes Served",
-    desc: "Today, GlobelFixs is one of the most trusted names in Greater Los Angeles, serving over 18,000 homes and businesses.",
+    desc: "Today, GlobalFixs is one of the most trusted names in Greater Los Angeles, serving over 18,000 homes.",
     icon: Calendar,
   },
 ];
@@ -43,6 +44,12 @@ export default function History() {
         @import url('https://fonts.googleapis.com/css2?family=Young+Serif&family=Nunito+Sans:wght@400;600;700;800;900&display=swap');
         .gf-history { font-family: 'Nunito Sans', system-ui, sans-serif; }
         .gf-history .gf-display { font-family: 'Young Serif', Georgia, serif; font-weight: 400; letter-spacing: -0.01em; }
+        
+        /* Red Arrow Animation */
+        @keyframes pulse-x {
+          0%, 100% { transform: translateX(0); }
+          50% { transform: translateX(5px); }
+        }
       `}</style>
 
       {/* Soft grid background */}
@@ -150,7 +157,7 @@ export default function History() {
               <div className="relative overflow-hidden rounded-2xl border border-[#1f2a33]/10 bg-[#425664] shadow-[0_20px_48px_-24px_rgba(31,42,51,0.5)]">
                 <img
                   src="https://images.unsplash.com/photo-1581092160562-40aa08e78837?auto=format&fit=crop&w=800&q=85"
-                  alt="GlobelFixs plumbers at work"
+                  alt="GlobalFixs plumbers at work"
                   className="h-[360px] w-full object-cover"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-[#1f2a33]/90 via-[#1f2a33]/25 to-transparent" />
@@ -176,7 +183,7 @@ export default function History() {
                   {[
                     "Flat-rate pricing, approved before work starts",
                     "Licensed master plumbers on every job",
-                    "Lifetime workmanship warranty",
+                    "Quality workmanship on every visit", // Yahan warranty hata diya hai
                     "Clean sites, respectful technicians",
                   ].map((v) => (
                     <li
@@ -190,25 +197,30 @@ export default function History() {
                 </ul>
               </div>
 
-              {/* CTA (Yahan Link use kiya gaya hai) */}
-              <Link
-                to="/contact"
-                className="group flex items-center justify-between rounded-xl bg-[#425664] px-5 py-4 text-white transition-colors hover:bg-[#364753] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#425664]"
+              {/* Call CTA Button Replaced */}
+              <a
+                href={PHONE_TEL}
+                className="group flex items-center justify-between rounded-xl bg-[#425664] px-5 py-4 text-white transition-all duration-300 hover:bg-[#364753] shadow-md hover:shadow-lg"
               >
-                <span>
-                  <span className="block text-[12.5px] font-bold leading-tight">
-                    Work with us
-                  </span>
-                  <span className="mt-0.5 block text-[11.5px] text-white/70">
-                    Get a flat-rate quote today
+                <span className="flex items-center gap-3">
+                  <div className="grid h-8 w-8 place-items-center rounded-full bg-white/10">
+                    <Phone size={16} className="text-[#C6AD8F]" />
+                  </div>
+                  <span>
+                    <span className="block text-[13px] font-bold leading-tight">
+                      Call {PHONE_DISPLAY}
+                    </span>
+                    <span className="mt-0.5 block text-[11.5px] text-white/70">
+                      Get a flat-rate quote today
+                    </span>
                   </span>
                 </span>
                 <ArrowRight
-                  size={16}
-                  className="transition-transform group-hover:translate-x-0.5"
+                  size={18}
+                  className="text-red-500 animate-[pulse-x_1.5s_ease-in-out_infinite] transition-transform group-hover:translate-x-0.5"
                   aria-hidden="true"
                 />
-              </Link>
+              </a>
             </div>
           </aside>
         </div>

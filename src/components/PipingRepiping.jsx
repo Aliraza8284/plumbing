@@ -1,12 +1,11 @@
 // pages/PipingRepiping.jsx
 import { useState } from "react";
-import { Link } from "react-router-dom";
-import { MessageSquare, ArrowRight, Check } from "lucide-react";
+import { Phone, ArrowRight, Check } from "lucide-react";
 
 /* Palette: #F6F4F2 paper | #425664 slate | #C6AD8F sand | #1f2a33 ink */
 
-const CONTACT = "/contact";
-
+const PHONE_DISPLAY = "(844) 212-9186";
+const PHONE_TEL = "tel:+18442129186";
 /* ---------- Pipe artwork: rigid copper runs vs flowing PEX runs (SVG) ---------- */
 const COPPER = ["M0 120H260V300H520V160H800", "M0 380H140V560H400V460H800", "M520 300V640"];
 const ELBOWS = [[260, 120], [260, 300], [520, 300], [520, 160], [140, 380], [140, 560], [400, 560], [400, 460]];
@@ -85,6 +84,12 @@ export default function PipingRepiping() {
         .gf-tl::before { content: ""; position: absolute; left: 19px; top: 40px; bottom: -4px; width: 2px; background: #425664; opacity: .2; }
         .gf-tl:last-child::before { display: none; }
         @media (prefers-reduced-motion: reduce) { .gf-page *, .gf-page *::before { animation: none !important; transition: none !important; } }
+        
+        /* Red Arrow Animation */
+        @keyframes pulse-x {
+          0%, 100% { transform: translateX(0); }
+          50% { transform: translateX(5px); }
+        }
       `}</style>
 
       {/* ================= Hero ================= */}
@@ -120,14 +125,12 @@ export default function PipingRepiping() {
             </dl>
 
             <div className="mt-8 flex flex-col gap-3 sm:flex-row">
-              <Link to={CONTACT} className="group inline-flex items-center justify-center gap-2.5 rounded-lg bg-[#425664] px-7 py-3.5 text-[14px] font-bold text-white transition duration-300 hover:-translate-y-0.5 hover:bg-[#364753] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#425664]">
-                Book a repiping inspection
-                <ArrowRight size={16} className="transition-transform duration-300 group-hover:translate-x-1" aria-hidden="true" />
-              </Link>
-              <Link to={CONTACT} className="group inline-flex items-center justify-center gap-2.5 rounded-lg border border-[#1f2a33]/20 px-7 py-3.5 text-[14px] font-bold text-[#425664] transition duration-300 hover:border-[#425664] hover:bg-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#425664]">
-                <MessageSquare size={16} className="transition-transform duration-300 group-hover:-rotate-12" aria-hidden="true" />
-                Contact Us
-              </Link>
+              {/* Call Button Replaced */}
+              <a href={PHONE_TEL} className="group inline-flex items-center justify-center gap-2.5 rounded-lg bg-[#425664] px-7 py-3.5 text-[15px] font-bold text-white transition-all duration-300 hover:-translate-y-0.5 hover:bg-[#364753] shadow-md hover:shadow-lg">
+                <Phone size={18} className="text-[#C6AD8F]" />
+                Call {PHONE_DISPLAY}
+                <ArrowRight size={18} className="text-red-500 animate-[pulse-x_1.5s_ease-in-out_infinite] ml-1" />
+              </a>
             </div>
           </div>
 
@@ -230,15 +233,19 @@ export default function PipingRepiping() {
               Find out what your pipes are made of.
             </h2>
             <p className="mt-4 max-w-[48ch] text-[15px] leading-relaxed text-white/80">
-              Book an inspection. You get a written report, your options in copper or PEX, and one clear quote.
+              Call us for an inspection. You get a written report, your options in copper or PEX, and one clear quote.
             </p>
           </div>
           <div className="flex flex-col gap-3 sm:flex-row">
-            <Link to={CONTACT} className="group inline-flex items-center justify-center gap-2.5 rounded-lg bg-[#C6AD8F] px-7 py-3.5 text-[14px] font-bold text-[#1f2a33] transition duration-300 hover:-translate-y-0.5 hover:bg-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white">
-              <MessageSquare size={16} aria-hidden="true" />
-              Contact Us
-              <ArrowRight size={16} className="transition-transform duration-300 group-hover:translate-x-1" aria-hidden="true" />
-            </Link>
+            {/* Big Call Button Replaced */}
+            <a href={PHONE_TEL} className="group inline-flex items-center justify-center gap-2.5 rounded-lg bg-[#C6AD8F] px-7 py-3.5 text-[15px] font-bold text-[#1f2a33] transition-all duration-300 hover:-translate-y-0.5 hover:bg-white shadow-md hover:shadow-lg">
+              <Phone size={18} />
+              Call {PHONE_DISPLAY}
+              <ArrowRight 
+                size={18} 
+                className="text-red-500 animate-[pulse-x_1.5s_ease-in-out_infinite] ml-1" 
+              />
+            </a>
           </div>
         </div>
       </section>

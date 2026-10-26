@@ -1,8 +1,7 @@
 // pages/TrenchlessSewerTechnology.jsx
 import { useState, useRef, useEffect } from "react";
-import { Link } from "react-router-dom";
 import {
-  MessageSquare,
+  Phone,
   ArrowRight,
   RotateCcw,
   Check,
@@ -11,7 +10,9 @@ import {
 
 /* Palette: #F6F4F2 paper | #425664 slate | #C6AD8F sand | #1f2a33 ink */
 
-const CONTACT = "/contact";
+
+const PHONE_DISPLAY = "(844) 212-9186";
+const PHONE_TEL = "tel:+18442129186";
 
 const D = 3.2; // seconds for the machine to travel the line
 const SPAN = 620; // distance between the two pit centres in the drawing
@@ -270,6 +271,13 @@ export default function TrenchlessSewerTechnology() {
         .gf-trench details > summary { list-style: none; }
         .gf-trench details > summary::-webkit-details-marker { display: none; }
         .gf-trench details[open] .gf-plus { transform: rotate(45deg); }
+        
+        /* Red Arrow Animation */
+        @keyframes pulse-x {
+          0%, 100% { transform: translateX(0); }
+          50% { transform: translateX(5px); }
+        }
+        
         @media (prefers-reduced-motion: reduce) { .gf-page *, .gf-page *::before { animation: none !important; transition: none !important; } }
       `}</style>
 
@@ -437,11 +445,12 @@ export default function TrenchlessSewerTechnology() {
             </p>
           </div>
           <div className="flex flex-col gap-3 sm:flex-row">
-            <Link to={CONTACT} className="group inline-flex items-center justify-center gap-2.5 rounded-lg bg-[#1f2a33] px-7 py-3.5 text-[14px] font-bold text-white transition-colors duration-300 hover:bg-[#425664] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#1f2a33]">
-              <MessageSquare size={16} aria-hidden="true" />
-              Contact Us
-              <ArrowRight size={16} className="transition-transform duration-300 group-hover:translate-x-1" aria-hidden="true" />
-            </Link>
+            {/* Big Call Button Replaced */}
+            <a href={PHONE_TEL} className="group inline-flex items-center justify-center gap-2.5 rounded-lg bg-[#1f2a33] px-7 py-3.5 text-[15px] font-bold text-white transition-all duration-300 hover:bg-[#425664] shadow-md hover:shadow-lg">
+              <Phone size={18} className="text-[#C6AD8F]" />
+              Call {PHONE_DISPLAY}
+              <ArrowRight size={18} className="text-red-500 animate-[pulse-x_1.5s_ease-in-out_infinite] ml-1" />
+            </a>
           </div>
         </div>
       </section>

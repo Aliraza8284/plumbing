@@ -1,8 +1,7 @@
 // pages/GasPlumbing.jsx
 import { useState } from "react";
-import { Link } from "react-router-dom";
 import {
-  MessageSquare,
+  Phone,
   ArrowRight,
   Check,
   Wind,
@@ -16,7 +15,8 @@ import {
 
 /* Palette: #F6F4F2 paper | #425664 slate | #C6AD8F sand | #1f2a33 ink */
 
-const CONTACT = "/contact";
+const PHONE_DISPLAY = "(844) 212-9186";
+const PHONE_TEL = "tel:+18442129186";
 
 /* ---------- Blueprint background artwork (SVG, no image file needed) ---------- */
 function Blueprint({ id }) {
@@ -94,6 +94,13 @@ export default function GasPlumbing() {
         .gf-hrow { position: relative; isolation: isolate; overflow: hidden; }
         .gf-hrow::before { content: ""; position: absolute; inset: 0; z-index: -1; background: #C6AD8F; transform: scaleX(0); transform-origin: left; transition: transform .45s cubic-bezier(.2,.7,.2,1); }
         .gf-hrow:hover::before { transform: scaleX(1); }
+        
+        /* Red Arrow Animation */
+        @keyframes pulse-x {
+          0%, 100% { transform: translateX(0); }
+          50% { transform: translateX(5px); }
+        }
+
         @media (prefers-reduced-motion: reduce) { .gf-page *, .gf-page *::before { animation: none !important; transition: none !important; } }
       `}</style>
 
@@ -110,14 +117,12 @@ export default function GasPlumbing() {
               pressure test, so you know the line holds before we leave.
             </p>
             <div className="mt-8 flex flex-col gap-3 sm:flex-row">
-              <Link to={CONTACT} className="group inline-flex items-center justify-center gap-2.5 rounded-lg bg-[#C6AD8F] px-7 py-3.5 text-[14px] font-bold text-[#1f2a33] transition duration-300 hover:-translate-y-0.5 hover:bg-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white">
-                Get a gas line quote
-                <ArrowRight size={16} className="transition-transform duration-300 group-hover:translate-x-1" aria-hidden="true" />
-              </Link>
-              <Link to={CONTACT} className="group inline-flex items-center justify-center gap-2.5 rounded-lg border border-white/40 px-7 py-3.5 text-[14px] font-bold text-white transition duration-300 hover:border-white hover:bg-white/10 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white">
-                <MessageSquare size={16} className="transition-transform duration-300 group-hover:-rotate-12" aria-hidden="true" />
-                Contact Us
-              </Link>
+              {/* Call Button Replaced */}
+              <a href={PHONE_TEL} className="group inline-flex items-center justify-center gap-2.5 rounded-lg bg-[#C6AD8F] px-7 py-3.5 text-[14px] font-bold text-[#1f2a33] transition-all duration-300 hover:-translate-y-0.5 hover:bg-white shadow-md hover:shadow-lg">
+                <Phone size={18} />
+                Call {PHONE_DISPLAY}
+                <ArrowRight size={18} className="text-red-500 animate-[pulse-x_1.5s_ease-in-out_infinite] ml-1" />
+              </a>
             </div>
           </div>
 
@@ -132,7 +137,7 @@ export default function GasPlumbing() {
               ))}
             </ol>
             <p className="mt-6 border-t border-[#1f2a33]/10 pt-4 text-[13.5px] text-[#425664]">
-              Once it's safe, contact us for the repair and a full leak test.
+              Once it's safe, call us for the repair and a full leak test.
             </p>
           </aside>
         </div>
@@ -289,11 +294,12 @@ export default function GasPlumbing() {
             </p>
           </div>
           <div className="flex flex-col gap-3 sm:flex-row">
-            <Link to={CONTACT} className="group inline-flex items-center justify-center gap-2.5 rounded-lg bg-[#C6AD8F] px-7 py-3.5 text-[14px] font-bold text-[#1f2a33] transition duration-300 hover:-translate-y-0.5 hover:bg-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white">
-              <MessageSquare size={16} aria-hidden="true" />
-              Contact Us
-              <ArrowRight size={16} className="transition-transform duration-300 group-hover:translate-x-1" aria-hidden="true" />
-            </Link>
+            {/* Big Call Button Replaced */}
+            <a href={PHONE_TEL} className="group inline-flex items-center justify-center gap-2.5 rounded-lg bg-[#C6AD8F] px-7 py-3.5 text-[15px] font-bold text-[#1f2a33] transition-all duration-300 hover:-translate-y-0.5 hover:bg-white shadow-md hover:shadow-lg">
+              <Phone size={18} />
+              Call {PHONE_DISPLAY}
+              <ArrowRight size={18} className="text-red-500 animate-[pulse-x_1.5s_ease-in-out_infinite] ml-1" />
+            </a>
           </div>
         </div>
       </section>

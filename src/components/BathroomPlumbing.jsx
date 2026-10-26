@@ -1,6 +1,5 @@
 // src/components/BathroomPlumbing.jsx
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
 import {
   Bath,
   Droplets,
@@ -11,12 +10,13 @@ import {
   CheckCircle2,
   ChevronDown,
   ArrowRight,
-  MessageSquare,
+  Phone,
 } from "lucide-react";
 
 /* Palette: #F6F4F2 paper | #425664 slate | #C6AD8F sand | #1f2a33 ink */
 
-const CONTACT = "/contact";
+const PHONE_DISPLAY = "(844) 212-9186";
+const PHONE_TEL = "tel:+18442129186";
 
 const services = [
   {
@@ -58,11 +58,11 @@ const faqs = [
   },
   {
     question: "Can I request a bathroom plumbing estimate?",
-    answer: "Yes. Contact our service team to describe your project and ask about estimates, service availability, and any applicable fees before we start.",
+    answer: "Yes. Call our service team to describe your project and ask about estimates, service availability, and any applicable fees before we start.",
   },
   {
     question: "When should I call a plumber for a leak?",
-    answer: "Contact a qualified plumber when you notice persistent dripping, damp cabinets, water stains on ceilings, or actively leaking pipes. If water is escaping, shut off the main valve first.",
+    answer: "Call a qualified plumber when you notice persistent dripping, damp cabinets, water stains on ceilings, or actively leaking pipes. If water is escaping, shut off the main valve first.",
   },
   {
     question: "Can bathroom plumbing fixtures be replaced?",
@@ -79,6 +79,12 @@ export default function BathroomPlumbing() {
         @import url('https://fonts.googleapis.com/css2?family=Young+Serif&family=Nunito+Sans:wght@400;600;700;800;900&display=swap');
         .gf-page { font-family: 'Nunito Sans', system-ui, sans-serif; }
         .gf-page .gf-display { font-family: 'Young Serif', Georgia, serif; font-weight: 400; letter-spacing: -0.01em; }
+        
+        /* Animation for the red arrow */
+        @keyframes pulse-x {
+          0%, 100% { transform: translateX(0); }
+          50% { transform: translateX(5px); }
+        }
       `}</style>
 
       {/* ================= HERO SECTION ================= */}
@@ -106,13 +112,18 @@ export default function BathroomPlumbing() {
             </p>
 
             <div className="flex flex-wrap gap-3">
-              <Link
-                to={CONTACT}
-                className="inline-flex items-center gap-2 rounded-lg bg-[#425664] px-6 py-3 text-[14px] font-bold text-white transition-colors hover:bg-[#364753] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#425664]"
+              {/* Call Button Replaced Contact */}
+              <a
+                href={PHONE_TEL}
+                className="inline-flex items-center gap-2.5 rounded-lg bg-[#425664] px-7 py-3.5 text-[15px] font-bold text-white transition-all duration-300 hover:bg-[#364753] group shadow-md hover:shadow-lg"
               >
-                <MessageSquare size={16} />
-                Get in Touch
-              </Link>
+                <Phone size={18} className="text-[#C6AD8F]" />
+                Call {PHONE_DISPLAY}
+                <ArrowRight 
+                  size={20} 
+                  className="text-red-500 animate-[pulse-x_1.5s_ease-in-out_infinite] ml-1" 
+                />
+              </a>
               <a
                 href="#services"
                 className="inline-flex items-center gap-2 rounded-lg border border-[#1f2a33]/15 bg-white px-6 py-3 text-[14px] font-bold text-[#425664] transition-colors hover:border-[#425664]"
@@ -187,9 +198,10 @@ export default function BathroomPlumbing() {
                 <p className="text-[14px] leading-relaxed text-[#425664] mb-5 flex-grow">
                   {service.description}
                 </p>
-                <Link to={CONTACT} className="inline-flex items-center gap-1.5 text-[13px] font-bold text-[#8a6f4d] hover:text-[#1f2a33] transition-colors mt-auto">
-                  Ask about this <ArrowRight size={14} />
-                </Link>
+                {/* Call Link */}
+                <a href={PHONE_TEL} className="inline-flex items-center gap-1.5 text-[13px] font-bold text-[#8a6f4d] hover:text-[#1f2a33] transition-colors mt-auto">
+                  Call to ask <ArrowRight size={14} />
+                </a>
               </div>
             );
           })}
@@ -233,9 +245,18 @@ export default function BathroomPlumbing() {
                   </li>
                 ))}
               </ul>
-              <Link to={CONTACT} className="mt-8 inline-flex items-center gap-2 rounded-lg bg-[#C6AD8F] px-6 py-3 text-[14px] font-bold text-[#1f2a33] transition-colors hover:bg-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white">
-                Discuss Your Needs <ArrowRight size={16} />
-              </Link>
+              {/* Call Button Replaced */}
+              <a 
+                href={PHONE_TEL} 
+                className="mt-8 inline-flex items-center gap-2.5 rounded-lg bg-[#C6AD8F] px-7 py-3.5 text-[15px] font-bold text-[#1f2a33] transition-all duration-300 hover:bg-white group shadow-md"
+              >
+                <Phone size={18} />
+                Call {PHONE_DISPLAY}
+                <ArrowRight 
+                  size={18} 
+                  className="text-red-500 animate-[pulse-x_1.5s_ease-in-out_infinite] ml-1" 
+                />
+              </a>
             </div>
           </div>
         </div>
@@ -310,13 +331,19 @@ export default function BathroomPlumbing() {
             Tell us what is happening in your bathroom and ask about service options, pricing, and availability. 24-hour service Monday through Saturday.
           </p>
           
-          <div className="mt-8">
-            <Link 
-              to={CONTACT} 
-              className="inline-flex items-center gap-2 rounded-lg bg-[#425664] px-8 py-3.5 text-[14.5px] font-bold text-white transition-colors hover:bg-[#364753] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#425664]"
+          <div className="mt-8 flex justify-center">
+            {/* Big Call Button */}
+            <a
+              href={PHONE_TEL}
+              className="inline-flex items-center gap-3 rounded-lg bg-[#425664] px-8 py-4 text-[16px] font-bold text-white transition-all duration-300 hover:bg-[#364753] group shadow-lg hover:shadow-xl hover:-translate-y-0.5"
             >
-              <MessageSquare size={16} /> Contact Us
-            </Link>
+              <Phone size={20} className="text-[#C6AD8F]" />
+              Call {PHONE_DISPLAY}
+              <ArrowRight 
+                size={22} 
+                className="text-red-500 animate-[pulse-x_1.5s_ease-in-out_infinite] ml-1" 
+              />
+            </a>
           </div>
         </div>
       </section>

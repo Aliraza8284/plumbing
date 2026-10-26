@@ -1,8 +1,7 @@
 // pages/EarthquakeShutOffValves.jsx
 import { useState, useEffect, useRef } from "react";
-import { Link } from "react-router-dom";
 import {
-  MessageSquare,
+  Phone,
   ArrowRight,
   Activity,
   Flame,
@@ -13,7 +12,8 @@ import {
 
 /* Palette: #F6F4F2 paper | #425664 slate | #C6AD8F sand | #1f2a33 ink */
 
-const CONTACT = "/contact";
+const PHONE_DISPLAY = "(844) 212-9186";
+const PHONE_TEL = "tel:+18442129186";
 
 /* ---------- Background artwork: seismograph traces drawn as SVG paths ---------- */
 const trace = (y, amp, seed) => {
@@ -40,16 +40,16 @@ function SeismicBackdrop({ active, stroke = "#425664", opacity = 0.32 }) {
 }
 
 const STEPS = [
-  { icon: Activity, title: "It senses the shaking", text: "A motion-triggered mechanism reacts to strong ground movement, with no power or phone needed." },
+  { icon: Activity, title: "It senses the shaking", text: "A motion-triggered mechanism reacts to strong ground movement automatically." },
   { icon: Flame, title: "It closes the gas line", text: "The valve shuts on its own, before a damaged pipe or appliance connection can leak gas." },
   { icon: RotateCcw, title: "It stays shut until you reset it", text: "Once you've checked for leaks, you reset the valve. We show you how at install." },
 ];
 
 const FAQ = [
-  { q: "Does this shut off water too?", a: "No. This valve controls natural gas only. If you also want a water shut-off, ask us and we'll quote it separately." },
+  { q: "Does this shut off water too?", a: "No. This valve controls natural gas only. If you also want a water shut-off, call us and we'll discuss options." },
   { q: "Do I need a permit?", a: "Often, yes, and the rules differ by city. We tell you what yours requires before we start." },
   { q: "How do I turn the gas back on?", a: "After a shut-off, check for gas smell first, then reset the valve as we showed you. If you smell gas at any point, leave the building and call your gas utility." },
-  { q: "Will it fit my gas meter?", a: "Most single-family homes work. We confirm the meter and pipe layout at the site visit before quoting." },
+  { q: "Will it fit my gas meter?", a: "Most single-family homes work. We confirm the meter and pipe layout at the site visit." },
 ];
 
 export default function EarthquakeShutOffValves() {
@@ -99,6 +99,12 @@ export default function EarthquakeShutOffValves() {
         .gf-chev { transition: transform .3s ease; }
         .gf-faq[open] .gf-chev { transform: rotate(180deg); }
 
+        /* Red Arrow Animation */
+        @keyframes pulse-x {
+          0%, 100% { transform: translateX(0); }
+          50% { transform: translateX(5px); }
+        }
+
         @media (prefers-reduced-motion: reduce) {
           .gf-page *, .gf-page *::before { animation: none !important; transition: none !important; }
         }
@@ -135,13 +141,19 @@ export default function EarthquakeShutOffValves() {
                   </>
                 )}
               </button>
-              <Link
-                to={CONTACT}
+              
+              {/* Call Button Replaced */}
+              <a
+                href={PHONE_TEL}
                 className="group inline-flex items-center justify-center gap-2.5 rounded-lg border border-[#1f2a33]/30 bg-white/40 px-7 py-3.5 text-[14px] font-bold transition duration-300 hover:border-[#1f2a33] hover:bg-white/60 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#1f2a33]"
               >
-                Book an installation
-                <ArrowRight size={16} className="transition-transform duration-300 group-hover:translate-x-1" aria-hidden="true" />
-              </Link>
+                <Phone size={16} className="text-[#1f2a33]" />
+                Call {PHONE_DISPLAY}
+                <ArrowRight 
+                  size={18} 
+                  className="text-red-500 animate-[pulse-x_1.5s_ease-in-out_infinite] ml-1" 
+                />
+              </a>
             </div>
           </div>
 
@@ -239,19 +251,23 @@ export default function EarthquakeShutOffValves() {
               Have a valve installed before you need one.
             </h2>
             <p className="mt-4 max-w-[48ch] text-[15px] leading-relaxed text-white/80">
-              Book a visit and we'll check your meter, explain your city's requirements and give you a
+              Call us today and we'll check your meter, explain your city's requirements and give you a
               written quote.
             </p>
           </div>
           <div className="flex flex-col gap-3 sm:flex-row">
-            <Link
-              to={CONTACT}
-              className="group inline-flex items-center justify-center gap-2.5 rounded-lg bg-[#C6AD8F] px-7 py-3.5 text-[14px] font-bold text-[#1f2a33] transition duration-300 hover:-translate-y-0.5 hover:bg-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
+            {/* Big Call Button Replaced */}
+            <a
+              href={PHONE_TEL}
+              className="group inline-flex items-center justify-center gap-2.5 rounded-lg bg-[#C6AD8F] px-7 py-3.5 text-[15px] font-bold text-[#1f2a33] transition duration-300 hover:-translate-y-0.5 hover:bg-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white shadow-md hover:shadow-lg"
             >
-              <MessageSquare size={16} aria-hidden="true" />
-              Contact Us
-              <ArrowRight size={16} className="transition-transform duration-300 group-hover:translate-x-1" aria-hidden="true" />
-            </Link>
+              <Phone size={18} />
+              Call {PHONE_DISPLAY}
+              <ArrowRight 
+                size={18} 
+                className="text-red-500 animate-[pulse-x_1.5s_ease-in-out_infinite] ml-1" 
+              />
+            </a>
           </div>
         </div>
       </section>

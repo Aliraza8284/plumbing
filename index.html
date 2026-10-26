@@ -1,85 +1,157 @@
 
 <!doctype html>
 <html lang="en-US">
-  <head>
-    <meta charset="UTF-8" />
+<head>
+  <meta charset="UTF-8" />
 
-    <!-- Favicon -->
-    <link rel="icon" type="image/png" href="/logo.png" />
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  />
 
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <!-- GLOBALFIXS BRANDING -->
+  <meta
+    name="application-name"
+    content="GlobalFixs"
+  />
 
-    <!-- SEO: Title and Description -->
-    <title>GlobalFixs | Reliable Plumbing Services in the USA</title>
-    <meta
-      name="description"
-      content="Looking for trustworthy plumbers in the USA? GlobalFixs provides information about plumbing services, including leak detection, drain cleaning, and emergency plumbing."
-    />
-    <meta name="robots" content="index, follow" />
+  <meta
+    name="theme-color"
+    content="#425664"
+  />
 
-    <!-- USA Language Targeting -->
-    <link
-      rel="alternate"
-      hreflang="en-us"
-      href="https://www.globalfixs.com/"
-    />
-    <link
-      rel="alternate"
-      hreflang="x-default"
-      href="https://www.globalfixs.com/"
-    />
+  <!-- FAVICON AND APPLE ICON -->
+  <link
+    rel="icon"
+    type="image/png"
+    href="/logo.png"
+  />
 
-    <!-- Homepage Canonical -->
-    <link rel="canonical" href="https://www.globalfixs.com/" />
+  <link
+    rel="apple-touch-icon"
+    href="/logo.png"
+  />
 
-    <!-- Open Graph -->
-    <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://www.globalfixs.com/" />
-    <meta
-      property="og:title"
-      content="GlobalFixs | Reliable Plumbing Services"
-    />
-    <meta
-      property="og:description"
-      content="Learn about plumbing services, leak detection, drain cleaning, and emergency plumbing."
-    />
-    <meta
-      property="og:image"
-      content="https://www.globalfixs.com/logo.png"
-    />
+  <!-- DEFAULT SEO TITLE -->
+  <title>GlobalFixs | Plumbing, Sewer & HVAC Services in the USA</title>
 
-    <!-- Twitter Card -->
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta
-      name="twitter:title"
-      content="GlobalFixs | Reliable Plumbing Services"
-    />
-    <meta
-      name="twitter:description"
-      content="Learn about plumbing services, leak detection, drain cleaning, and emergency plumbing."
-    />
-    <meta
-      name="twitter:image"
-      content="https://www.globalfixs.com/logo.png"
-    />
+  <!-- DEFAULT SEO DESCRIPTION -->
+  <meta
+    name="description"
+    content="Explore plumbing, sewer and HVAC service options with GlobalFixs. Learn about drain cleaning, leak detection, water heaters, sewer repair and emergency plumbing across the USA."
+  />
 
-    <!-- Google Analytics -->
-    <script
-      async
-      src="https://www.googletagmanager.com/gtag/js?id=G-QSF0TYDRG4"
-    ></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag() {
-        window.dataLayer.push(arguments);
-      }
-      gtag("js", new Date());
-      gtag("config", "G-QSF0TYDRG4");
-    </script>
-  </head>
+  <!-- GOOGLE INDEXING -->
+  <meta
+    name="robots"
+    content="index, follow, max-image-preview:large"
+  />
 
-  <body>
-    <div id="root"></div>
-    <script type="module" src="/src/main.jsx"></script>
-  </body>
+  <!-- OPEN GRAPH: FACEBOOK / WHATSAPP -->
+  <meta
+    property="og:type"
+    content="website"
+  />
+
+  <meta
+    property="og:locale"
+    content="en_US"
+  />
+
+  <meta
+    property="og:site_name"
+    content="GlobalFixs"
+  />
+
+  <meta
+    property="og:title"
+    content="GlobalFixs | Plumbing, Sewer & HVAC Services"
+  />
+
+  <meta
+    property="og:description"
+    content="Explore plumbing, sewer and HVAC services, including drain cleaning, leak detection, water heaters and emergency service options."
+  />
+
+  <meta
+    property="og:image"
+    content="https://www.globalfixs.com/logo.png"
+  />
+
+  <meta
+    property="og:image:alt"
+    content="GlobalFixs official logo"
+  />
+
+  <!-- TWITTER / X -->
+  <meta
+    name="twitter:card"
+    content="summary"
+  />
+
+  <meta
+    name="twitter:title"
+    content="GlobalFixs | Plumbing, Sewer & HVAC Services"
+  />
+
+  <meta
+    name="twitter:description"
+    content="Explore plumbing, sewer and HVAC service options with GlobalFixs."
+  />
+
+  <meta
+    name="twitter:image"
+    content="https://www.globalfixs.com/logo.png"
+  />
+
+  <!-- ORGANIZATION SCHEMA -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "@id": "https://www.globalfixs.com/#organization",
+    "name": "GlobalFixs",
+    "url": "https://www.globalfixs.com/",
+    "logo": "https://www.globalfixs.com/logo.png",
+    "description": "GlobalFixs helps homeowners connect with independent local providers for plumbing, sewer and HVAC service options in the United States.",
+    "contactPoint": {
+      "@type": "ContactPoint",
+      "telephone": "+1-844-212-9186",
+      "contactType": "customer service",
+      "availableLanguage": "English",
+      "areaServed": "US"
+    }
+  }
+  </script>
+
+  <!-- GOOGLE ANALYTICS GA4 -->
+  <script
+    async
+    src="https://www.googletagmanager.com/gtag/js?id=G-QSF0TYDRG4"
+  ></script>
+
+  <script>
+    window.dataLayer = window.dataLayer || [];
+
+    function gtag() {
+      window.dataLayer.push(arguments);
+    }
+
+    gtag("js", new Date());
+
+    gtag("config", "G-QSF0TYDRG4");
+  </script>
+
+</head>
+
+<body>
+  <!-- REACT APPLICATION -->
+  <div id="root"></div>
+
+  <!-- VITE ENTRY POINT -->
+  <script
+    type="module"
+    src="/src/main.jsx"
+  ></script>
+</body>
 </html>

@@ -16,7 +16,7 @@ import Plumbing from "./components/Plumbing";
 import Sewers from "./components/Sewers";
 import HVAC from "./components/HVAC";
 import Coupons from "./components/Coupons";
-import ContactPage from "./components/ContactPage";
+
 
 // About Pages
 import History from "./components/History";
@@ -68,7 +68,7 @@ export default function App() {
           <Route path="/sewers" element={<Sewers />} />
           <Route path="/hvac" element={<HVAC />} />
           <Route path="/coupons" element={<Coupons />} />
-          <Route path="/contact" element={<ContactPage />} />
+      
 
           {/* About Pages */}
           <Route path="/about/history" element={<History />} />

@@ -1,157 +1,102 @@
 
 <!doctype html>
 <html lang="en-US">
-<head>
-  <meta charset="UTF-8" />
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <meta
-    name="viewport"
-    content="width=device-width, initial-scale=1.0"
-  />
+    <!-- Branding -->
+    <meta name="application-name" content="GlobalFixs" />
+    <meta name="theme-color" content="#425664" />
 
-  <!-- GLOBALFIXS BRANDING -->
-  <meta
-    name="application-name"
-    content="GlobalFixs"
-  />
+    <!-- Icons -->
+    <link rel="icon" type="image/png" href="/logo.png" />
+    <link rel="apple-touch-icon" href="/logo.png" />
 
-  <meta
-    name="theme-color"
-    content="#425664"
-  />
+    <!-- Homepage SEO (default for the React app) -->
+    <title>GlobalFixs | Plumbing, Sewer & HVAC Service Options</title>
+    <meta
+      name="description"
+      content="Explore plumbing, sewer and HVAC services with GlobalFixs. Find information on drain cleaning, leak detection, water heaters, heating and cooling, and connect with independent local professionals."
+    />
+    <meta
+      name="robots"
+      content="index, follow, max-image-preview:large"
+    />
 
-  <!-- FAVICON AND APPLE ICON -->
-  <link
-    rel="icon"
-    type="image/png"
-    href="/logo.png"
-  />
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="en_US" />
+    <meta property="og:site_name" content="GlobalFixs" />
+    <meta
+      property="og:title"
+      content="GlobalFixs | Plumbing, Sewer & HVAC Service Options"
+    />
+    <meta
+      property="og:description"
+      content="Explore plumbing, sewer and HVAC service options and connect with independent local professionals through GlobalFixs."
+    />
+    <meta
+      property="og:image"
+      content="https://www.globalfixs.com/logo.png"
+    />
+    <meta
+      property="og:image:alt"
+      content="GlobalFixs logo"
+    />
 
-  <link
-    rel="apple-touch-icon"
-    href="/logo.png"
-  />
+    <!-- Twitter / X -->
+    <meta name="twitter:card" content="summary" />
+    <meta
+      name="twitter:title"
+      content="GlobalFixs | Plumbing, Sewer & HVAC Service Options"
+    />
+    <meta
+      name="twitter:description"
+      content="Explore plumbing, sewer and HVAC services and independent local provider options with GlobalFixs."
+    />
+    <meta
+      name="twitter:image"
+      content="https://www.globalfixs.com/logo.png"
+    />
 
-  <!-- DEFAULT SEO TITLE -->
-  <title>GlobalFixs | Plumbing, Sewer & HVAC Services in the USA</title>
+    <!-- Organization structured data -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Organization",
+        "@id": "https://www.globalfixs.com/#organization",
+        "name": "GlobalFixs",
+        "url": "https://www.globalfixs.com/",
+        "logo": "https://www.globalfixs.com/logo.png",
+        "description": "GlobalFixs helps homeowners explore plumbing, sewer and HVAC service options and connect with independent local service providers in the United States.",
+        "contactPoint": {
+          "@type": "ContactPoint",
+          "telephone": "+1-844-212-9186",
+          "contactType": "customer service",
+          "availableLanguage": "English",
+          "areaServed": "US"
+        }
+      }
+    </script>
 
-  <!-- DEFAULT SEO DESCRIPTION -->
-  <meta
-    name="description"
-    content="Explore plumbing, sewer and HVAC service options with GlobalFixs. Learn about drain cleaning, leak detection, water heaters, sewer repair and emergency plumbing across the USA."
-  />
+    <!-- Google Analytics -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-QSF0TYDRG4"
+    ></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        window.dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+      gtag("config", "G-QSF0TYDRG4");
+    </script>
+  </head>
 
-  <!-- GOOGLE INDEXING -->
-  <meta
-    name="robots"
-    content="index, follow, max-image-preview:large"
-  />
-
-  <!-- OPEN GRAPH: FACEBOOK / WHATSAPP -->
-  <meta
-    property="og:type"
-    content="website"
-  />
-
-  <meta
-    property="og:locale"
-    content="en_US"
-  />
-
-  <meta
-    property="og:site_name"
-    content="GlobalFixs"
-  />
-
-  <meta
-    property="og:title"
-    content="GlobalFixs | Plumbing, Sewer & HVAC Services"
-  />
-
-  <meta
-    property="og:description"
-    content="Explore plumbing, sewer and HVAC services, including drain cleaning, leak detection, water heaters and emergency service options."
-  />
-
-  <meta
-    property="og:image"
-    content="https://www.globalfixs.com/logo.png"
-  />
-
-  <meta
-    property="og:image:alt"
-    content="GlobalFixs official logo"
-  />
-
-  <!-- TWITTER / X -->
-  <meta
-    name="twitter:card"
-    content="summary"
-  />
-
-  <meta
-    name="twitter:title"
-    content="GlobalFixs | Plumbing, Sewer & HVAC Services"
-  />
-
-  <meta
-    name="twitter:description"
-    content="Explore plumbing, sewer and HVAC service options with GlobalFixs."
-  />
-
-  <meta
-    name="twitter:image"
-    content="https://www.globalfixs.com/logo.png"
-  />
-
-  <!-- ORGANIZATION SCHEMA -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "Organization",
-    "@id": "https://www.globalfixs.com/#organization",
-    "name": "GlobalFixs",
-    "url": "https://www.globalfixs.com/",
-    "logo": "https://www.globalfixs.com/logo.png",
-    "description": "GlobalFixs helps homeowners connect with independent local providers for plumbing, sewer and HVAC service options in the United States.",
-    "contactPoint": {
-      "@type": "ContactPoint",
-      "telephone": "+1-844-212-9186",
-      "contactType": "customer service",
-      "availableLanguage": "English",
-      "areaServed": "US"
-    }
-  }
-  </script>
-
-  <!-- GOOGLE ANALYTICS GA4 -->
-  <script
-    async
-    src="https://www.googletagmanager.com/gtag/js?id=G-QSF0TYDRG4"
-  ></script>
-
-  <script>
-    window.dataLayer = window.dataLayer || [];
-
-    function gtag() {
-      window.dataLayer.push(arguments);
-    }
-
-    gtag("js", new Date());
-
-    gtag("config", "G-QSF0TYDRG4");
-  </script>
-
-</head>
-
-<body>
-  <!-- REACT APPLICATION -->
-  <div id="root"></div>
-
-  <!-- VITE ENTRY POINT -->
-  <script
-    type="module"
-    src="/src/main.jsx"
-  ></script>
-</body>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.jsx"></script>
+  </body>
 </html>
